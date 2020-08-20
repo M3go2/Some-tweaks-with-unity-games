@@ -26,8 +26,13 @@ Projects, samples and templates created to learn game development with Unity.
 
 ### 3. Tutorials and Courses
 
-- :heavy_check_mark: [The Unity Workshop](https://www.udemy.com/course/the-unity-workshop/) (Udemy Course)
-- :heavy_check_mark: [Unity Crash Course: Basics of 2D Game Development](https://skl.sh/3dU9o2v) (SkillShare Tutorial)
+- :heavy_check_mark: [The Unity Workshop](https://www.udemy.com/course/the-unity-workshop/) (Udemy course)
+- :heavy_check_mark: [Unity Crash Course: Basics of 2D Game Development](https://skl.sh/3dU9o2v) (SkillShare tutorial)
+- :o: [Beginner Guide to How to Make a Game with Unity](Beginner-Guide-to-How-to-Make-a-Game-with-Unity/) (BitDigree course)
+
+### 4. Unity Tutorials
+
+1. :o: [Faster Level Design Iteration with ProBuilder and Polybrush](ProBuilderPolyBrushDemo/) | [Unite Now Tutorial](https://resources.unity.com/unitenow/onlinesessions/faster-level-design-iteration-with-probuilder-and-polybrush)
 
 ## :page_with_curl: License
 
