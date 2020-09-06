@@ -29,6 +29,7 @@ Projects, samples and templates created to learn game development with Unity.
 - :heavy_check_mark: [The Unity Workshop](https://www.udemy.com/course/the-unity-workshop/) (Udemy course)
 - :heavy_check_mark: [Unity Crash Course: Basics of 2D Game Development](https://skl.sh/3dU9o2v) (SkillShare tutorial)
 - :o: [Beginner Guide to How to Make a Game with Unity](Beginner-Guide-to-How-to-Make-a-Game-with-Unity/) (BitDigree course)
+- :o: [How Math is Used in Video Games](How-Math-is-Used-in-Video-Games/)
 - :o: [Programming a Game with Unity: A Beginner's Guide](programming-a-game-with-unity/) (tradePub free eBook)
 - :o: [What you need to know about Unity 5](what-you-need-to-know-about-unity5/) (Packt Publishing free eBook)
 
