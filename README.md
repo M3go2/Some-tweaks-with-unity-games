@@ -32,8 +32,8 @@ Projects, samples and templates created to learn game development with Unity.
 - :o: [How Math is Used in Video Games](How-Math-is-Used-in-Video-Games/)
 - :construction: How to Make a 2D Game in Unity: Unity For Beginners Course (BitDigree course)
 - :construction: Course on How to Make Video Games with Unity: Create 2D & 3D Games (BitDigree course)
-- :o: [Programming a Game with Unity: A Beginner's Guide](programming-a-game-with-unity/) (TradePub free eBook)
-- :o: [What you need to know about Unity 5](what-you-need-to-know-about-unity5/) (Packt Publishing free eBook)
+- :o: [Programming a Game with Unity: A Beginner's Guide](Programming-a-Game-with-Unity/) (TradePub free eBook)
+- :o: [What you need to know about Unity 5](What-you-need-to-know-about-Unity/) (Packt Publishing free eBook)
 
 ### 4. Unity Tutorials
 
