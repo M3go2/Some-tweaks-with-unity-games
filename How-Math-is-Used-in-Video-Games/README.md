@@ -13,10 +13,14 @@
 
 ### Distance between 2 points
 
-Length is referred to as the magnitude
+All about [Vectors](https://www.mathsisfun.com/algebra/vectors.html)
 
 - d = √[(y2 – y1)² + (x1 – x2)²]
 - d = √[(y1 – y2)² + (x1 – x2)² + (z1 - z2)²]
+
+### Velocity
+
+- v = d / t
 
 ## :memo: Version
 
