@@ -1,6 +1,10 @@
 # :mortar_board: Zenva GameDev Academy Unity Tutorials
 
-:link: [Online tutorials][tutorials] on BitDegree
+:link: [Online tutorials][tutorials] on GameDev Academy
+
+## Tutorials
+
+1. [How to Use Materials in Unity](https://gamedevacademy.org/how-to-use-materials-in-unity/)
 
 ## :memo: Version
 
