@@ -1,6 +1,6 @@
 # :mortar_board: Unity Game Development - Intro to Creating Particle Effects
 
-:link: [Online course][course] on BitDegree
+:link: [Online course][course] on Udemy
 
 ## :memo: Version
 

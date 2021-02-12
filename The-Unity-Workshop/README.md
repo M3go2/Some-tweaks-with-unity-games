@@ -1,29 +1,14 @@
 # Game Development Project Structure
 
-## About
+:link: Udemy [online course][course]
 
-Game development project folder structure
+## :memo: Version
 
-* Assets - all art assets, sounds and music files
-* Docs - project documentation and manual
-* Game - playable demo, tests builds and final distribution
-* Source - the game source code
+This project was created with Unity 2018.4.28f1
 
-### .editorconfig
+## :page_with_curl: License
 
-The `.editorconfig` file encourage and help to maintain consistent coding styles between different
-editors and IDEs. For more details, please refer to the [EditorConfig
-project](http://editorconfig.org/).
+The source code I created is free -- see the [LICENSE](LICENSE) file for details.  
+Please also have a look at the [Asset Store Terms of Service and EULA](https://unity3d.com/legal/as_terms) for use of the game assets.
 
-### .gitignore
-
-Comprehensive set of ignores on GitHub: [https://github.com/github/gitignore](https://github.com/github/gitignore)
-
-### LICENCE
-
-An open source license protects contributors and users. Businesses and savvy developers won’t touch a project without this protection.
-[Choose a license](https://choosealicense.com/) for your project.
-
-### VERSION
-
-Learn about [Semantic Versioning](https://semver.org/) and how to use it in your project.
+[course]: https://www.udemy.com/course/the-unity-workshop/

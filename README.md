@@ -26,7 +26,7 @@ Projects, samples and templates created to learn game development with Unity.
 
 ### 3. Tutorials and Courses
 
-- :heavy_check_mark: [The Unity Workshop](https://www.udemy.com/course/the-unity-workshop/) (Udemy course)
+- :heavy_check_mark: [The Unity Workshop](The-Unity-Workshop/) (Udemy course)
 - :heavy_check_mark: [Unity Crash Course: Basics of 2D Game Development](https://skl.sh/3dU9o2v) (SkillShare tutorial)
 - :heavy_check_mark: [Beginner Guide to How to Make a Game with Unity](Beginner-Guide-to-How-to-Make-a-Game-with-Unity/) (BitDigree course)
 - :o: [How Math is Used in Video Games](How-Math-is-Used-in-Video-Games/)
@@ -34,11 +34,12 @@ Projects, samples and templates created to learn game development with Unity.
 - :construction: Course on How to Make Video Games with Unity: Create 2D & 3D Games (BitDigree course)
 - :o: [Programming a Game with Unity: A Beginner's Guide](Programming-a-Game-with-Unity/) (TradePub free eBook)
 - :o: [What you need to know about Unity 5](What-you-need-to-know-about-Unity/) (Packt Publishing free eBook)
-- :o: [Unity Game Development - Intro to Creating Particle Effects](Intro-to-Creating-Particle-Effects/)
+- :o: [Unity Game Development - Intro to Creating Particle Effects](Intro-to-Creating-Particle-Effects/) (Udemy course)
 
 ### 4. Unity Tutorials
 
 1. :o: [Faster Level Design Iteration with ProBuilder and Polybrush](ProBuilderPolyBrushDemo/) | [Unite Now Tutorial](https://resources.unity.com/unitenow/onlinesessions/faster-level-design-iteration-with-probuilder-and-polybrush)
+2. [Zenva GameDev Academy Unity Tutorials](Zenva-GameDev-Academy-Unity-Tutorials/)
 
 ## :page_with_curl: License
 
