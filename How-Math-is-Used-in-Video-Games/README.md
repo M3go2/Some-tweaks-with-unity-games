@@ -22,6 +22,23 @@ All about [Vectors](https://www.mathsisfun.com/algebra/vectors.html)
 
 - v = d / t
 
+### Projectile motion
+
+- position y = Amplitude * cos (initial angle)
+
+### Pathfinding Algorithms
+
+Unity implements the *Nav Mesh Agent*
+
+- A* search algorithm
+- Dijkstra's algorithm, an uninformed, less powerful special case of the A* search algorithm
+- D* family of incremental heuristic search algorithms
+- Any-angle path planning algorithms
+
+### Collision
+
+Rectangle (2D) or box shape (3D) also polygonal, mesh and triangle.
+
 ## :memo: Version
 
 This project was created with Unity 2018.4.32f1
