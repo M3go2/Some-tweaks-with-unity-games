@@ -1,3 +1,10 @@
-# Source
+# How to Make a 2D Game in Unity: Unity For Beginners Course
 
-# The source folder will keep the game's source code. You will need to save/create your game project in this folder.
+## :memo: Version
+
+This project was created with Unity 2018.4.32f1
+
+## :page_with_curl: License
+
+The source code I created is free -- see the [LICENSE](LICENSE) file for details.  
+Please also have a look at the [Asset Store Terms of Service and EULA](https://unity3d.com/legal/as_terms) for use of the game assets.

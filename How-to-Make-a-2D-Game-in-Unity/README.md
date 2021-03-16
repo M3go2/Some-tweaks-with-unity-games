@@ -1,6 +1,17 @@
-# :video_game: How to Make a 2D Game in Unity: Unity For Beginners Course
+# :mortar_board: :video_game: How to Make a 2D Game in Unity: Unity For Beginners Course
 
 :link: [Online course](https://www.bitdegree.org/course/how-to-make-a-2d-game) on BitDegree
+
+## Assets
+
+[Pirate Pack](https://www.kenney.nl/assets/pirate-pack) from [Kenney](https://www.kenney.nl/) free game assets.
+
+## Tiles from Sprite
+
+1. On imported tile, set Mesh Type as 'Full Rect' under Sprite Mode.
+2. Drag and drop tile onto screne.
+3. Set Draw Mode to 'Tiled'
+4. Fill area of tiles.
 
 ## :memo: Version
 
