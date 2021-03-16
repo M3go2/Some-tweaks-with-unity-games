@@ -15,7 +15,7 @@
 
 ## :memo: Version
 
-This project was created with Unity 2018.4.28f1
+This project was created with Unity 2018.4.32f1
 
 ## :page_with_curl: License
 
