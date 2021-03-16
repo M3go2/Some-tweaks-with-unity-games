@@ -1,4 +1,4 @@
-# :mortar_board: Zenva GameDev Academy Unity Tutorials
+# :mortar_board: :video_game: Zenva GameDev Academy Unity Tutorials
 
 :link: [Online tutorials][tutorials] on GameDev Academy
 

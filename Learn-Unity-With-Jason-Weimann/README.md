@@ -1,4 +1,4 @@
-# :video_game: Learn Unity with Jason Weimann
+# :mortar_board: :video_game: Learn Unity with Jason Weimann
 
 ## :beginner: YouTube Videos
 

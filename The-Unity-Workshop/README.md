@@ -1,6 +1,6 @@
-# Game Development Project Structure
+# :mortar_board: :video_game: The Unity Workshop
 
-:link: Udemy [online course][course]
+:link: [online course][course] on Udemy
 
 ## :memo: Version
 

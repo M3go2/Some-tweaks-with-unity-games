@@ -1,4 +1,4 @@
-# :mortar_board: Unity Game Development - Intro to Creating Particle Effects
+# :mortar_board: :video_game: Unity Game Development - Intro to Creating Particle Effects
 
 :link: [Online course][course] on Udemy
 

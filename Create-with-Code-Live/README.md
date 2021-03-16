@@ -1,4 +1,4 @@
-# :video_game: Create with Code Live
+# :mortar_board: :video_game: Create with Code Live
 
 ## :information_source: About
 

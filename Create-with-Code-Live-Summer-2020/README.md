@@ -1,4 +1,4 @@
-# :video_game: Create with Code Live - Summer 2020
+# :mortar_board: :video_game: Create with Code Live - Summer 2020
 
 ## :information_source: About
 
