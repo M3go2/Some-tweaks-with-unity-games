@@ -15,8 +15,8 @@ Projects, samples and templates created to learn game development with Unity.
 
 ### 1. Unity Fundamentals
 
-:link: :heavy_check_mark: [Unity 2018 Fundamentals](https://app.pluralsight.com/library/courses/unity-2018-fundamentals/table-of-contents) on Pluralsight part of the
-[Unity Game Dev: Fundamentals](https://app.pluralsight.com/paths/skill/unity-game-development-core-skills)
+- :heavy_check_mark: [Unity 2018 Fundamentals](Unity Fundamentals/)
+- [Unity Game Dev: Programming](https://app.pluralsight.com/paths/skill/unity-game-dev-courses-programming) :link:
 
 ### 2. Unity Game Jams and Streams
 
