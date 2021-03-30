@@ -2,13 +2,16 @@
 
 :link: [Online tutorials][tutorials] on GameDev Academy
 
+:heavy_check_mark: Completed  
+:o: Incomplete
+
 ## Tutorials
 
-1. [How to Use Materials in Unity](https://gamedevacademy.org/how-to-use-materials-in-unity/)
+1. :heavy_check_mark: [How to Use Materials in Unity](https://gamedevacademy.org/how-to-use-materials-in-unity/)
 
 ## :memo: Version
 
-This project was created with Unity 2018.4.28f1
+This project was created with Unity 2018.4.32f1
 
 ## :page_with_curl: License
 
