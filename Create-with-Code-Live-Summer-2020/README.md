@@ -4,7 +4,7 @@
 
 Create with Code Live is a mix of self-paced and live online learning with Unity experts.
 
-:link: [Create with Code Live](https://learn.unity.com/course/create-with-code-live-summer-2020)
+:link: [Create with Code Live - Summer 2020](https://learn.unity.com/course/create-with-code-live-summer-2020)
 
 ## :memo: Version
 
