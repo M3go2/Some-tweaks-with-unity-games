@@ -19,6 +19,8 @@
 4. :o: [100 UNITY TIPS!!!](https://www.youtube.com/watch?v=thA3zv0IoUM&t=6s) (Brackeys)
 5. :heavy_check_mark: [unity3d mistake YOU don't want to make](https://www.youtube.com/watch?v=rHRjsQOR11w) (Jason Weimann)
 6. :heavy_check_mark: [5 ways to make your unity3d code faster](https://www.youtube.com/watch?v=KErkmxbkBs8&t=3s)
+7. :heavy_check_mark: [Do these 7 things for EVERY game!](https://www.youtube.com/watch?v=1f4mkY8jUdY)
+8. :heavy_check_mark: [6 Useful Unity3D Things (one I just learned!)](https://www.youtube.com/watch?v=KRq0-0KY6bU&t=1s)
 
 ### Best Practises Videos
 
