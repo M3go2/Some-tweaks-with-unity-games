@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 22
-  productGUID: 5b1cd161649600d0a9586a3faaee6a7c
+  productGUID: 7de24a9b991357e4daa13ae2d6f7bf74
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -225,8 +225,8 @@ PlayerSettings:
   iOSAutomaticallyDetectAndAddCapabilities: 1
   appleEnableProMotion: 0
   shaderPrecisionModel: 0
-  clonedFromGUID: aff84a2ad3076f04a8424194d45cbfbc
-  templatePackageId: 
+  clonedFromGUID: 13dbabb42559f81408489f470ab59b8e
+  templatePackageId: com.unity.template.kart@3.0.0
   templateDefaultScene: 
   useCustomMainManifest: 0
   useCustomLauncherManifest: 0
