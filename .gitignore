@@ -3,7 +3,7 @@ Standard-Assets-Example-Project/
 Adventure-Sample-Game/
 
 # Unity Components
-NavMeshComponents/
+/NavMeshComponents/
 
 # VSCode workspace
 *.code-workspace
