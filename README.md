@@ -2,12 +2,6 @@
 
 Projects, samples and templates created to learn game development with Unity.
 
-## Tools
-
-- [NavMesh Components](https://github.com/Unity-Technologies/NavMeshComponents)
-- ProGrids
-- ProBuilder
-
 ## :beginner: Tutorials
 
 :heavy_check_mark: Completed  
@@ -33,7 +27,7 @@ Projects, samples and templates created to learn game development with Unity.
 - :o: [How to Make a 2D Game in Unity: Unity For Beginners Course](How-to-Make-a-2D-Game-in-Unity/) (BitDigree course)
 - :construction: Course on How to Make Video Games with Unity: Create 2D & 3D Games (BitDigree course)
 - :o: [Programming a Game with Unity: A Beginner's Guide](Programming-a-Game-with-Unity/) (TradePub free eBook)
-- :o: [What you need to know about Unity 5](What-you-need-to-know-about-Unity/) (Packt Publishing free eBook)
+- :heavy_check_mark: [What you need to know about Unity 5](What-you-need-to-know-about-Unity/) (Packt Publishing free eBook)
 - :o: [Unity Game Development - Intro to Creating Particle Effects](Intro-to-Creating-Particle-Effects/) (Udemy course)
 
 ### 4. Unity Tutorials

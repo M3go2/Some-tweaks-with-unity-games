@@ -8,7 +8,7 @@ Create with Code Live is a mix of self-paced and live online learning with Unity
 
 ## :memo: Version
 
-This project was created with Unity 2020.3
+This project was created with Unity 2020.3.4f1
 
 ## :page_with_curl: License
 
