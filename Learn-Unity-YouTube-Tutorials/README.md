@@ -56,6 +56,11 @@ You can add script meta tags to customize the Unity inspector:
 #endif
 ```
 
+### Game Programming Patterns
+
+1. [Creating Objects in Unity3D using the Factory Pattern](https://www.youtube.com/watch?v=FGVkio4bnPQ)
+   - [Factory Pattern](https://en.wikipedia.org/wiki/Factory_(object-oriented_programming))
+
 ## :memo: Version
 
 This project was created with Unity 2019.4.20f1
