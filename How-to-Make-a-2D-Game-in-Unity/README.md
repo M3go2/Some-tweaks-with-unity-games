@@ -9,13 +9,13 @@
 ## Tiles from Sprite
 
 1. On imported tile, set Mesh Type as 'Full Rect' under Sprite Mode.
-2. Drag and drop tile onto screne.
+2. Drag and drop tile onto scene.
 3. Set Draw Mode to 'Tiled'
 4. Fill area of tiles.
 
 ## :memo: Version
 
-This project was created with Unity 2018.4.32f1
+This project was created with Unity 2018.4.34f1
 
 ## :page_with_curl: License
 

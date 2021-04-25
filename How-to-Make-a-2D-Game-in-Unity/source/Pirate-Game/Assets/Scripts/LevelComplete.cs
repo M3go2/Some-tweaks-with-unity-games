@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class LevelComplete : MonoBehaviour
 {
-    [SerializeField]
-    private string nextLevelSceneName = "Level2";
+  [SerializeField]
+  private string nextLevelSceneName = "Levelx";
 
-    private void OnTriggerEnter2D(Collider2D collider)
+  private void OnTriggerEnter2D(Collider2D collider)
+  {
+    if (collider.CompareTag("Player"))
     {
-        if (collider.CompareTag("Player"))
-        {
-            SceneManager.LoadScene(nextLevelSceneName);
-        }
+      SceneManager.LoadScene(nextLevelSceneName);
     }
+  }
 }
