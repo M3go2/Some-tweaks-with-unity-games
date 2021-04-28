@@ -15,8 +15,9 @@ Projects, samples and templates created to learn game development with Unity.
 ### 2. Unity Game Jams and Streams
 
 - :heavy_check_mark: [Unity Building Blocks Stream](https://www.youtube.com/watch?v=Ip6ZaNisyTE) (YouTube)
-- :o: [Create with Code Live](https://learn.unity.com/course/create-with-code-live)
-- :o: [Create with Code Live - Summer 2020](https://learn.unity.com/course/create-with-code-live-summer-2020)
+- :o: [Create with Code Live](Create-with-Code/)
+- :o: [Create with Code Live - Spring 2020](Create-with-Code-Live-Spring-2020/)
+- :o: [Create with Code Live - Summer 2020](Create-with-Code-Live-Summer-2020/)
 
 ### 3. Tutorials and Courses
 
