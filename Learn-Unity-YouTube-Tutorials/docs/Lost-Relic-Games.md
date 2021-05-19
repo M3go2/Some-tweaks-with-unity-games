@@ -1,5 +1,7 @@
 # :mortar_board: :video_game: Learn Unity with Lost Relic Games
 
+:link: [Lost Relic Games](https://www.youtube.com/c/LostRelicGames) YouTube channel
+
 :heavy_check_mark: Completed  
 :o: Incomplete
 
@@ -9,6 +11,6 @@
 
 - WIP
 
-## Unity Development Tips
+### Unity Development Tips
 
 WIP

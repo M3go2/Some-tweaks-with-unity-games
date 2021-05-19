@@ -1,5 +1,7 @@
 # :mortar_board: :video_game: Learn Unity with Jason Weimann
 
+:link: [Jason Weimann](https://www.youtube.com/c/Unity3dCollege) YouTube channel
+
 :heavy_check_mark: Completed  
 :o: Incomplete
 
