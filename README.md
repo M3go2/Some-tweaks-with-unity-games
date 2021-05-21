@@ -30,7 +30,7 @@ Projects, samples and templates created to learn game development with Unity.
 - :o: [Programming a Game with Unity: A Beginner's Guide](Programming-a-Game-with-Unity/) (TradePub free eBook)
 - :heavy_check_mark: [What you need to know about Unity 5](What-you-need-to-know-about-Unity/) (Packt Publishing free eBook)
 - :o: [Unity Game Development - Intro to Creating Particle Effects](Intro-to-Creating-Particle-Effects/) (Udemy course)
-- :o: [Game Hacking | Create a Game in 1 Hour](game-hacking-create-a-game/) (StackSkills course)
+- :o: [Game Hacking | Create a Game in 1 Hour](Game-Hacking-Create-a-Game-in-an-Hour/) (StackSkills course)
 
 ### 4. Unity Tutorials
 
