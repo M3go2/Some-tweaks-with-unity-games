@@ -30,12 +30,14 @@ Projects, samples and templates created to learn game development with Unity.
 - :o: [Programming a Game with Unity: A Beginner's Guide](Programming-a-Game-with-Unity/) (TradePub free eBook)
 - :heavy_check_mark: [What you need to know about Unity 5](What-you-need-to-know-about-Unity/) (Packt Publishing free eBook)
 - :o: [Unity Game Development - Intro to Creating Particle Effects](Intro-to-Creating-Particle-Effects/) (Udemy course)
+- :o: [Game Hacking | Create a Game in 1 Hour](game-hacking-create-a-game/) (StackSkills course)
 
 ### 4. Unity Tutorials
 
 1. :o: [Pathway Unity Essentials](Pathway-Unity-Essentials/)
 2. :o: [Faster Level Design Iteration with ProBuilder and Polybrush](ProBuilderPolyBrushDemo/) | [Unite Now Tutorial](https://resources.unity.com/unitenow/onlinesessions/faster-level-design-iteration-with-probuilder-and-polybrush)
-3. :construction: [Zenva GameDev Academy Unity Tutorials](Zenva-GameDev-Academy-Unity-Tutorials/)
+3. :o: [Learn Unity on YouTube](Learn-Unity-YouTube-Tutorials/)
+4. :construction: [Zenva GameDev Academy Unity Tutorials](Zenva-GameDev-Academy-Unity-Tutorials/)
 
 ## :page_with_curl: License
 

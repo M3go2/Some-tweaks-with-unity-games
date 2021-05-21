@@ -1,4 +1,4 @@
-# :mortar_board: :video_game: Learn Unity YouTube
+# :mortar_board: :video_game: Learn Unity on YouTube
 
 Learning Unity through YouTube video tutorials
 
