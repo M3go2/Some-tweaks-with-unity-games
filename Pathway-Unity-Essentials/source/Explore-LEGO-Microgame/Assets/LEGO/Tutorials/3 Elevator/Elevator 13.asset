@@ -67,8 +67,8 @@ MonoBehaviour:
           m_ViewType:
             m_TypeName: 
           m_EditorWindowType:
-            m_TypeName: UnityEditor.SceneView, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.SceneView, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
           m_MaskType: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
       Text:
         m_Untranslated: "Now that Brick Connecting is enabled, you can turn the stationary
           platform into an elevator.\n\n\u2022 Click and drag the Elevator brick
-          onto the platform.\n\u2022 It will snap to show you where it can connect,
-          just like physical LEGO\xAE bricks.\n\u2022 When you\u2019re happy with
+          onto the platform.\n\n\u2022 It will snap to show you where it can connect,
+          just like physical LEGO\xAE bricks.\n\n\u2022 When you\u2019re happy with
           the brick\u2019s position, click again to connect it."
       m_Summary: 
       m_Description: 

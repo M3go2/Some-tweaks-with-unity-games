@@ -32,13 +32,14 @@ namespace Unity.LEGO.Behaviours.Actions
 
         enum State
         {
-            looking,
-            waitingToLook
+            Looking,
+            WaitingToLook
         }
 
         State m_State;
 
         Transform m_PlayerTransform;
+        bool m_Initialised;
         float m_RotationAngle;
         Vector3 m_rotationAxis;
         float m_VerticalRotatedAngle;
@@ -70,22 +71,27 @@ namespace Unity.LEGO.Behaviours.Actions
             m_Time = Mathf.Max(0.1f, m_Time);
         }
 
-        protected override void Start()
-        {
-            base.Start();
-
-            m_PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        }
-
         void FixedUpdate()
         {
             if (m_Active)
             {
+                if (!m_Initialised)
+                {
+                    // Find player transform.
+                    var player = GameObject.FindGameObjectWithTag("Player");
+                    if (player)
+                    {
+                        m_PlayerTransform = player.transform;
+                    }
+
+                    m_Initialised = true;
+                }
+
                 // Update time.
                 m_CurrentTime += Time.fixedDeltaTime;
 
                 // Look.
-                if (m_State == State.looking)
+                if (m_State == State.Looking)
                 {
                     // Compute the rotation to look at the target.
                     ComputeRotation(out m_RotationAngle, out m_rotationAxis);
@@ -96,7 +102,7 @@ namespace Unity.LEGO.Behaviours.Actions
                         m_CurrentTime = 0.0f;
                         m_VerticalRotatedAngle = 0.0f;
                         m_HorizontalRotatedAngle = 0.0f;
-                        m_State = State.waitingToLook;
+                        m_State = State.WaitingToLook;
                     }
                     else
                     {
@@ -142,18 +148,18 @@ namespace Unity.LEGO.Behaviours.Actions
                             m_CurrentTime = 0.0f;
                             m_VerticalRotatedAngle = 0.0f;
                             m_HorizontalRotatedAngle = 0.0f;
-                            m_State = State.waitingToLook;
+                            m_State = State.WaitingToLook;
                         }
                     }
                 }
 
                 // Waiting to look.
-                if (m_State == State.waitingToLook)
+                if (m_State == State.WaitingToLook)
                 {
                     if (m_CurrentTime >= m_Pause)
                     {
                         m_CurrentTime = 0.0f;
-                        m_State = State.looking;
+                        m_State = State.Looking;
                         m_PlayAudio = true;
                         m_Active = m_Repeat;
                     }

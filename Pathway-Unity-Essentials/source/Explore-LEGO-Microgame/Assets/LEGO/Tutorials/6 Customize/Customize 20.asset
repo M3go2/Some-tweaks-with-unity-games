@@ -39,8 +39,8 @@ MonoBehaviour:
           m_ViewType:
             m_TypeName: 
           m_EditorWindowType:
-            m_TypeName: UnityEditor.SceneView, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.SceneView, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
           m_MaskType: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
         m_UnmaskedViews: []
     - m_Type: 1
       Title:
-        m_Untranslated: "Connect the Explode brick"
+        m_Untranslated: Connect the Explode brick
       Text:
         m_Untranslated: '<b>1.</b>  Move the <b>Explode</b> brick onto the fence,
           using your cursor.
@@ -130,6 +130,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 743fc35f8da11d34ca3ef73a7c5ccdaa, type: 2}
+        m_TargetAssemblyTypeName: 
         m_MethodName: EnableBrickBuildingTool
         m_Mode: 1
         m_Arguments:

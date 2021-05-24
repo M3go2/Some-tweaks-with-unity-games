@@ -9,14 +9,14 @@ public class VariableEditor : Editor
     SerializedProperty m_NameProp;
     SerializedProperty m_InitialValueProp;
     SerializedProperty m_UseUIProp;
-    SerializedProperty m_UIPrefabProp;
+    SerializedProperty m_UIProp;
 
     void OnEnable()
     {
         m_NameProp = serializedObject.FindProperty("Name");
         m_InitialValueProp = serializedObject.FindProperty("InitialValue");
         m_UseUIProp = serializedObject.FindProperty("UseUI");
-        m_UIPrefabProp = serializedObject.FindProperty("UIPrefab");
+        m_UIProp = serializedObject.FindProperty("UI");
     }
 
     public override void OnInspectorGUI()
@@ -50,7 +50,7 @@ public class VariableEditor : Editor
 
         if (m_UseUIProp.boolValue)
         {
-            EditorGUILayout.PropertyField(m_UIPrefabProp);
+            EditorGUILayout.PropertyField(m_UIProp);
         }
 
         EditorGUI.EndDisabledGroup();

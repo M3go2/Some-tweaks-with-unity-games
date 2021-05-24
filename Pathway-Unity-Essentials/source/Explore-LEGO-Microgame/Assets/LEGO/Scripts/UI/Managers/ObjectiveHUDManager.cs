@@ -24,6 +24,7 @@ namespace Unity.LEGO.UI
         protected void Awake()
         {
             EventManager.AddListener<ObjectiveAdded>(OnObjectiveAdded);
+            EventManager.AddListener<GameOverEvent>(OnGameOver);
         }
 
         void OnObjectiveAdded(ObjectiveAdded evt)
@@ -49,9 +50,16 @@ namespace Unity.LEGO.UI
             }
         }
 
+        void OnGameOver(GameOverEvent evt)
+        {
+            EventManager.RemoveListener<ObjectiveAdded>(OnObjectiveAdded);
+            EventManager.RemoveListener<GameOverEvent>(OnGameOver);
+        }
+
         void OnDestroy()
         {
             EventManager.RemoveListener<ObjectiveAdded>(OnObjectiveAdded);
+            EventManager.RemoveListener<GameOverEvent>(OnGameOver);
         }
     }
 }

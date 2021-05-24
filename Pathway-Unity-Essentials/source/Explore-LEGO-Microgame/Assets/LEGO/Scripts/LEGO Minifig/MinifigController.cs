@@ -625,7 +625,8 @@ namespace Unity.LEGO.Minifig
             airborne = airborneTime >= coyoteDelay;
 
             // Rotate minifig.
-            transform.Rotate(0, (rotateSpeed + externalRotation) * Time.deltaTime, 0);
+            transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
+            transform.RotateAround(oldGroundedPosition, Vector3.up, externalRotation * Time.deltaTime);
 
             // Stop special if requested.
             cancelSpecial |= stopSpecial;

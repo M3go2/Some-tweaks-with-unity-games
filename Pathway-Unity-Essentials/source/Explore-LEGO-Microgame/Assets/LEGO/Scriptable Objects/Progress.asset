@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Progress
   InitialValue: 0
-  UseUI: 1
-  UIPrefab: {fileID: 8322339850511969721, guid: 0bf4a7d593e8ee048be837c340ae442f,
-    type: 3}
+  UseUI: 0
+  UI: {fileID: 8322339850511969721, guid: 0bf4a7d593e8ee048be837c340ae442f, type: 3}

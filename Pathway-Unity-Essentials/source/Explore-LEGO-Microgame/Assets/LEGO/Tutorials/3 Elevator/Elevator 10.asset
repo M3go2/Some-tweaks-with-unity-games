@@ -54,7 +54,7 @@ MonoBehaviour:
           m_ViewType:
             m_TypeName: 
           m_EditorWindowType:
-            m_TypeName: UnityEditor.ProjectBrowser, UnityEditor, Version=0.0.0.0,
+            m_TypeName: UnityEditor.ProjectBrowser, UnityEditor.CoreModule, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
@@ -86,8 +86,8 @@ MonoBehaviour:
           m_ViewType:
             m_TypeName: 
           m_EditorWindowType:
-            m_TypeName: UnityEditor.SceneView, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.SceneView, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
           m_MaskType: 0
@@ -97,15 +97,15 @@ MonoBehaviour:
       Title:
         m_Untranslated: Add an Elevator brick
       Text:
-        m_Untranslated: "In this Unity project, you can add different functionality
-          and mechanics to your game just by building with LEGO\xAE Behaviour Bricks!
-          \n\nJust like components give GameObjects different functionalities, Behaviour
-          Bricks give GameObjects different behaviours. \n\nYou can use Behaviour
-          Bricks to quickly create a custom experience for players to explore.\n\nBehaviour
-          Bricks and the Brick Connecting system aren\u2019t standard in Unity \u2014
-          they\u2019ve been created specifically for this Microgame. In this tutorial,
-          you\u2019ll explore what they can do.\n\nLet\u2019s start by helping the
-          player access the upper level of the island!\n"
+        m_Untranslated: "In this LEGO\xAE Microgame, you can easily add functionality
+          and mechanics to your game with <b>LEGO\xAE Behaviour Bricks!</b>\n\nJust
+          like components give GameObjects different functionalities, Behaviour Bricks
+          give GameObjects different behaviours. \n\nYou can use Behaviour Bricks
+          to quickly create a custom experience for players to explore.\n\nBehaviour
+          Bricks and the <b>Brick Connecting system</b> aren\u2019t standard in Unity
+          \u2014 they\u2019ve been created specifically for this Microgame. In this
+          tutorial, you\u2019ll explore what they can do.\n\nLet\u2019s start by
+          helping the player access the upper level of the island!"
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -176,6 +176,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 743fc35f8da11d34ca3ef73a7c5ccdaa, type: 2}
+        m_TargetAssemblyTypeName: Unity.LEGO.Tutorials.TutorialCallbacks, Unity.LEGO.Tutorials
         m_MethodName: DisableBrickBuildingTool
         m_Mode: 1
         m_Arguments:

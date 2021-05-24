@@ -148,7 +148,7 @@ namespace Unity.LEGO.Behaviours.Triggers
             {
                 if (m_Enable == Enable.Always || m_ActiveColliders.Count > 0)
                 {
-                    var visible = IsVisible();
+                    var visible = IsVisible() && AdditionalConditionsMet();
                     UpdatePrompt(visible);
 
                     if (CheckInput())

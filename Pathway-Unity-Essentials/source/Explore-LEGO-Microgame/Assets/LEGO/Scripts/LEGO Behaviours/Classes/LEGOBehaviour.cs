@@ -32,7 +32,7 @@ namespace Unity.LEGO.Behaviours
         protected Vector3 m_BrickPivotOffset;
 
         protected HashSet<Brick> m_ScopedBricks = new HashSet<Brick>();
-        protected List<MeshRenderer> m_scopedPartRenderers = new List<MeshRenderer>();
+        protected List<MeshRenderer> m_ScopedPartRenderers = new List<MeshRenderer>();
         protected Vector3 m_ScopedPivotOffset;
         protected Bounds m_ScopedBounds;
 
@@ -49,7 +49,7 @@ namespace Unity.LEGO.Behaviours
 
         public bool IsVisible()
         {
-            foreach(var partRenderer in m_scopedPartRenderers)
+            foreach(var partRenderer in m_ScopedPartRenderers)
             {
                 if (partRenderer.enabled)
                 {
@@ -157,7 +157,7 @@ namespace Unity.LEGO.Behaviours
             return result;
         }
 
-        public Bounds GetScopedBounds(HashSet<Brick> scopedBricks, out List<MeshRenderer> scopedPartRenderers, out Vector3 scopedPivotOffset)
+        public Bounds GetScopedBounds(ICollection<Brick> scopedBricks, out List<MeshRenderer> scopedPartRenderers, out Vector3 scopedPivotOffset)
         {
             var result = new Bounds();
 
@@ -237,7 +237,7 @@ namespace Unity.LEGO.Behaviours
         protected virtual void Awake()
         {
             m_ScopedBricks = GetScopedBricks();
-            m_ScopedBounds = GetScopedBounds(m_ScopedBricks, out m_scopedPartRenderers, out m_ScopedPivotOffset);
+            m_ScopedBounds = GetScopedBounds(m_ScopedBricks, out m_ScopedPartRenderers, out m_ScopedPivotOffset);
 
             if (IsPlacedOnBrick())
             {
@@ -258,7 +258,7 @@ namespace Unity.LEGO.Behaviours
 
         protected void Flash()
         {
-            LEGOBehaviourCoroutineManager.StartCoroutine(this, DoFlash(), true);
+            LEGOBehaviourCoroutineManager.StartCoroutine(this, "Flash", DoFlash(), true);
         }
 
         protected virtual void OnDrawGizmos()

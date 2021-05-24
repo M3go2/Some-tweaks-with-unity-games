@@ -140,7 +140,7 @@ namespace Unity.LEGO.Behaviours.Actions
                             var boxCollider = (BoxCollider)emissionCollider;
                             particleShapeMoule.shapeType = ParticleSystemShapeType.BoxShell;
                             particleShapeMoule.position = boxCollider.center;
-                            particleShapeMoule.scale = Quaternion.Euler(90.0f, 0.0f, 0.0f) * boxCollider.size;
+                            particleShapeMoule.scale = boxCollider.size;
                         }
                         else if (colliderType == typeof(SphereCollider))
                         {

@@ -39,8 +39,8 @@ MonoBehaviour:
           m_ViewType:
             m_TypeName: 
           m_EditorWindowType:
-            m_TypeName: UnityEditor.SceneView, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.SceneView, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
           m_MaskType: 0
@@ -50,10 +50,10 @@ MonoBehaviour:
       Title:
         m_Untranslated: Change your view
       Text:
-        m_Untranslated: "Let\u2019s adjust your view, so it\u2019s easier to place
-          the platform:\n\n\u2022 Change your view angle by holding <b>Alt</b> /
-          <b>Option</b> + <b>left-click</b> in the Scene view, then move your cursor
-          around the platform.\n\n\u2022 Zoom using your trackpad or scroll wheel,
+        m_Untranslated: "Let\u2019s adjust your view so that it\u2019s easier to
+          place the platform:\n\n\u2022 Change your view angle by holding <b>Alt</b>
+          / <b>Option</b> + <b>left-click</b> in the Scene view, then move your cursor
+          around the platform\n\n\u2022 Zoom using your trackpad or scroll wheel,
           or hold <b>Alt</b>"
       m_Summary: 
       m_Description: 

@@ -42,6 +42,10 @@ MonoBehaviour:
   m_Paragraphs:
     m_Items:
     - m_Type: 7
+      Title:
+        m_Untranslated: 
+      Text:
+        m_Untranslated: 
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -60,8 +64,8 @@ MonoBehaviour:
         m_UnmaskedViews:
         - m_SelectorType: 1
           m_ViewType:
-            m_TypeName: UnityEditor.Toolbar, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.Toolbar, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_EditorWindowType:
             m_TypeName: Unity.InteractiveTutorials.TutorialWindow, Unity.InteractiveTutorials.Core,
               Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -72,10 +76,10 @@ MonoBehaviour:
           m_UnmaskedControls: []
         - m_SelectorType: 1
           m_ViewType:
-            m_TypeName: UnityEditor.Toolbar, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.Toolbar, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_EditorWindowType:
-            m_TypeName: UnityEditor.InspectorWindow, UnityEditor, Version=0.0.0.0,
+            m_TypeName: UnityEditor.InspectorWindow, UnityEditor.CoreModule, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
@@ -104,13 +108,17 @@ MonoBehaviour:
                 m_Prefab: {fileID: 0}
               m_FutureObjectReference: {fileID: 0}
     - m_Type: 0
-      m_Summary: Increase the Max Forward Speed
-      m_Description: "The <b>Max Forward Speed</b> property controls how fast the
-        Minifig moves forward.\n\nGo deeper:\n\n\u2022 When you select a GameObject
-        in the Hierarchy, you\u2019ll see its <b>components</b> in the <b>Inspector</b>.
-        \n\n\u2022 Components give a GameObject specific functionality.\n\n\u2022
-        The <b>Player Minifig Controller</b> component is what makes the Minifig
-        move in response to player input."
+      Title:
+        m_Untranslated: Increase the Max Forward Speed
+      Text:
+        m_Untranslated: "The <b>Max Forward Speed</b> component controls how fast
+          the Minifig moves forward.\n\nGo deeper:\n\n\u2022 When you select a GameObject
+          in the Hierarchy, you\u2019ll see its <b>components</b> in the <b>Inspector</b>.
+          \n\n\u2022 Components contain <b>properties</b> that give a GameObject
+          specific functionalities.\n\n\u2022 The <b>Minifig Controller</b> components
+          are what make the Minifig move in response to player input."
+      m_Summary: 
+      m_Description: 
       m_InstructionBoxTitle: 
       m_InstructionText: 
       m_TutorialButtonText: 
@@ -126,14 +134,18 @@ MonoBehaviour:
         m_MaskingEnabled: 0
         m_UnmaskedViews: []
     - m_Type: 1
+      Title:
+        m_Untranslated: 
+      Text:
+        m_Untranslated: 'Change the <b>Max Forward Speed</b> to <b>13</b> using the
+          number field.
+
+
+          Select <b>Next</b> to continue.'
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
-      m_InstructionText: 'Change the <b>Max Forward Speed</b> to <b>13</b> using
-        the number field.
-
-
-        Select <b>Next</b> to continue.'
+      m_InstructionText: 
       m_TutorialButtonText: 
       m_Tutorial: {fileID: 0}
       m_Icons:
@@ -167,14 +179,19 @@ MonoBehaviour:
       m_AssetObject: {fileID: 0}
       m_Prefab: {fileID: 0}
     m_Enabled: 0
-  m_NextButton: Next
-  m_DoneButton: Done
+  NextButton:
+    m_Untranslated: Next
+  DoneButton:
+    m_Untranslated: Done
+  m_NextButton: 
+  m_DoneButton: 
   m_CompletedSound: {fileID: 8300000, guid: 93fbb109633e844259ea828442bda0cb, type: 3}
   m_autoAdvance: 0
   m_OnBeforePageShown:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 743fc35f8da11d34ca3ef73a7c5ccdaa, type: 2}
+        m_TargetAssemblyTypeName: Unity.LEGO.Tutorials.TutorialCallbacks, Unity.LEGO.Tutorials
         m_MethodName: SetupPlayerForTutorial
         m_Mode: 1
         m_Arguments:
@@ -186,5 +203,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 1
   m_OnAfterPageShown:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnBeforeTutorialQuit:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnTutorialPageStay:
     m_PersistentCalls:
       m_Calls: []

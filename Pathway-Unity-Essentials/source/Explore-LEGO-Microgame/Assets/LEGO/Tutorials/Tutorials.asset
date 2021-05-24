@@ -25,8 +25,7 @@ MonoBehaviour:
     Heading:
       m_Untranslated: Get started
     Text:
-      m_Untranslated: "Playtest the beginning of the LEGO\xAE Microgame and make
-        the character faster."
+      m_Untranslated: Playtest the game and make your player Minifig go faster
     LinkText: 
     Url: 
     AuthorizedUrl: 0
@@ -36,7 +35,7 @@ MonoBehaviour:
     Heading:
       m_Untranslated: Add a platform
     Text:
-      m_Untranslated: 'Get your character to the next island. '
+      m_Untranslated: Get your player Minifig to the next island
     LinkText: 
     Url: 
     AuthorizedUrl: 0
@@ -46,8 +45,7 @@ MonoBehaviour:
     Heading:
       m_Untranslated: Activate the elevator
     Text:
-      m_Untranslated: 'Activate the elevator so the player can access the upper level
-        of the game. '
+      m_Untranslated: Create an elevator to help your player access the next level
     LinkText: 
     Url: 
     AuthorizedUrl: 0
@@ -57,7 +55,7 @@ MonoBehaviour:
     Heading:
       m_Untranslated: Change the win conditions
     Text:
-      m_Untranslated: Modify how you win the game!
+      m_Untranslated: Change the conditions for winning your game
     LinkText: 
     Url: 
     AuthorizedUrl: 0
@@ -67,7 +65,7 @@ MonoBehaviour:
     Heading:
       m_Untranslated: Add an enemy
     Text:
-      m_Untranslated: Add an enemy to increase the challenge!
+      m_Untranslated: Add an enemy to increase the challenge
     LinkText: 
     Url: 
     AuthorizedUrl: 0
@@ -77,7 +75,7 @@ MonoBehaviour:
     Heading:
       m_Untranslated: Customize your game
     Text:
-      m_Untranslated: Explore an island and customize your game.
+      m_Untranslated: Explore an island and learn more ways to customize your game
     LinkText: 
     Url: 
     AuthorizedUrl: 0
@@ -87,8 +85,8 @@ MonoBehaviour:
     Heading:
       m_Untranslated: Microgame Mods
     Text:
-      m_Untranslated: Keep customizing your game by following our online Creative
-        Mods tutorials.
+      m_Untranslated: Customize your game even more with Unity's online Creative
+        Mods
     LinkText: LEGOMicrogameMods
     Url: https://learn.unity.com/project/lego-template
     AuthorizedUrl: 1
@@ -98,7 +96,7 @@ MonoBehaviour:
     Heading:
       m_Untranslated: Build and publish
     Text:
-      m_Untranslated: Build and publish your game to share it!
+      m_Untranslated: Build and publish your project as a shareable web game
     LinkText: 
     Url: 
     AuthorizedUrl: 0
@@ -108,8 +106,7 @@ MonoBehaviour:
     Heading:
       m_Untranslated: Give us feedback
     Text:
-      m_Untranslated: We're always working to improve our products, so let us know
-        what you think!
+      m_Untranslated: "Let us know what you think! Help us improve the LEGO\xAE Microgame"
     LinkText: LEGOMicrogameBeta
     Url: https://unity.com/LEGOMicrogameBeta
     AuthorizedUrl: 1

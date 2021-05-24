@@ -50,9 +50,9 @@ MonoBehaviour:
       Title:
         m_Untranslated: Next steps
       Text:
-        m_Untranslated: "In this tutorial, you reviewed basics of the Unity Editor
-          interface and playtested the basic Microgame. \n\nNext, you\u2019ll start
-          making your own changes!"
+        m_Untranslated: "In this tutorial, you learned some basics of the Unity Editor,
+          increased the player's speed, and playtested. \n\nNext, you\u2019ll help
+          your player reach the next level of the game!"
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -73,8 +73,8 @@ MonoBehaviour:
       Title:
         m_Untranslated: 
       Text:
-        m_Untranslated: "Select <b>Tutorial 2: Get to the next island</b> to continue
-          directly, or <b>Done</b> to return to the tutorial overview."
+        m_Untranslated: 'Select <b>Tutorial 2: Add a platform</b> to continue directly,
+          or <b>Done</b> to return to the tutorial overview.'
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -95,7 +95,7 @@ MonoBehaviour:
       Title:
         m_Untranslated: 
       Text:
-        m_Untranslated: 'Tutorial 2: Get to the next island'
+        m_Untranslated: 'Tutorial 2: Add a platform'
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 

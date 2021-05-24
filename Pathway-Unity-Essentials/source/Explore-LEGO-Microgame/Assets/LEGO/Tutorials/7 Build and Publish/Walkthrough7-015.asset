@@ -80,10 +80,10 @@ MonoBehaviour:
       Text:
         m_Untranslated: "Before you can publish your game, you need to build it.
           This will create a playable file of your game on your computer.\n\n<b>Notes:</b>\n\n\u2022
-          This step could take up to 30 minutes.\n\n\u2022 You can use the default
-          folder, or create a new folder to store your build files.\n\n\u2022 If
-          you want to publish a build of the Microgame you\u2019ve already created,
-          select <b>Next</b> to continue now."
+          This step could take up to 30 minutes.\n\n\u2022 If you are prompted to
+          switch to WebGL, click <b>\"Switch to WebGL\"</b> and choose a folder for
+          your build in the window that appears. \n\n\u2022 You can use the default
+          folder, or create a new folder to store your build files."
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -104,8 +104,11 @@ MonoBehaviour:
       Title:
         m_Untranslated: Create a build
       Text:
-        m_Untranslated: "Select <b>Build and Publish</b>.\n\nWhen your build is complete,
-          select <b>Next</b> to continue."
+        m_Untranslated: 'Select <b>Build and Publish</b>.
+
+
+          When your build
+          is complete, select <b>Next</b> to continue.'
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 

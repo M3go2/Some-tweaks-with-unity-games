@@ -1,10 +1,27 @@
-LEGO Microgame - Version 1.1.4
+LEGO Microgame - Version 2.1.0
 ========================================
 
 This is the LEGO Microgame package. Learn to create your own LEGO game with this example project.
 
 Changelog
 ---------
+## [2.1.0] - 2021-04-13
+
+### Removed
+- Packages and modules that were not used
+
+### Changed
+- New "Spawn" Behaviour Brick
+- New "axle connectivity"
+
+## [2.0.0] - 2021-03-11
+
+### Changed
+- Update to 2020 LTS
+
+### Fixed
+- Crash on Undo-ReDo
+
 ## [1.1.4] - 2021-01-19
 
 ### Added

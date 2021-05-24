@@ -50,8 +50,8 @@ MonoBehaviour:
         m_UnmaskedViews:
         - m_SelectorType: 0
           m_ViewType:
-            m_TypeName: UnityEditor.Toolbar, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.Toolbar, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_EditorWindowType:
             m_TypeName: 
           m_AlternateEditorWindowTypes:
@@ -81,10 +81,10 @@ MonoBehaviour:
               m_FutureObjectReference: {fileID: 0}
         - m_SelectorType: 1
           m_ViewType:
-            m_TypeName: UnityEditor.Toolbar, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.Toolbar, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_EditorWindowType:
-            m_TypeName: UnityEditor.AssetSaveDialog, UnityEditor, Version=0.0.0.0,
+            m_TypeName: UnityEditor.AssetSaveDialog, UnityEditor.CoreModule, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []

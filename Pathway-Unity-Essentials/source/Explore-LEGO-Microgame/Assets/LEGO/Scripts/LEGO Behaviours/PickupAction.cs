@@ -7,7 +7,8 @@ namespace Unity.LEGO.Behaviours.Actions
 {
     public class PickupAction : Action
     {
-        public Action<PickupAction> OnCollected;
+        public static Action<PickupAction> OnAdded;
+        public static Action<PickupAction> OnCollected;
 
         float m_InitialHoverOffset;
         Vector3 m_Offset;
@@ -90,7 +91,7 @@ namespace Unity.LEGO.Behaviours.Actions
                 }
 
                 // Make invisible.
-                foreach (var partRenderer in m_scopedPartRenderers)
+                foreach (var partRenderer in m_ScopedPartRenderers)
                 {
                     partRenderer.enabled = false;
                 }
@@ -121,7 +122,7 @@ namespace Unity.LEGO.Behaviours.Actions
                 if (!m_Initialised)
                 {
                     // Make visible.
-                    foreach (var partRenderer in m_scopedPartRenderers)
+                    foreach (var partRenderer in m_ScopedPartRenderers)
                     {
                         partRenderer.enabled = true;
                     }
@@ -131,6 +132,8 @@ namespace Unity.LEGO.Behaviours.Actions
                     {
                         m_ParticleSystem.Play();
                     }
+
+                    OnAdded?.Invoke(this);
 
                     m_Initialised = true;
                 }
@@ -163,7 +166,7 @@ namespace Unity.LEGO.Behaviours.Actions
                         }
 
                         // Hide.
-                        foreach (var partRenderer in m_scopedPartRenderers)
+                        foreach (var partRenderer in m_ScopedPartRenderers)
                         {
                             partRenderer.enabled = false;
                         }

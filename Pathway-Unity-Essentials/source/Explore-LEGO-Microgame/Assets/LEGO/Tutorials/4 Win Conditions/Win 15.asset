@@ -54,7 +54,6 @@ MonoBehaviour:
           and see what happens.
 
 
-
           <b>Tip:</b> You can also use the shortcut
           <b>Del</b> (Windows) or <b>Cmd</b> + <b>Del</b> (macOS).'
       m_Summary: 
@@ -130,6 +129,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 31338fd9a07036246bc9cc31f5b52517, type: 2}
+        m_TargetAssemblyTypeName: Unity.LEGO.Tutorials.DeletionCriteria, Unity.LEGO.Tutorials
         m_MethodName: FindWinBrick
         m_Mode: 1
         m_Arguments:
@@ -147,6 +147,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 31338fd9a07036246bc9cc31f5b52517, type: 2}
+        m_TargetAssemblyTypeName: 
         m_MethodName: RestoreTouchTriggerIfMissing
         m_Mode: 1
         m_Arguments:
@@ -161,6 +162,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 743fc35f8da11d34ca3ef73a7c5ccdaa, type: 2}
+        m_TargetAssemblyTypeName: Unity.LEGO.Tutorials.TutorialCallbacks, Unity.LEGO.Tutorials
         m_MethodName: SelectTouchTriggerInScene
         m_Mode: 1
         m_Arguments:

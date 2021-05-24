@@ -25,14 +25,14 @@ namespace Unity.LEGO.UI
 
         void OnVariableAdded(VariableAdded evt)
         {
-            if (evt.Variable.UseUI && evt.Variable.UIPrefab)
+            if (evt.Variable.UseUI && evt.Variable.UI)
             {
                 // Instantiate the UI element for the new variable if not already shown.
                 if (!m_ShownVariables.Contains(evt.Variable))
                 {
                     m_ShownVariables.Add(evt.Variable);
 
-                    GameObject go = Instantiate(evt.Variable.UIPrefab, m_VariablePanel);
+                    GameObject go = Instantiate(evt.Variable.UI, m_VariablePanel);
 
                     // Initialise the variable element.
                     Variable variable = go.GetComponent<Variable>();

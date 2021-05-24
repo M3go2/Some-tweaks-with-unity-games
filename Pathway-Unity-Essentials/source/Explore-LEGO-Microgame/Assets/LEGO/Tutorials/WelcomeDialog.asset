@@ -18,10 +18,11 @@ MonoBehaviour:
   m_Title:
     m_Untranslated: "LEGO\xAE Microgame"
   m_Description:
-    m_Untranslated: "Get ready to make your own custom LEGO\xAE Microgame!\n\nExperienced
-      users can head straight to the Playground Scene and start exploring. New to
-      Unity or want to refresh your memory? We've got a set of tutorials to quickstart
-      your creation journey."
+    m_Untranslated: "This Microgame is for anyone who\u2019s ever loved building
+      with LEGO\xAE bricks. \n\nIn this project, you'll find preloaded scenes, scripts,
+      audio, tutorials, and more to inspire you and help you start creating.\n\nNew
+      to Unity? Quickstart your creation journey with the step-by-step <b>Tutorials.</b>\n\nReady
+      to create? Head straight to the <b>Playground Scene.</b>"
   m_Buttons:
   - Text:
       m_Untranslated: Load tutorials
@@ -31,6 +32,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 11400000}
+          m_TargetAssemblyTypeName: 
           m_MethodName: StartTutorial
           m_Mode: 1
           m_Arguments:
@@ -49,6 +51,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 11400000, guid: 743fc35f8da11d34ca3ef73a7c5ccdaa, type: 2}
+          m_TargetAssemblyTypeName: 
           m_MethodName: LoadPlaygroundScene
           m_Mode: 1
           m_Arguments:
@@ -60,6 +63,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 1
         - m_Target: {fileID: 11400000}
+          m_TargetAssemblyTypeName: 
           m_MethodName: CloseCurrentModalDialog
           m_Mode: 1
           m_Arguments:

@@ -50,11 +50,11 @@ MonoBehaviour:
         m_UnmaskedViews:
         - m_SelectorType: 1
           m_ViewType:
-            m_TypeName: UnityEditor.Toolbar, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.Toolbar, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_EditorWindowType:
-            m_TypeName: UnityEditor.GameView, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.GameView, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
           m_MaskType: 0
@@ -82,8 +82,8 @@ MonoBehaviour:
               m_FutureObjectReference: {fileID: 0}
         - m_SelectorType: 0
           m_ViewType:
-            m_TypeName: UnityEditor.Toolbar, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.Toolbar, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_EditorWindowType:
             m_TypeName: 
           m_AlternateEditorWindowTypes:
@@ -115,9 +115,9 @@ MonoBehaviour:
       Title:
         m_Untranslated: Test your changes
       Text:
-        m_Untranslated: "Test the start of the game with the increased movement speed:
-          how has the player experience changed? \n\n(You still won\u2019t be able
-          to cross the gap, but don\u2019t worry \u2014 you\u2019ll fix that next!)"
+        m_Untranslated: "Test the increased movement speed: how has the player experience
+          changed? \n\n(You still won\u2019t be able to cross the gap, but don\u2019t
+          worry \u2014 you\u2019ll fix that in the next tutorial!)"
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -138,8 +138,8 @@ MonoBehaviour:
       Title:
         m_Untranslated: 
       Text:
-        m_Untranslated: "After you finish testing, select <b>Play</b> again to exit
-          Play Mode."
+        m_Untranslated: After you finish testing, select <b>Play</b> again to exit
+          Play Mode.
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 

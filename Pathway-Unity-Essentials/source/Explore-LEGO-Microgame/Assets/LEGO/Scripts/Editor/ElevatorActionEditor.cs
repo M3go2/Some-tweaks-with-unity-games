@@ -29,7 +29,12 @@ namespace Unity.LEGO.EditorExt
             EditorGUILayout.PropertyField(m_TimeProp);
             EditorGUILayout.PropertyField(m_PauseProp);
             EditorGUILayout.PropertyField(m_CollideProp);
+
+            EditorGUI.BeginDisabledGroup(EditorApplication.isPlaying);
+
             EditorGUILayout.PropertyField(m_RepeatProp);
+
+            EditorGUI.EndDisabledGroup();
         }
 
         public override void OnSceneGUI()

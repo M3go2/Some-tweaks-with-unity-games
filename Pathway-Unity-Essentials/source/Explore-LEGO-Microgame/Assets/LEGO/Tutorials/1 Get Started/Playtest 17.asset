@@ -37,8 +37,8 @@ MonoBehaviour:
         m_UnmaskedViews:
         - m_SelectorType: 1
           m_ViewType:
-            m_TypeName: UnityEditor.Toolbar, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.Toolbar, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_EditorWindowType:
             m_TypeName: Unity.InteractiveTutorials.TutorialWindow, Unity.InteractiveTutorials.Core,
               Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -49,11 +49,11 @@ MonoBehaviour:
           m_UnmaskedControls: []
         - m_SelectorType: 1
           m_ViewType:
-            m_TypeName: UnityEditor.Toolbar, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
-          m_EditorWindowType:
-            m_TypeName: UnityEditor.SceneHierarchyWindow, UnityEditor, Version=0.0.0.0,
+            m_TypeName: UnityEditor.Toolbar, UnityEditor.CoreModule, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
+          m_EditorWindowType:
+            m_TypeName: UnityEditor.SceneHierarchyWindow, UnityEditor.CoreModule,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
           m_MaskType: 0
@@ -109,9 +109,7 @@ MonoBehaviour:
       Title:
         m_Untranslated: 
       Text:
-        m_Untranslated: 'Select the <b>Player Minifig</b> GameObject
-
-'
+        m_Untranslated: In the Hierarchy, select the <b>Player Minifig</b> GameObject.
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -160,6 +158,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 743fc35f8da11d34ca3ef73a7c5ccdaa, type: 2}
+        m_TargetAssemblyTypeName: Unity.LEGO.Tutorials.TutorialCallbacks, Unity.LEGO.Tutorials
         m_MethodName: SetupPlayerForTutorial
         m_Mode: 1
         m_Arguments:

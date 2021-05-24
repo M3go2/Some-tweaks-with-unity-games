@@ -20,13 +20,6 @@ namespace Unity.LEGO.Behaviours
         bool m_PromptActive = true;
         int m_Id;
 
-        protected override void OnValidate()
-        {
-            base.OnValidate();
-
-            m_Pause = Mathf.Max(0.0f, m_Pause);
-        }
-
         protected override void Reset()
         {
             base.Reset();

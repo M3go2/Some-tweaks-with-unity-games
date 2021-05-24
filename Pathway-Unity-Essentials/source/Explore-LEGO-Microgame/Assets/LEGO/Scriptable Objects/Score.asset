@@ -15,5 +15,4 @@ MonoBehaviour:
   Name: Score
   InitialValue: 0
   UseUI: 1
-  UIPrefab: {fileID: 8322339850511969721, guid: 1e390fdd61cd5fd43ba3755270f39a9a,
-    type: 3}
+  UI: {fileID: 8322339850511969721, guid: 1e390fdd61cd5fd43ba3755270f39a9a, type: 3}

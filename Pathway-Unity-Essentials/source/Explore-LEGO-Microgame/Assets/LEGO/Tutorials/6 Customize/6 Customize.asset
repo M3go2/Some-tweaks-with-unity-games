@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f107dc6d4c984c45bdafd3bb15f98f0, type: 3}
   m_Name: 6 Customize
   m_EditorClassIdentifier: 
-  m_TutorialTitle: Customize your Game
+  TutorialTitle:
+    m_Untranslated: Customize your game
+  m_TutorialTitle: 
   m_LessonId: 50006
   m_Version: 1
   m_Scene: {fileID: 102900000, guid: c117ceea613454843a1d1c28c25d7a94, type: 3}

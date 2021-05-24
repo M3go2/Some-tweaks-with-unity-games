@@ -128,7 +128,7 @@ namespace Unity.LEGO.Behaviours.Triggers
             }
         }
 
-        bool AdditionalConditionsMet()
+        protected bool AdditionalConditionsMet()
         {
             foreach (var condition in m_Conditions)
             {

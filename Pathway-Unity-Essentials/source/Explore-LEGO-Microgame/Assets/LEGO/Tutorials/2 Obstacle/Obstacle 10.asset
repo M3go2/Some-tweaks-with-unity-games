@@ -76,7 +76,7 @@ MonoBehaviour:
           m_ViewType:
             m_TypeName: 
           m_EditorWindowType:
-            m_TypeName: UnityEditor.ProjectBrowser, UnityEditor, Version=0.0.0.0,
+            m_TypeName: UnityEditor.ProjectBrowser, UnityEditor.CoreModule, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
@@ -87,8 +87,8 @@ MonoBehaviour:
           m_ViewType:
             m_TypeName: 
           m_EditorWindowType:
-            m_TypeName: UnityEditor.SceneView, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.SceneView, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
           m_MaskType: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
       Text:
         m_Untranslated: "First, let\u2019s add a platform to your game.\n\nGo deeper:\n\n\u2022
           The <b>Project window</b> is where you can find all the files (assets)
-          used for the Unity project.\n\n\u2022 It works like a file explorer, and
+          used in this Unity project.\n\n\u2022 It works like a file explorer, and
           is organized in folders.\n\n\u2022 You can drag assets straight from the
           Project window into the Scene view."
       m_Summary: Add a platform
@@ -180,6 +180,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 743fc35f8da11d34ca3ef73a7c5ccdaa, type: 2}
+        m_TargetAssemblyTypeName: Unity.LEGO.Tutorials.TutorialCallbacks, Unity.LEGO.Tutorials
         m_MethodName: PingFolderOrAsset
         m_Mode: 5
         m_Arguments:
@@ -191,6 +192,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 1
       - m_Target: {fileID: 11400000, guid: 743fc35f8da11d34ca3ef73a7c5ccdaa, type: 2}
+        m_TargetAssemblyTypeName: Unity.LEGO.Tutorials.TutorialCallbacks, Unity.LEGO.Tutorials
         m_MethodName: DisableBrickBuildingTool
         m_Mode: 1
         m_Arguments:

@@ -39,8 +39,8 @@ MonoBehaviour:
           m_ViewType:
             m_TypeName: 
           m_EditorWindowType:
-            m_TypeName: UnityEditor.SceneView, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.SceneView, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
           m_MaskType: 0
@@ -50,8 +50,8 @@ MonoBehaviour:
           m_ViewType:
             m_TypeName: 
           m_EditorWindowType:
-            m_TypeName: UnityEditor.SceneHierarchyWindow, UnityEditor, Version=0.0.0.0,
-              Culture=neutral, PublicKeyToken=null
+            m_TypeName: UnityEditor.SceneHierarchyWindow, UnityEditor.CoreModule,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
           m_MaskType: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
                 type: 2}
         - m_SelectorType: 0
           m_ViewType:
-            m_TypeName: UnityEditor.Toolbar, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.Toolbar, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_EditorWindowType:
             m_TypeName: UnityEditor.SceneHierarchyWindow, UnityEditor, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
@@ -118,12 +118,12 @@ MonoBehaviour:
           now to adjust it.\n\n<b>If you want to move the whole bird:</b>\n<b>1.</b>
           Go to the LEGO\xAE Tools and disable Brick Building (first button).\n<b>2.</b>
           Set Brick Selection to Connected Brick (second button).\n<b>3.</b> Select
-          the bird and adjust its position in the Scene view.\n\n<b>If you just
-          want to adjust the Shoot brick:</b>\n<b>1.</b> Go to the LEGO\xAE Tools
-          and enable Brick Building (first button).\n<b>2.</b> Set Brick Selection
-          to Single Brick (second button).\n<b>3.</b> Select the Shoot brick to
-          disconnect it.\n<b>4.</b> Use <b>Alt</b> / <b>Opt</b> + <b>D</b> to rotate
-          the brick, if you need to.\n<b>5.</b> Reconnect the Shoot brick."
+          the bird and adjust its position in the Scene view.\n\n<b>If you just want
+          to adjust the Shoot brick:</b>\n<b>1.</b> Go to the LEGO\xAE Tools and
+          enable Brick Building (first button).\n<b>2.</b> Set Brick Selection to
+          Single Brick (second button).\n<b>3.</b> Select the Shoot brick to disconnect
+          it.\n<b>4.</b> Use <b>Alt</b> / <b>Opt</b> + <b>D</b> to rotate the brick,
+          if you need to.\n<b>5.</b> Reconnect the Shoot brick."
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 

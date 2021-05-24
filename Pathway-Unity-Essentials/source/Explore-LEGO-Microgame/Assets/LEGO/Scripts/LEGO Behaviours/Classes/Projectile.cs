@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.LEGO.Game;
 using Unity.LEGO.Minifig;
-using Unity.LEGO.Behaviours.Actions;
 
 namespace Unity.LEGO.Behaviours
 {
@@ -20,16 +19,29 @@ namespace Unity.LEGO.Behaviours
         ParticleSystem m_ParticleSystem;
         bool m_Rotate;
         Vector3 m_Rotation;
-        HashSet<Brick> m_ScopedBricks;
+        HashSet<Brick> m_ConnectedBricks;
+        List<Collider> m_IgnoredColliders;
         bool m_Launched;
 
-        public void Init(HashSet<Brick> scopedBricks, float velocity, bool useGravity, float time)
+        public void Init(HashSet<Brick> connectedBricks, float velocity, bool useGravity, float time)
         {
-            m_ScopedBricks = scopedBricks;
+            m_ConnectedBricks = connectedBricks;
 
             m_RigidBody.velocity = transform.forward * velocity;
 
             m_RigidBody.useGravity = useGravity;
+
+            // Make sure to initially ignore all collisions with the connected bricks of the firing Shoot Action.
+            m_IgnoredColliders = new List<Collider>();
+            foreach(var brick in connectedBricks)
+            {
+                var colliders = brick.GetComponentsInChildren<Collider>();
+                foreach(var collider in colliders)
+                {
+                    Physics.IgnoreCollision(m_Collider, collider, true);
+                    m_IgnoredColliders.Add(collider);
+                }
+            }
 
             Destroy(gameObject, time);
         }
@@ -38,9 +50,7 @@ namespace Unity.LEGO.Behaviours
         {
             m_Collider = GetComponent<CapsuleCollider>();
 
-            // Disable the collider. We will enable it again once the projectile is clear of any initial colliders.
-            // This ensures that the projectile will not collide with the Shoot Action that fires it.
-            // Also, enabling the collider will ensure that OnTriggerEnter is fired even if the projectile is spawned completely inside a Trigger collider.
+            // Disable the collider until the first update to avoid false collisions with CharacterController's OnControllerColliderHit.
             m_Collider.enabled = false;
 
             m_RigidBody = GetComponent<Rigidbody>();
@@ -60,21 +70,22 @@ namespace Unity.LEGO.Behaviours
 
         void Update()
         {
-            // Check if the collider can be enabled.
-            if (!m_Collider.enabled)
+            m_Collider.enabled = true;
+
+            // Check if the projectile has been launched out of the firing Shoot Action.
+            if (!m_Launched)
             {
                 // Assumes that the capsule collider is aligned with local forward axis in projectile.
-                var c0 = transform.TransformPoint(m_Collider.center - Vector3.forward * m_Collider.height * 0.5f);
-                var c1 = transform.TransformPoint(m_Collider.center + Vector3.forward * m_Collider.height * 0.5f);
-                var colliders = Physics.OverlapCapsule(c0, c1, m_Collider.radius);
+                var c0 = transform.TransformPoint(m_Collider.center - Vector3.forward * (m_Collider.height * 0.5f - m_Collider.radius));
+                var c1 = transform.TransformPoint(m_Collider.center + Vector3.forward * (m_Collider.height * 0.5f - m_Collider.radius));
+                var colliders = Physics.OverlapCapsule(c0, c1, m_Collider.radius, Physics.AllLayers, QueryTriggerInteraction.Ignore);
                 var collisions = false;
                 foreach (var collider in colliders)
                 {
-                    // Do not collide with self, connectivity features, the player (if not a brick from the scope of the firing Shoot Action) or colliders from other LEGOBehaviourColliders.
+                    // Do not collide with self, minifigs, the connected bricks of the firing Shoot Action or colliders from other LEGOBehaviourColliders.
                     if (collider != m_Collider &&
-                        collider.gameObject.layer != LayerMask.NameToLayer(Connection.connectivityConnectorLayerName) &&
-                        collider.gameObject.layer != LayerMask.NameToLayer(Connection.connectivityReceptorLayerName) &&
-                        (!collider.gameObject.CompareTag("Player") || m_ScopedBricks.Contains(collider.GetComponentInParent<Brick>())) &&
+                        !collider.GetComponent<MinifigController>() &&
+                        m_ConnectedBricks.Contains(collider.GetComponentInParent<Brick>()) &&
                         !collider.GetComponent<LEGOBehaviourCollider>())
                     {
                         collisions = true;
@@ -82,17 +93,12 @@ namespace Unity.LEGO.Behaviours
                     }
                 }
 
+                // Play launch particle effect when projectile is no longer colliding with anything.
                 if (!collisions)
                 {
-                    m_Collider.enabled = true;
+                    m_ParticleSystem.Play();
+                    m_Launched = true;
                 }
-            }
-
-            // Play launch particle effect when projectile is no longer colliding with anything.
-            if (!m_Launched && m_Collider.enabled)
-            {
-                m_ParticleSystem.Play();
-                m_Launched = true;
             }
 
             if (Deadly)
@@ -135,8 +141,16 @@ namespace Unity.LEGO.Behaviours
 
             // Turn on gravity and make non-deadly.
             m_RigidBody.useGravity = true;
-
             Deadly = false;
+
+            // Re-establish all collisions with ignored colliders.
+            foreach (var collider in m_IgnoredColliders)
+            {
+                if (collider)
+                {
+                    Physics.IgnoreCollision(m_Collider, collider, false);
+                }
+            }
         }
     }
 }

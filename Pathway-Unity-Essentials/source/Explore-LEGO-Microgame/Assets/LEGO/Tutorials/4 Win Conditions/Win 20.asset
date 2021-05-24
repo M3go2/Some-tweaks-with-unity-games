@@ -55,7 +55,7 @@ MonoBehaviour:
           m_ViewType:
             m_TypeName: 
           m_EditorWindowType:
-            m_TypeName: UnityEditor.ProjectBrowser, UnityEditor, Version=0.0.0.0,
+            m_TypeName: UnityEditor.ProjectBrowser, UnityEditor.CoreModule, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
@@ -66,8 +66,8 @@ MonoBehaviour:
           m_ViewType:
             m_TypeName: 
           m_EditorWindowType:
-            m_TypeName: UnityEditor.SceneView, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.SceneView, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
           m_MaskType: 0
@@ -98,8 +98,8 @@ MonoBehaviour:
       Title:
         m_Untranslated: Add a Pickup Trigger
       Text:
-        m_Untranslated: "Select the yellow <b>Pickup Trigger</b> and drag it into
-          the Scene view."
+        m_Untranslated: Select the yellow <b>Pickup Trigger</b> and drag it into
+          the Scene view.
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -148,6 +148,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 743fc35f8da11d34ca3ef73a7c5ccdaa, type: 2}
+        m_TargetAssemblyTypeName: 
         m_MethodName: PingFolderOrAsset
         m_Mode: 5
         m_Arguments:
@@ -165,6 +166,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 31338fd9a07036246bc9cc31f5b52517, type: 2}
+        m_TargetAssemblyTypeName: 
         m_MethodName: RestoreTouchTriggerIfMissing
         m_Mode: 1
         m_Arguments:

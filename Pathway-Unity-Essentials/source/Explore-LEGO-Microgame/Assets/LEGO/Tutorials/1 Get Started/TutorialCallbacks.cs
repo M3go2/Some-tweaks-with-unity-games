@@ -61,23 +61,17 @@ namespace Unity.LEGO.Tutorials
 
         public void EnableBrickBuildingTool()
         {
-            bool brickBuildingActive = SceneBrickBuilder.GetToggleBrickBuildingStatus();
-            if (brickBuildingActive) { return; }
-            SceneBrickBuilder.ToggleBrickBuilding();
+            ToolsSettings.IsBrickBuildingOn = true;
         }
 
         public void DisableBrickBuildingTool()
         {
-            bool brickBuildingActive = SceneBrickBuilder.GetToggleBrickBuildingStatus();
-            if (!brickBuildingActive) { return; }
-            SceneBrickBuilder.ToggleBrickBuilding();
+            ToolsSettings.IsBrickBuildingOn = false;
         }
 
         public void EnableSingleBrickSelectionTool()
         {
-            bool singleBrickSelectionIsEnabled = !SceneBrickBuilder.GetSelectConnectedBricks();
-            if (singleBrickSelectionIsEnabled) { return; }
-            SceneBrickBuilder.ToggleSelectConnectedBricks();
+            ToolsSettings.SelectConnected = false;
         }
 
         public void PingFolderOrAsset(string folderPath)

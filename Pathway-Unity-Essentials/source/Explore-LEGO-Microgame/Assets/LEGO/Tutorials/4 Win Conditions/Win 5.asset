@@ -40,10 +40,10 @@ MonoBehaviour:
         m_Untranslated: Change the win conditions
       Text:
         m_Untranslated: "In this tutorial, you\u2019ll explore an important aspect
-          of game design: win conditions. If the player achieves the win conditions,
+          of game design: <b>win conditions</b>. If the player achieves the win conditions,
           they win the game!\n\nRight now, the player will win if they reach the
-          game goal platform, which is too simple. Let\u2019s improve the win conditions
-          and make the player experience more interesting!"
+          game goal platform, which is too simple. \n\nLet\u2019s improve the win
+          conditions and make the player experience more interesting!"
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -109,6 +109,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 743fc35f8da11d34ca3ef73a7c5ccdaa, type: 2}
+        m_TargetAssemblyTypeName: Unity.LEGO.Tutorials.TutorialCallbacks, Unity.LEGO.Tutorials
         m_MethodName: SelectMoveTool
         m_Mode: 1
         m_Arguments:

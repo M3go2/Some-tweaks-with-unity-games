@@ -75,7 +75,7 @@ namespace Unity.LEGO.Behaviours.Actions
             }
         }
 
-        protected void PlayAudio(bool loop = false, bool spatial = true, bool moveWithScope = true, bool scopeDeterminesDistance = true, bool destroyWithAction = true)
+        protected AudioSource PlayAudio(bool loop = false, bool spatial = true, bool moveWithScope = true, bool scopeDeterminesDistance = true, bool destroyWithAction = true, float pitch = 1.0f)
         {
             if (m_Audio)
             {
@@ -91,6 +91,7 @@ namespace Unity.LEGO.Behaviours.Actions
                 AudioSource audioSource = go.AddComponent<AudioSource>();
                 audioSource.clip = m_Audio;
                 audioSource.loop = loop;
+                audioSource.pitch = pitch;
                 audioSource.volume = m_AudioVolume;
                 audioSource.dopplerLevel = 0.0f;
                 if (spatial)
@@ -113,13 +114,19 @@ namespace Unity.LEGO.Behaviours.Actions
                 // Destroy game object when audio source is done playing.
                 if (!loop)
                 {
-                    StartCoroutine(DoDestroyAudio(audioSource));
+                    LEGOBehaviourCoroutineManager.StartCoroutine(this, "Audio", DoDestroyAudio(audioSource));
                 }
 
                 if (destroyWithAction)
                 {
                     m_AudioSourcesToDestroy.Add(audioSource);
                 }
+
+                return audioSource;
+            }
+            else
+            {
+                return null;
             }
         }
 

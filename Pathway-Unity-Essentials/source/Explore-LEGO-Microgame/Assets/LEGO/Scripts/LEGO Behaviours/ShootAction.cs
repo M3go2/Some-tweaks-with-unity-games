@@ -1,3 +1,5 @@
+using LEGOModelImporter;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Unity.LEGO.Behaviours.Actions
@@ -22,6 +24,8 @@ namespace Unity.LEGO.Behaviours.Actions
         float m_Time;
         bool m_HasFired;
 
+        HashSet<Brick> m_ConnectedBricks;
+
         protected override void Reset()
         {
             base.Reset();
@@ -36,6 +40,16 @@ namespace Unity.LEGO.Behaviours.Actions
 
             m_Lifetime = Mathf.Max(1.0f, m_Lifetime);
             m_Pause = Mathf.Max(0.25f, m_Pause);
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+
+            if (IsPlacedOnBrick())
+            {
+                m_ConnectedBricks = m_Brick.GetConnectedBricks();
+            }
         }
 
         protected void Update()
@@ -74,7 +88,7 @@ namespace Unity.LEGO.Behaviours.Actions
                 var projectile = go.GetComponent<Projectile>();
                 if (projectile)
                 {
-                    projectile.Init(m_ScopedBricks, m_Velocity, m_UseGravity, m_Lifetime);
+                    projectile.Init(m_ConnectedBricks, m_Velocity, m_UseGravity, m_Lifetime);
                 }
 
                 PlayAudio();

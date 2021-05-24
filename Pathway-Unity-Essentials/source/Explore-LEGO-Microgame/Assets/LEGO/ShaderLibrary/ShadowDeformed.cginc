@@ -143,11 +143,17 @@ void vertShadowCaster (VertexInput v
         UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(os);
     #endif
 
-    // Do custom computation of position and normal. Replaces TRANSFER_SHADOW_CASTER_NOPOS_LEGACY(o, opos) in the !SHADOWS_CUBE, !UNITY_MIGHT_NOT_HAVE_DEPTH_TEXTURE variant.
+    // Do custom computation of position and normal. Replaces TRANSFER_SHADOW_CASTER_NOPOS_LEGACY(o, opos).
     float4x4 deformMatrix = float4x4(_DeformMatrix1, _DeformMatrix2, _DeformMatrix3, float4(0,0,0,1));
-    opos = mul(UNITY_MATRIX_VP, mul(deformMatrix, mul(UNITY_MATRIX_M, v.vertex)));
-    opos = UnityApplyLinearShadowBias(opos);
-    
+    #if defined(SHADOWS_CUBE) && !defined(SHADOWS_CUBE_IN_DEPTH_TEX)
+        float4 wpos = mul(deformMatrix, mul(UNITY_MATRIX_M, v.vertex));
+        opos = mul(UNITY_MATRIX_VP, wpos);
+        o.vec = wpos.xyz - _LightPositionRange.xyz;
+    #else
+        opos = mul(UNITY_MATRIX_VP, mul(deformMatrix, mul(UNITY_MATRIX_M, v.vertex)));
+        opos = UnityApplyLinearShadowBias(opos);
+    #endif
+
     #if defined(UNITY_STANDARD_USE_SHADOW_UVS)
         o.tex = TRANSFORM_TEX(v.uv0, _MainTex);
 

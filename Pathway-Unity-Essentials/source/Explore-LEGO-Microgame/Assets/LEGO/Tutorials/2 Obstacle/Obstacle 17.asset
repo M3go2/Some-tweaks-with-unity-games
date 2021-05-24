@@ -37,11 +37,11 @@ MonoBehaviour:
         m_UnmaskedViews:
         - m_SelectorType: 0
           m_ViewType:
-            m_TypeName: UnityEditor.Toolbar, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.Toolbar, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_EditorWindowType:
-            m_TypeName: UnityEditor.SceneView, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.SceneView, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
           m_MaskType: 0
@@ -71,9 +71,8 @@ MonoBehaviour:
       Title:
         m_Untranslated: Select the Move Tool
       Text:
-        m_Untranslated: "Next, line up the platform to the right height in the gap
-          between islands. If it\u2019s too low, the player won\u2019t be able to
-          reach the landing platform."
+        m_Untranslated: Next, line up the new platform between the other platforms.
+          Try to position it so that the player has the least distance to jump.
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -92,10 +91,10 @@ MonoBehaviour:
         m_UnmaskedViews: []
     - m_Type: 1
       Title:
-        m_Untranslated: Select the Move Tool
+        m_Untranslated: 
       Text:
-        m_Untranslated: In the toolbar, select the <b>Move Tool</b>. You can also
-          use the keyboard shortcut <b>W</b>.
+        m_Untranslated: In the toolbar, select the <b>Move Tool</b>, or use the shortcut
+          <b>W</b>.
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -144,6 +143,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 743fc35f8da11d34ca3ef73a7c5ccdaa, type: 2}
+        m_TargetAssemblyTypeName: Unity.LEGO.Tutorials.TutorialCallbacks, Unity.LEGO.Tutorials
         m_MethodName: DisableBrickBuildingTool
         m_Mode: 1
         m_Arguments:
@@ -155,6 +155,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 1
       - m_Target: {fileID: 11400000, guid: 743fc35f8da11d34ca3ef73a7c5ccdaa, type: 2}
+        m_TargetAssemblyTypeName: Unity.LEGO.Tutorials.TutorialCallbacks, Unity.LEGO.Tutorials
         m_MethodName: SelectRotateTool
         m_Mode: 1
         m_Arguments:

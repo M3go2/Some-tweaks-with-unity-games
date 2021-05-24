@@ -32,7 +32,7 @@ namespace Unity.LEGO.Tutorials
 
         public bool IsBrickBuildingEnabled()
         {
-            return SceneBrickBuilder.GetToggleBrickBuildingStatus();
+            return ToolsSettings.IsBrickBuildingOn;
         }
 
         public bool IsAnyElevatorConnected()
@@ -179,7 +179,7 @@ namespace Unity.LEGO.Tutorials
 
         public bool SelectedObjectIsNotBeingMoved()
         {
-            return SceneBrickBuilder.CurrentSelectionState != SceneBrickBuilder.SelectionState.moving;
+            return SceneBrickBuilder.CurrentSelectionState != SceneBrickBuilder.SelectionState.Moving;
         }
     }
 }

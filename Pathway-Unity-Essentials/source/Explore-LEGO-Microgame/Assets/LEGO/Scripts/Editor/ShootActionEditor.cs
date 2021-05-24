@@ -40,7 +40,12 @@ namespace Unity.LEGO.EditorExt
             EditorGUILayout.PropertyField(m_LifetimeProp);
             EditorGUILayout.PropertyField(m_PauseProp);
             EditorGUILayout.PropertyField(m_UseGravityProp);
+
+            EditorGUI.BeginDisabledGroup(EditorApplication.isPlaying);
+
             EditorGUILayout.PropertyField(m_RepeatProp);
+
+            EditorGUI.EndDisabledGroup();
         }
 
         public override void OnSceneGUI()

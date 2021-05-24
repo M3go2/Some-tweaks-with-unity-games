@@ -95,7 +95,7 @@ MonoBehaviour:
           m_ViewType:
             m_TypeName: 
           m_EditorWindowType:
-            m_TypeName: UnityEditor.InspectorWindow, UnityEditor, Version=0.0.0.0,
+            m_TypeName: UnityEditor.InspectorWindow, UnityEditor.CoreModule, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
@@ -156,12 +156,12 @@ MonoBehaviour:
 
 
           <b>4.</b>
-          Set the <b>Size</b> to <b>1</b>.
+          Under Specific Actions, select the plus sign <b>(+)</b> to add an action.
 
 
-          <b>5.</b> Select the <b>Select
-          Action</b> button and choose <b>Fence Explode</b> in the Action Picker
-          window.'
+          <b>5.</b>
+          Select the <b>Select Action</b> button and choose <b>Fence Explode</b>
+          in the Action Picker window.'
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 

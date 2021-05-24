@@ -1,4 +1,4 @@
-﻿using LEGOModelImporter;
+using LEGOModelImporter;
 using UnityEngine;
 using Unity.LEGO.Behaviours;
 using Unity.LEGO.Utilities;
@@ -7,10 +7,9 @@ using System.Linq;
 
 namespace Unity.LEGO.Behaviours
 {
-
     public class BrickMeshCombiner : MonoBehaviour
     {
-        void Start()
+        void Awake()
         {
             var bricks = FindObjectsOfType<Brick>();
 

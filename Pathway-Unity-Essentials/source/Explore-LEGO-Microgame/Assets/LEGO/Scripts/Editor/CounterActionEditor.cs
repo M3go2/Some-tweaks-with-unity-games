@@ -50,9 +50,10 @@ namespace Unity.LEGO.EditorExt
                 EditorGUI.EndDisabledGroup();
 
                 EditorGUILayout.PropertyField(m_PauseProp);
-                EditorGUILayout.PropertyField(m_RepeatProp);
 
                 EditorGUI.BeginDisabledGroup(EditorApplication.isPlaying);
+
+                EditorGUILayout.PropertyField(m_RepeatProp);
 
                 DrawSeparator();
                 EditorGUILayout.LabelField("Variable Settings", EditorStyles.boldLabel);

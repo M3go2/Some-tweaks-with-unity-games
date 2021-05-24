@@ -45,7 +45,7 @@ namespace Unity.LEGO.Behaviours
                     // Combine all colliders in part into one box collider.
                     foreach (var part in brick.parts)
                     {
-                        if (part.colliders.Count > 0)
+                        if (part.colliders.colliders.Count > 0)
                         {
                             var collidersParent = part.transform.Find("Colliders");
 
@@ -104,10 +104,10 @@ namespace Unity.LEGO.Behaviours
                             combinedCollider.center = (min + max) * 0.5f;
                             combinedCollider.size = max - min;
 
-                            s_OriginalColliders[part] = part.colliders;
+                            s_OriginalColliders[part] = part.colliders.colliders;
 
-                            part.colliders = new List<Collider>();
-                            part.colliders.Add(combinedCollider);
+                            part.colliders.colliders = new List<Collider>();
+                            part.colliders.colliders.Add(combinedCollider);
                         }
                     }
                 }
@@ -123,7 +123,7 @@ namespace Unity.LEGO.Behaviours
                     Destroy(collider.gameObject);
                 }
 
-                part.colliders = s_OriginalColliders[part];
+                part.colliders.colliders = s_OriginalColliders[part];
 
                 foreach (var collider in part.colliders)
                 {

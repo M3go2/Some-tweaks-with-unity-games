@@ -50,7 +50,7 @@ MonoBehaviour:
           m_ViewType:
             m_TypeName: 
           m_EditorWindowType:
-            m_TypeName: UnityEditor.ProjectBrowser, UnityEditor, Version=0.0.0.0,
+            m_TypeName: UnityEditor.ProjectBrowser, UnityEditor.CoreModule, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
@@ -67,8 +67,8 @@ MonoBehaviour:
           href=\"https://learn.unity.com/project/lego-template\">LEGO\xAE Microgame
           Creative Mods!</a>\n\n<b>Note:</b> This link will open the Unity Learn
           website in your default browser.\n\nYou can also explore the Playground
-          Scene and experiment there.\n\nIn the next and final tutorial, you can
-          create a build of your game and publish it."
+          Scene and experiment there.\n\nIn the next and final tutorial, you'll learn
+          how to build and publish your project on a shareable webpage!"
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -156,6 +156,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 743fc35f8da11d34ca3ef73a7c5ccdaa, type: 2}
+        m_TargetAssemblyTypeName: Unity.LEGO.Tutorials.TutorialCallbacks, Unity.LEGO.Tutorials
         m_MethodName: PingFolderOrAsset
         m_Mode: 5
         m_Arguments:

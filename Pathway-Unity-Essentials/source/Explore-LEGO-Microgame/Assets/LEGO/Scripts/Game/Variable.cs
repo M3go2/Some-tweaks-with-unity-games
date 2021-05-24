@@ -9,7 +9,7 @@ namespace Unity.LEGO.Game
         public string Name = "Variable";
         public int InitialValue;
         public bool UseUI = true;
-        public GameObject UIPrefab;
+        public GameObject UI;
 
         public Action<int> OnUpdate;
     }

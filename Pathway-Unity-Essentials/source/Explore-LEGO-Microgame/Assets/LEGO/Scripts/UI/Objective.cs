@@ -64,6 +64,8 @@ namespace Unity.LEGO.UI
             if (objective.IsCompleted)
             {
                 m_CompleteIcon.gameObject.SetActive(true);
+
+                objective.OnProgress -= OnProgress;
             }
         }
 

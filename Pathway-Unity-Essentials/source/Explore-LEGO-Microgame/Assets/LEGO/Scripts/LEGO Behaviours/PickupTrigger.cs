@@ -54,7 +54,9 @@ namespace Unity.LEGO.Behaviours.Triggers
 
             if (IsPlacedOnBrick())
             {
-                // Find relevant Pickup Actions.
+                PickupAction.OnCollected += PickupCollected;
+
+                // Find relevant Pickup Actions and register for notifications when new Pickup Actions are added.
                 if (m_Mode == Mode.SpecificPickups)
                 {
                     m_PickupActions.AddRange(m_SpecificModePickupActions);
@@ -62,15 +64,15 @@ namespace Unity.LEGO.Behaviours.Triggers
                 else
                 {
                     m_PickupActions.AddRange(FindObjectsOfType<PickupAction>());
+                    PickupAction.OnAdded += PickupAdded;
                 }
 
                 // Set up listener and count number of valid Pickup Actions.
                 var validPickupActions = 0;
                 foreach (var pickupAction in m_PickupActions)
                 {
-                    if (pickupAction)
+                    if (pickupAction && pickupAction.enabled)
                     {
-                        pickupAction.OnCollected += PickupCollected;
                         validPickupActions++;
                     }
                 }
@@ -91,7 +93,7 @@ namespace Unity.LEGO.Behaviours.Triggers
         {
             if (m_PreviousProgress != Progress)
             {
-                if (Progress <  Goal)
+                if (Progress < Goal)
                 {
                     OnProgress?.Invoke();
                 }
@@ -99,27 +101,39 @@ namespace Unity.LEGO.Behaviours.Triggers
                 m_PreviousProgress = Progress;
             }
 
-            if (Progress >=  Goal)
+            if (Progress >= Goal)
             {
                 ConditionMet();
             }
         }
 
+        void PickupAdded(PickupAction pickup)
+        {
+            if (!m_PickupActions.Contains(pickup))
+            {
+                m_PickupActions.Add(pickup);
+
+                if (m_Mode == Mode.AllPickups)
+                {
+                    Goal++;
+                }
+
+                OnProgress?.Invoke();
+            }
+        }
+
         void PickupCollected(PickupAction pickup)
         {
-            Progress++;
-            pickup.OnCollected -= PickupCollected;
+            if (m_PickupActions.Contains(pickup))
+            {
+                Progress++;
+            }
         }
 
         void OnDestroy()
         {
-            foreach (var pickup in m_PickupActions)
-            {
-                if (pickup)
-                {
-                    pickup.OnCollected -= PickupCollected;
-                }
-            }
+            PickupAction.OnAdded -= PickupAdded;
+            PickupAction.OnCollected -= PickupCollected;
         }
     }
 }

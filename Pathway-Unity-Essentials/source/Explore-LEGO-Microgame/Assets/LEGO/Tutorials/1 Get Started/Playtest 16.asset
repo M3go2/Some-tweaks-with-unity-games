@@ -65,8 +65,8 @@ MonoBehaviour:
         m_UnmaskedViews:
         - m_SelectorType: 1
           m_ViewType:
-            m_TypeName: UnityEditor.Toolbar, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.Toolbar, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_EditorWindowType:
             m_TypeName: Unity.InteractiveTutorials.TutorialWindow, Unity.InteractiveTutorials.Core,
               Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -77,10 +77,10 @@ MonoBehaviour:
           m_UnmaskedControls: []
         - m_SelectorType: 1
           m_ViewType:
-            m_TypeName: UnityEditor.Toolbar, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.Toolbar, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_EditorWindowType:
-            m_TypeName: UnityEditor.AssetSaveDialog, UnityEditor, Version=0.0.0.0,
+            m_TypeName: UnityEditor.AssetSaveDialog, UnityEditor.CoreModule, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
@@ -113,8 +113,8 @@ MonoBehaviour:
       Title:
         m_Untranslated: 
       Text:
-        m_Untranslated: In the top menu, to go <b>File</b> > <b>Save</b>. You can
-          also use the shortcut <b>Ctrl</b> / <b>Cmd</b> + <b>S</b>.
+        m_Untranslated: In the top menu, go to <b>File</b> > <b>Save</b>, or use
+          the shortcut <b>Ctrl</b> / <b>Cmd</b> + <b>S</b>.
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -163,6 +163,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 81dad504f100a4f45ae99dffb2536515, type: 2}
+        m_TargetAssemblyTypeName: Unity.LEGO.Tutorials.SaveSceneCriteria, Unity.LEGO.Tutorials
         m_MethodName: ResetSceneSavedStatus
         m_Mode: 1
         m_Arguments:

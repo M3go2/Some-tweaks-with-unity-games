@@ -51,15 +51,18 @@ namespace Unity.LEGO.Behaviours.Actions
 
             if (IsPlacedOnBrick())
             {
-                // Change the shader of all scoped part renderers.
-                foreach(var partRenderer in m_scopedPartRenderers)
+                // Change the shader of all scoped part renderers if not already changed.
+                foreach(var partRenderer in m_ScopedPartRenderers)
                 {
-                    m_OriginalShaders.Add(partRenderer.sharedMaterial.shader);
+                    if (partRenderer.sharedMaterial.shader.name != "Deformed")
+                    {
+                        m_OriginalShaders.Add(partRenderer.sharedMaterial.shader);
 
-                    // The renderQueue value is reset when changing the shader, so transfer it.
-                    var renderQueue = partRenderer.material.renderQueue;
-                    partRenderer.material.shader = Shader.Find("Deformed");
-                    partRenderer.material.renderQueue = renderQueue;
+                        // The renderQueue value is reset when changing the shader, so transfer it.
+                        var renderQueue = partRenderer.material.renderQueue;
+                        partRenderer.material.shader = Shader.Find("Deformed");
+                        partRenderer.material.renderQueue = renderQueue;
+                    }
 
                     m_Materials.Add(partRenderer.material);
                 }
@@ -137,17 +140,17 @@ namespace Unity.LEGO.Behaviours.Actions
             base.OnDestroy();
 
             // Check if the original materials have been stored for all scoped part renderers.
-            if (m_scopedPartRenderers.Count > m_OriginalShaders.Count)
+            if (m_ScopedPartRenderers.Count > m_OriginalShaders.Count)
             {
                 return;
             }
 
             // Change the material back to original for all scoped part renderers.
-            for (var i = 0; i < m_scopedPartRenderers.Count; ++i)
+            for (var i = 0; i < m_ScopedPartRenderers.Count; ++i)
             {
-                if (m_scopedPartRenderers[i])
+                if (m_ScopedPartRenderers[i])
                 {
-                    var partRenderer = m_scopedPartRenderers[i];
+                    var partRenderer = m_ScopedPartRenderers[i];
                     // The renderQueue value is reset when changing the shader, so transfer it.
                     var renderQueue = partRenderer.material.renderQueue;
                     partRenderer.material.shader = m_OriginalShaders[i];

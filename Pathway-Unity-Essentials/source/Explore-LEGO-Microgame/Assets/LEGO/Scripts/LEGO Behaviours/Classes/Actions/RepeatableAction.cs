@@ -4,7 +4,7 @@ namespace Unity.LEGO.Behaviours.Actions
 {
     public abstract class RepeatableAction : Action
     {
-        [SerializeField, Tooltip("The pause in seconds between each movement.")]
+        [SerializeField, Tooltip("The pause in seconds between each repetition.")]
         protected float m_Pause = 1.0f;
 
         [SerializeField, Tooltip("Repeat this Behaviour continuously.")]

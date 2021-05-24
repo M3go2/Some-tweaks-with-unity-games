@@ -78,12 +78,11 @@ MonoBehaviour:
       Title:
         m_Untranslated: Publish your game
       Text:
-        m_Untranslated: 'Now that your build is ready, you can publish it using the
-          WebGL Publisher!
+        m_Untranslated: 'Now that your build is ready, you can publish it on Unity
+          Play!
 
 
-          <b>Note:</b> This step could take up to 30
-          minutes.'
+          <b>Note:</b> This step could take up to 30 minutes.'
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -104,7 +103,7 @@ MonoBehaviour:
       Title:
         m_Untranslated: 
       Text:
-        m_Untranslated: Select <b>Publish</b> to upload your build on Unity Play.
+        m_Untranslated: Select <b>Publish</b> to publish your build on Unity Play.
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 

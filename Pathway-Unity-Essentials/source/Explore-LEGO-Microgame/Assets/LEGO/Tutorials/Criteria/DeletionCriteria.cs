@@ -50,15 +50,14 @@ namespace Unity.LEGO.Tutorials
             var brick = triggerCopy.GetComponent<Brick>();
             foreach (var part in brick.parts)
             {
-                foreach (var field in part.connectivity.connectionFields)
+                foreach (var field in part.connectivity.planarFields)
                 {
                     var query = field.QueryConnections(out _);
                     foreach (var (connection, otherConnection) in query)
                     {
-                        var position = connection.field.GetPosition(connection);
-                        if (ConnectionField.IsConnectionValid(connection, otherConnection, position))
+                        if (connection.IsConnectionValid(otherConnection))
                         {
-                            var connections = ConnectionField.Connect(connection, otherConnection, position);
+                            var connections = BrickBuildingUtility.Connect(connection, otherConnection);
                             if (connections.Count > 0)
                             {
                                 break;
@@ -130,7 +129,7 @@ namespace Unity.LEGO.Tutorials
             var brick = triggerCopy.GetComponent<Brick>();
             foreach (var part in brick.parts)
             {
-                foreach (var field in part.connectivity.connectionFields)
+                foreach (var field in part.connectivity.planarFields)
                 {
                     field.connected.Clear();
                     for (var i = 0; i < field.connections.Length; i++)

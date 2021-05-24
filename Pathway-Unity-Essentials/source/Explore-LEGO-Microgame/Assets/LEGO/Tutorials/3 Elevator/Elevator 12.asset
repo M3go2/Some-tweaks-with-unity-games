@@ -39,8 +39,8 @@ MonoBehaviour:
           m_ViewType:
             m_TypeName: 
           m_EditorWindowType:
-            m_TypeName: UnityEditor.SceneView, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.SceneView, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
           m_MaskType: 0
@@ -48,18 +48,18 @@ MonoBehaviour:
           m_UnmaskedControls: []
     - m_Type: 0
       Title:
-        m_Untranslated: "Enable Brick Building"
+        m_Untranslated: Enable Brick Building
       Text:
         m_Untranslated: "Before building with Behaviour Bricks, you need to enable
-          <b>Brick Connecting</b> so you can click them into place.\n\nYou can
-          enable Brick Connecting in the LEGO\xAE Tools at the top left of the Scene
+          <b>Brick Connecting</b> so you can click them into place.\n\nYou can enable
+          Brick Connecting in the <b>LEGO\xAE Tools</b> at the top left of the Scene
           view:\n\n\u2192 The <b>Brick Building</b> button (left) enables and disables
-          the connecting functionality. Shortcut: <b>Ctrl</b> + <b>Alt</b> + <b>N</b>
-          (Windows) or <b>Cmd</b> + <b>Opt</b> + <b>N</b> (macOS) . \n\n\u2192
+          the connecting functionality. \n\nShortcut: <b>Ctrl</b> + <b>Alt</b> +
+          <b>N</b> (Windows) or <b>Cmd</b> + <b>Opt</b> + <b>N</b> (macOS).\n\n\u2192
           The <b>Brick Selection</b> button (right) sets whether you can currently
           move and connect single bricks (Single Brick Selection) or groups of bricks
-          (Connected Brick Selection). Shortcut: <b>Ctrl</b> + <b>Alt</b> + <b>K</b>
-          (Windows) or <b>Cmd</b> + <b>Opt</b> + <b>K</b> (macOS) . "
+          (Connected Brick Selection). \n\nShortcut: <b>Ctrl</b> + <b>Alt</b> + <b>K</b>
+          (Windows) or <b>Cmd</b> + <b>Opt</b> + <b>K</b> (macOS)."
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -80,8 +80,8 @@ MonoBehaviour:
       Title:
         m_Untranslated: 
       Text:
-        m_Untranslated: Select the Brick Building button (left) so that it turns
-          red.
+        m_Untranslated: Select the <b>Brick Building button</b> (left) so that it
+          turns red.
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 

@@ -72,7 +72,7 @@ MonoBehaviour:
       Title:
         m_Untranslated: 
       Text:
-        m_Untranslated: When you're ready, select <b>Get Started</b> in the window.
+        m_Untranslated: In the <b>WebGL Publisher</b> window, click <b>Get Started</b>.
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 

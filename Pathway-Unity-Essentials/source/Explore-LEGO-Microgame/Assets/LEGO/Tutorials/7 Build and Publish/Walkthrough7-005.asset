@@ -50,13 +50,13 @@ MonoBehaviour:
       Title:
         m_Untranslated: Build and publish
       Text:
-        m_Untranslated: "Before you publish your game, make it your own by trying
-          some of the LEGO\xAE <a href=\"https://learn.unity.com/project/lego-template\">Creative
+        m_Untranslated: "Before you publish your game, discover more ways to customize
+          it with the LEGO\xAE<a href=\"https://learn.unity.com/project/lego-template\">Creative
           Mods</a>.\n\nWhen you\u2019re ready, this tutorial will guide you through
-          building and publishing your game on a dedicated webpage that you can share
-          with friends!\n\n<b>Notes:</b>\n\n\u2022 The Creative Mods link above
-          will open the Unity Learn website in your default browser.\n\n\u2022 Please
-          keep in mind that building this Unity project can take some time."
+          building and publishing your game on a webpage that you can share with
+          friends!\n\n<b>Notes:</b>\n\n\u2022 The Creative Mods link above will open
+          the Unity Learn website in your default browser.\n\n\u2022 Please keep
+          in mind that building this Unity project can take some time."
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 

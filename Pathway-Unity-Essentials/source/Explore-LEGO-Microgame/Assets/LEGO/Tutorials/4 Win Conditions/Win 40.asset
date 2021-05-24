@@ -50,11 +50,11 @@ MonoBehaviour:
         m_UnmaskedViews:
         - m_SelectorType: 1
           m_ViewType:
-            m_TypeName: UnityEditor.Toolbar, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.Toolbar, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_EditorWindowType:
-            m_TypeName: UnityEditor.GameView, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.GameView, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
           m_MaskType: 0
@@ -82,8 +82,8 @@ MonoBehaviour:
               m_FutureObjectReference: {fileID: 0}
         - m_SelectorType: 0
           m_ViewType:
-            m_TypeName: UnityEditor.Toolbar, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.Toolbar, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_EditorWindowType:
             m_TypeName: 
           m_AlternateEditorWindowTypes:
@@ -116,11 +116,12 @@ MonoBehaviour:
         m_Untranslated: Test your changes
       Text:
         m_Untranslated: "Now when the game loads, the written instructions are to
-          \"Collect all the pickups\" rather than \"Explore the level\". You won\u2019t
-          meet the win conditions until you collect all the crystals!\n\nGo deeper:\n\n\u2022
-          The crystals in this level all have Pickup action bricks attached to them
-          \u2014 that\u2019s why you can collect them as you play the game.\n\n\u2022
-          Each time you collect a crystal, the counter in the top left will increase."
+          \"Collect all the pickups\" rather than \"Explore the level\". \n\nYou
+          won\u2019t meet the win conditions until you collect all the crystals!\n\nGo
+          deeper:\n\n\u2022 The crystals in this level all have Pickup action bricks
+          attached to them \u2014 that\u2019s why you can collect them as you play
+          the game.\n\n\u2022 Each time you collect a crystal, the counter in the
+          top left of the Game view will increase."
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -141,8 +142,8 @@ MonoBehaviour:
       Title:
         m_Untranslated: 
       Text:
-        m_Untranslated: "When you\u2019ve finished testing, select <b>Play</b> again
-          to exit Play Mode."
+        m_Untranslated: After you finish testing, select <b>Play</b> again to exit
+          Play Mode.
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 

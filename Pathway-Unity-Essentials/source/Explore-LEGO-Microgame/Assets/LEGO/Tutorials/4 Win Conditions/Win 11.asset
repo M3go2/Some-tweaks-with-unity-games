@@ -62,8 +62,8 @@ MonoBehaviour:
           m_ViewType:
             m_TypeName: 
           m_EditorWindowType:
-            m_TypeName: UnityEditor.SceneView, UnityEditor, Version=0.0.0.0, Culture=neutral,
-              PublicKeyToken=null
+            m_TypeName: UnityEditor.SceneView, UnityEditor.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
           m_AlternateEditorWindowTypes:
             m_Items: []
           m_MaskType: 0
@@ -147,6 +147,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 31338fd9a07036246bc9cc31f5b52517, type: 2}
+        m_TargetAssemblyTypeName: Unity.LEGO.Tutorials.DeletionCriteria, Unity.LEGO.Tutorials
         m_MethodName: UpdateTouchTriggerCriteriaReference
         m_Mode: 1
         m_Arguments:

@@ -9,10 +9,11 @@ namespace Unity.LEGO.Behaviours {
         enum ControlType
         {
             Hovercraft,
-            Aircraft
+            Aircraft,
+            Character
         }
 
-        [SerializeField, Tooltip("Control like a hovercraft.\nor\nControl like an aircraft.")]
+        [SerializeField, Tooltip("Control like a hovercraft.\nor\nControl like an aircraft.\nor\nControl like a character.")]
         ControlType m_ControlType = ControlType.Hovercraft;
 
         public enum InputType
@@ -48,14 +49,6 @@ namespace Unity.LEGO.Behaviours {
 
         Vector3 m_TargetDirection;
 
-        protected override void Reset()
-        {
-            base.Reset();
-
-            m_Repeat = false;
-            m_IconPath = "Assets/LEGO/Gizmos/LEGO Behaviour Icons/Control Action.png";
-        }
-
         protected override void OnValidate()
         {
             base.OnValidate();
@@ -68,6 +61,14 @@ namespace Unity.LEGO.Behaviours {
             }
 
             m_IdleSpeed = Mathf.Clamp(m_IdleSpeed, minSpeed, m_MaxSpeed);
+        }
+
+        protected override void Reset()
+        {
+            base.Reset();
+
+            m_Repeat = false;
+            m_IconPath = "Assets/LEGO/Gizmos/LEGO Behaviour Icons/Control Action.png";
         }
 
         protected override void Start()
@@ -147,12 +148,12 @@ namespace Unity.LEGO.Behaviours {
                     if (velocity.sqrMagnitude > 0.0f)
                     {
                         // We have a collision but no penetration, so just use the normalized velocity as collision direction.
-                        m_ControlMovement.Collision(velocity.normalized);
+                        m_ControlMovement.Collision(-velocity.normalized);
                     }
                     else
                     {
                         // We have a collision but no penetration and no velocity, so just use the target direction as collision direction.
-                        m_ControlMovement.Collision(m_TargetDirection);
+                        m_ControlMovement.Collision(-m_TargetDirection);
                     }
                 }
             }
@@ -191,9 +192,13 @@ namespace Unity.LEGO.Behaviours {
                     m_CanMoveOnY = true;
                     m_IgnoreYAxis = false;
                     break;
+                case ControlType.Character:
+                    m_ControlMovement = gameObject.AddComponent<Character>();
+                    m_IgnoreYAxis = true;
+                    break;
             }
 
-            m_ControlMovement.Setup(m_Group, m_ScopedBricks, m_scopedPartRenderers, m_BrickPivotOffset, m_ScopedBounds, m_CameraAlignedRotation, m_CameraRelativeMovement);
+            m_ControlMovement.Setup(m_Group, m_ScopedBricks, m_ScopedPartRenderers, m_BrickPivotOffset, m_ScopedBounds, m_CameraAlignedRotation, m_CameraRelativeMovement);
         }
 
         void HandleInput()

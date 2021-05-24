@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Energy
   m_EditorClassIdentifier: 
   Name: Energy
-  InitialValue: 20
-  UseUI: 1
-  UIPrefab: {fileID: 8322339850511969721, guid: 71f6e633c437d3f49a7871f324f0bc12,
-    type: 3}
+  InitialValue: 10
+  UseUI: 0
+  UI: {fileID: 8322339850511969721, guid: 71f6e633c437d3f49a7871f324f0bc12, type: 3}
