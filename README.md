@@ -39,6 +39,12 @@ Projects, samples and templates created to learn game development with Unity.
 3. :o: [Learn Unity on YouTube](Learn-Unity-YouTube-Tutorials/)
 4. :construction: [Zenva GameDev Academy Unity Tutorials](Zenva-GameDev-Academy-Unity-Tutorials/)
 
+### 5. Learning Unity YouTube Tutorials
+
+- :file_folder: [Brackeys](Learn-Unity-YouTube-Tutorials/docs/Brackeys.md)
+- :file_folder: [Jason Weimann](Learn-Unity-YouTube-Tutorials/docs/Brackeys.md)
+- :file_folder: [Lost Relic Games](Learn-Unity-YouTube-Tutorials/docs/Brackeys.md)
+
 ## :page_with_curl: License
 
 The source code I created is free -- see the [LICENSE](LICENSE) file for details

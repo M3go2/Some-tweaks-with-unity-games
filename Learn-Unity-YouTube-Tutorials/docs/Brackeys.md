@@ -7,4 +7,4 @@
 
 ## :beginner: YouTube Videos
 
-WIP
+1. :o: Unity NavMesh Tutorial

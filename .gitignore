@@ -8,3 +8,5 @@ Adventure-Sample-Game/
 # VSCode workspace
 *.code-workspace
 .vscode
+
+/*.zip
