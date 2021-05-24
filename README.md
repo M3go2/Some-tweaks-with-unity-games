@@ -35,8 +35,6 @@ Projects, samples and templates created to learn game development with Unity.
 
 1. :o: [Pathway Unity Essentials](Pathway-Unity-Essentials/)
 2. :o: [Faster Level Design Iteration with ProBuilder and Polybrush](ProBuilderPolyBrushDemo/) | [Unite Now Tutorial](https://resources.unity.com/unitenow/onlinesessions/faster-level-design-iteration-with-probuilder-and-polybrush)
-3. :o: [Learn Unity on YouTube](Learn-Unity-YouTube-Tutorials/)
-4. :construction: [Zenva GameDev Academy Unity Tutorials](Zenva-GameDev-Academy-Unity-Tutorials/)
 
 ### 5. Learning Unity YouTube Tutorials
 
@@ -46,6 +44,7 @@ Projects, samples and templates created to learn game development with Unity.
 
 ### 6. Other Tutorials and Courses
 
+- :file_folder: [Zenva GameDev Academy Unity Tutorials](Zenva-GameDev-Academy-Unity-Tutorials/)
 - :file_folder: [Packtpub Unity Tutorials](Packtpub-Unity-Tutorials/)
 
 ## :page_with_curl: License
