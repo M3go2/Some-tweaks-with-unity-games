@@ -28,7 +28,6 @@ Projects, samples and templates created to learn game development with Unity.
 - :heavy_check_mark: [How to Make a 2D Game in Unity: Unity For Beginners Course](How-to-Make-a-2D-Game-in-Unity/) (BitDigree course)
 - :construction: Course on How to Make Video Games with Unity: Create 2D & 3D Games (BitDigree course)
 - :o: [Programming a Game with Unity: A Beginner's Guide](Programming-a-Game-with-Unity/) (TradePub free eBook)
-- :heavy_check_mark: [What you need to know about Unity 5](What-you-need-to-know-about-Unity/) (Packt Publishing free eBook)
 - :o: [Unity Game Development - Intro to Creating Particle Effects](Intro-to-Creating-Particle-Effects/) (Udemy course)
 - :o: [Game Hacking | Create a Game in 1 Hour](Game-Hacking-Create-a-Game-in-an-Hour/) (StackSkills course)
 
@@ -45,9 +44,13 @@ Projects, samples and templates created to learn game development with Unity.
 - :file_folder: [Jason Weimann](Learn-Unity-YouTube-Tutorials/docs/Brackeys.md)
 - :file_folder: [Lost Relic Games](Learn-Unity-YouTube-Tutorials/docs/Brackeys.md)
 
+### 6. Other Tutorials and Courses
+
+- :file_folder: [Packtpub Unity Tutorials](Packtpub-Unity-Tutorials/)
+
 ## :page_with_curl: License
 
-The source code I created is free -- see the [LICENSE](LICENSE) file for details
+The source code I created is free -- see the [LICENSE](UNLICENSE) file for details
 
 All game assets used in these tutorials (art, sound, music) was provided by the tutorial, and probably have their own end user license agreements.
 
