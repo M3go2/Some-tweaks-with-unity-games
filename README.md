@@ -44,8 +44,7 @@ Projects, samples and templates created to learn game development with Unity.
 
 ### 6. Other Tutorials and Courses
 
-- :file_folder: [Zenva GameDev Academy Unity Courses](Zenva-GameDev-Academy-Unity-Courses/)
-- :file_folder: [Zenva GameDev Academy Unity Tutorials](Zenva-GameDev-Academy-Unity-Tutorials/)
+- :file_folder: Zenva GameDev Academy: Unity [Courses](Zenva-GameDev-Academy-Unity-Courses/) and [Tutorials](Zenva-GameDev-Academy-Unity-Tutorials/)
 - :file_folder: [Packtpub Unity Tutorials](Packtpub-Unity-Tutorials/)
 
 ## :page_with_curl: License
