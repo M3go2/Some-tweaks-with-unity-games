@@ -8,8 +8,8 @@
 ## Online Courses
 
 1. :heavy_check_mark: [Unity 101 – Game Development Foundations](https://academy.zenva.com/course/unity-101-game-engine-foundations/)
-2. :o: [Intro to Game Development [2018]](https://academy.zenva.com/course/intro-to-game-development/)
-3. :o: [Intro to Game Development with Unity](https://academy.zenva.com/course/intro-to-unity-game-development/)
+2. :heavy_check_mark: [Intro to Game Development [2018]](https://academy.zenva.com/course/intro-to-game-development/)
+3. :heavy_check_mark: [Intro to Game Development with Unity](https://academy.zenva.com/course/intro-to-unity-game-development/)
 
 ## :memo: Version
 
