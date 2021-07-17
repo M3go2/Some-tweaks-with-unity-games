@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{ba07b121-d9cd-77e2-80f9-1d10b9523973}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ludiq.PeekCore.Runtime", "Ludiq.PeekCore.Runtime.csproj", "{6a640252-bee5-f74a-6538-4e8df2e0aca8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ludiq.PeekCore.Editor", "Ludiq.PeekCore.Editor.csproj", "{dad59576-49df-7dcc-0609-da0b6da8bd66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ludiq.Peek.Editor", "Ludiq.Peek.Editor.csproj", "{a80bd84e-f5a6-224a-65a5-82547e655ce3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{da197612-c294-eb61-bf71-f327694fa62b}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ba07b121-d9cd-77e2-80f9-1d10b9523973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ba07b121-d9cd-77e2-80f9-1d10b9523973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6a640252-bee5-f74a-6538-4e8df2e0aca8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6a640252-bee5-f74a-6538-4e8df2e0aca8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{dad59576-49df-7dcc-0609-da0b6da8bd66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{dad59576-49df-7dcc-0609-da0b6da8bd66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{a80bd84e-f5a6-224a-65a5-82547e655ce3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{a80bd84e-f5a6-224a-65a5-82547e655ce3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{da197612-c294-eb61-bf71-f327694fa62b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{da197612-c294-eb61-bf71-f327694fa62b}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

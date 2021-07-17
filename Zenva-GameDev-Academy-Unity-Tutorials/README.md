@@ -5,7 +5,7 @@
 :heavy_check_mark: Completed  
 :o: Incomplete
 
-## Tutorials
+## :beginner: Tutorials
 
 1. :heavy_check_mark: [How to Use Materials in Unity](https://gamedevacademy.org/how-to-use-materials-in-unity/)
 

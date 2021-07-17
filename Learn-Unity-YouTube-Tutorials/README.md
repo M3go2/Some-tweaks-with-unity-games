@@ -8,7 +8,7 @@ Learning Unity through YouTube video tutorials
 
 ## :memo: Version
 
-This projects was created with Unity 2019.4.20f1
+This projects was created with Unity 2019.4.28f1
 
 ## :page_with_curl: License
 

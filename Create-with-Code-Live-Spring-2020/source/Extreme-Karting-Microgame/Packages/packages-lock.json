@@ -99,7 +99,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ml-agents": {
-      "version": "1.0.7",
+      "version": "1.0.8",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -149,7 +149,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "3.0.4",
+      "version": "3.0.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {

@@ -31,6 +31,12 @@
 
 ## Unity Development Tips
 
+### Unity Editor
+
+- `Ctrl + Shift` then drag object will snap to ground.
+- `Shift + v` Vertex Snapping
+- `Shift + Space` fullscreen
+
 ### Script Meta Data
 
 You can add script meta tags to customize the Unity inspector:
