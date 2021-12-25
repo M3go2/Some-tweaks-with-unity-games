@@ -31,6 +31,8 @@
 
 ## Unity Development Tips
 
+1. [Game Programming for Beginners - LIVE (c#/unity/gamedev)](https://www.youtube.com/watch?v=qtHzLbNxZ0E)
+
 ### Unity Editor
 
 - `Ctrl + Shift` then drag object will snap to ground.
