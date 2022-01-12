@@ -8,3 +8,8 @@
 ## :beginner: YouTube Videos
 
 1. :o: Unity NavMesh Tutorial
+2. :heavy_check_mark: [EVERY Image Effect in Unity Explained - Post Processing v2 Tutorial](https://www.youtube.com/watch?v=9tjYz6Ab0oc&t=609s)
+
+### 2D-Example-Project
+
+- :heavy_check_mark: How to make a 2D Game in Unity
