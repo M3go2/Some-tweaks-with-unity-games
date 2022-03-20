@@ -1,4 +1,4 @@
-# :video_game: :mortar_board: Learning Unity for Game Development
+# :mortar_board: :video_game: Learning Unity for Game Development
 
 Projects, samples and templates created to learn game development with Unity.
 
@@ -14,22 +14,22 @@ Projects, samples and templates created to learn game development with Unity.
 
 ### 2. Unity Game Jams and Streams
 
-- :heavy_check_mark: [Unity Building Blocks Stream](https://www.youtube.com/watch?v=Ip6ZaNisyTE) (YouTube)
+- :heavy_check_mark: [Unity Building Blocks Stream](https://www.youtube.com/watch?v=Ip6ZaNisyTE) -- YouTube workshop
 - :o: [Create with Code Live](Create-with-Code/)
 - :o: [Create with Code Live - Spring 2020](Create-with-Code-Live-Spring-2020/)
 - :o: [Create with Code Live - Summer 2020](Create-with-Code-Live-Summer-2020/)
 
 ### 3. Tutorials and Courses
 
-- :heavy_check_mark: [The Unity Workshop](The-Unity-Workshop/) (Udemy course)
-- :heavy_check_mark: [Unity Crash Course: Basics of 2D Game Development](https://skl.sh/3dU9o2v) (SkillShare tutorial)
-- :heavy_check_mark: [Beginner Guide to How to Make a Game with Unity](Beginner-Guide-to-How-to-Make-a-Game-with-Unity/) (BitDigree course)
+- :heavy_check_mark: [The Unity Workshop](The-Unity-Workshop/) -- Udemy course
+- :heavy_check_mark: [Unity Crash Course: Basics of 2D Game Development](https://skl.sh/3dU9o2v) -- SkillShare tutorial
+- :heavy_check_mark: [Beginner Guide to How to Make a Game with Unity](Beginner-Guide-to-How-to-Make-a-Game-with-Unity/) -- BitDigree course
 - :heavy_check_mark: [How Math is Used in Video Games](How-Math-is-Used-in-Video-Games/)
-- :heavy_check_mark: [How to Make a 2D Game in Unity: Unity For Beginners Course](How-to-Make-a-2D-Game-in-Unity/) (BitDigree course)
-- :construction: Course on How to Make Video Games with Unity: Create 2D & 3D Games (BitDigree course)
-- :o: [Programming a Game with Unity: A Beginner's Guide](Programming-a-Game-with-Unity/) (TradePub free eBook)
-- :o: [Unity Game Development - Intro to Creating Particle Effects](Intro-to-Creating-Particle-Effects/) (Udemy course)
-- :o: [Game Hacking | Create a Game in 1 Hour](Game-Hacking-Create-a-Game-in-an-Hour/) (StackSkills course)
+- :heavy_check_mark: [How to Make a 2D Game in Unity: Unity For Beginners Course](How-to-Make-a-2D-Game-in-Unity/) -- BitDigree course
+- :construction: Course on How to Make Video Games with Unity: Create 2D & 3D Games -- BitDigree course
+- :o: [Programming a Game with Unity: A Beginner's Guide](Programming-a-Game-with-Unity/) -- TradePub free eBook
+- :o: [Game Hacking | Create a Game in 1 Hour](Game-Hacking-Create-a-Game-in-an-Hour/) -- StackSkills course
+- :o: [Learn Level Design with Blender and Unity 3D](learn-level-design-with-blender/) -- Stone River eLearning
 
 ### 4. Unity Tutorials
 
@@ -45,6 +45,8 @@ Projects, samples and templates created to learn game development with Unity.
 ### 6. Other Tutorials and Courses
 
 - :file_folder: Zenva GameDev Academy: Unity [Courses](Zenva-GameDev-Academy-Unity-Courses/) and [Tutorials](Zenva-GameDev-Academy-Unity-Tutorials/)
+- :file_folder: Udemy: Unity [Courses](Udemy-Unity-Courses/)
+- :file_folder: Eduonix: Unity [Courses](Eduonix-Unity-Courses/)
 - :file_folder: [Packtpub Unity Tutorials](Packtpub-Unity-Tutorials/)
 
 ## :page_with_curl: License

@@ -11,10 +11,6 @@
 2. :heavy_check_mark: [Intro to Game Development [2018]](https://academy.zenva.com/course/intro-to-game-development/)
 3. :heavy_check_mark: [Intro to Game Development with Unity](https://academy.zenva.com/course/intro-to-unity-game-development/)
 
-## :memo: Version
-
-This project was created with Unity 2019.4.28f1
-
 ## :page_with_curl: License
 
 The source code I created is free -- see the [LICENSE](UNLICENSE) file for details.  
