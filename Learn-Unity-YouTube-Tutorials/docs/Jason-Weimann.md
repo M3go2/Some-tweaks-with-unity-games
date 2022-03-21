@@ -44,10 +44,10 @@
 You can add script meta tags to customize the Unity inspector:
 
 - Insert `[Range(1.0f, 2.0f)]` to get a range slider.
-- Use `[Header("Title")]` and [Space] to add a title and space between variables.
-- `HideInInspector` will disable the field in the inspector.
+- Use `[Header("Title")]` and `[Space]` to add a title and space between variables.
+- `[HideInInspector]` will disable the field in the inspector.
 - `[SerializeField]` on private variable will enable the field in the inspector.
-- Toolstips `[Tooltip("This on inspector")]`
+- Add toolstips to variables with `[Tooltip("This on inspector")]`.
 
 ### Regions in Unity
 
@@ -70,3 +70,19 @@ You can add script meta tags to customize the Unity inspector:
 
 1. [Creating Objects in Unity3D using the Factory Pattern](https://www.youtube.com/watch?v=FGVkio4bnPQ)
    - [Factory Pattern](https://en.wikipedia.org/wiki/Factory_(object-oriented_programming))
+
+## 2D camera shake:
+1. Compute shake angle and offset:
+
+```csharp
+angle = maxAngle * shake * GetRandomFloatNegOneToOne();
+offsetX = maxOffset * shake * GetRandomFloatNegOneToOne();
+offsetY = maxOffset * shake * GetRandomFloatNegOneToOne();
+```
+
+2. Then add it to the camera for that frame (preserve the base camera)
+
+```csharp
+shakyCamera.angle = camera.angle + angle;
+shakyCamera.center = camera.center + Vec2(offseX, offsetY);
+```
