@@ -12,6 +12,8 @@ public class Bird : MonoBehaviour
 	//Reference to the Main camera's animator component.
 	private Animator camAnim;
 
+	private ParticleSystem particles;
+
 	void Start()
 	{
 		//Get reference to the Animator component attached to this GameObject.
@@ -21,6 +23,8 @@ public class Bird : MonoBehaviour
 
 		//Get reference to the Animator component attached to main camera.
 		camAnim = Camera.main.GetComponent<Animator>();
+
+		particles = GetComponentInChildren<ParticleSystem>();
 	}
 
 	void Update()
@@ -41,6 +45,8 @@ public class Bird : MonoBehaviour
 
 				//Tell the animator about it
 				camAnim.SetTrigger("Flap");
+
+				particles.Play();
 			}
 		}
 	}

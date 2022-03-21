@@ -10,7 +10,12 @@
 1. :heavy_check_mark: [How to Use Materials in Unity](https://gamedevacademy.org/how-to-use-materials-in-unity/)
 2. :o: [How to Improve Game Feel in Three Easy Ways](https://gamedevacademy.org/game-feel-tutorial/)
 3. :o: [Optimizing Mobile Apps in Unity](https://gamedevacademy.org/unity-optimization-tutorial/)
-4. :o: [A Guide to the Unity Animator for 2D Characters](https://gamedevacademy.org/a-guide-to-the-unity-animator-for-2d-characters/)
+
+### 2D Animation
+
+1. :o: [Rig a 2D Animated Character in Unity](https://gamedevacademy.org/rig-a-2d-animated-character-in-unity/)
+2. :o: [How to Animate a 2D Character in Unity](https://gamedevacademy.org/how-to-animate-a-2d-character-in-unity/)
+3. :o: [A Guide to the Unity Animator for 2D Characters](https://gamedevacademy.org/a-guide-to-the-unity-animator-for-2d-characters/)
 
 ## :memo: Version
 
