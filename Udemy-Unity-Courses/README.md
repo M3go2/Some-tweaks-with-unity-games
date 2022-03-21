@@ -7,7 +7,7 @@
 
 ## :beginner: Udemy Courses
 
-1. :o: [Unity Game Development - Intro to Creating Particle Effects](Intro-to-Creating-Particle-Effects/)
+1. :heavy_check_mark: [Unity Game Development - Intro to Creating Particle Effects](Intro-to-Creating-Particle-Effects/)
 
 ## :page_with_curl: License
 
