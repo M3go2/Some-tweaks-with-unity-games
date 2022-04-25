@@ -6,7 +6,7 @@ Learn more about the project here: http://u3d.as/1E4y
 
 Changelog
 ---------
-## [2.2.0] - 2021-08-31
+## [2.2.0] - 2021-09-13
 
 ### Added
 - Tutorials, link to curated FPS assets on the asset store

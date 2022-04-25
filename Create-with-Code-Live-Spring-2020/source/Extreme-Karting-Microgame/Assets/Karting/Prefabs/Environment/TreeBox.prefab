@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 521230271}
   - component: {fileID: 443638675}
   - component: {fileID: 443638674}
+  - component: {fileID: 8545792632286172067}
   m_Layer: 0
   m_Name: TreeBox
   m_TagString: Untagged
@@ -25,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443638673}
-  m_LocalRotation: {x: -0, y: 0.43684557, z: -0, w: 0.8995365}
-  m_LocalPosition: {x: -100.18, y: 7, z: -90.315}
+  m_LocalRotation: {x: 0, y: 0.43680182, z: 0, w: 0.89955777}
+  m_LocalPosition: {x: -100, y: 7, z: -90}
   m_LocalScale: {x: 5.1384625, y: 5.1384616, z: 5.1384625}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 51.806004, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 51.8, z: 0}
 --- !u!33 &443638675
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -54,6 +55,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -78,3 +81,26 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8545792632286172067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443638673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6231c25b5b54b446eb07150c7f380da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 0.1
+  jigPosition: 1
+  positionJigAmount: {x: 0, y: 0, z: 0}
+  positionFrequency: 10
+  jigRotation: 1
+  rotationJigAmount: {x: 0, y: 75, z: 0}
+  rotationFrequency: 10
+  jigScale: 1
+  scaleJigAmount: {x: 0.1, y: -0.1, z: 0.1}
+  scaleFrequency: 5

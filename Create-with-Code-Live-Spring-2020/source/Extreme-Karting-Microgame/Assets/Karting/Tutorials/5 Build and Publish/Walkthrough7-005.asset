@@ -48,15 +48,17 @@ MonoBehaviour:
           m_UnmaskedControls: []
     - m_Type: 0
       Title:
-        m_Untranslated: Build and Publish
+        m_Untranslated: Build, publish, & BONUS
       Text:
         m_Untranslated: "Before you publish your game, discover more ways to customize
           it with the Karting <a href=\"https://learn.unity.com/project/karting-template\">Creative
           Mods</a>.\n\nWhen you\u2019re ready, this tutorial will guide you through
           building and publishing your game on a webpage that you can share with
-          friends!\n\n<b>Note:</b>\n\n\u2022 The Creative Mods link above will open
-          the Unity Learn website in your default browser.\n\n\u2022 Please keep
-          in mind that building this Unity project can take some time."
+          friends!\n\n<b>BONUS:</b> by publishing your game, you\u2019ll unlock a
+          self-driving <b>Roadster Kart</b> to use in future builds!\n\n<b>Note:</b>\n\n\u2022
+          The Creative Mods link above will open the Unity Learn website in your
+          default browser.\n\n\u2022 Please keep in mind that building this Unity
+          project can take some time."
       m_Summary: Build and publish
       m_Description: "Before you publish your game, have you tried adding some of
         the LEGO\xAE <a href=\"https://learn.unity.com/project/lego-template\">Creative

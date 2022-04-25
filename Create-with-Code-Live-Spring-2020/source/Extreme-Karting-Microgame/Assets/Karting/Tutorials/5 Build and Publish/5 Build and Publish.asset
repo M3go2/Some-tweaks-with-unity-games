@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 5 Build and Publish
   m_EditorClassIdentifier: 
   TutorialTitle:
-    m_Untranslated: Build and publish
+    m_Untranslated: Build, publish, & BONUS
   m_TutorialTitle: 
   m_LessonId: 47146
   m_Version: 1

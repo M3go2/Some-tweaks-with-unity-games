@@ -1,4 +1,4 @@
-Karting Microgame - Version 3.0.0
+Karting Microgame - Version 3.1.0
 =================================
 
 This is the Karting Microgame. Learn by modifying our fully functional example kart game.
@@ -6,6 +6,12 @@ Learn more about the project here: https://assetstore.unity.com/packages/templat
 
 Changelog
 ---------
+Karting 3.1.0
+## [3.1.0] - 2021-08-31
+
+### Added
+- Tutorials, link to curated Karting assets on the asset store
+
 ## [3.0.0] - 2021-03-11
 
 ### Changed

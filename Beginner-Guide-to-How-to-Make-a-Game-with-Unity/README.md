@@ -2,9 +2,11 @@
 
 :link: [Online course](https://www.bitdegree.org/course/how-to-make-a-game-with-unity) on BitDegree
 
+Also used this project for Eduonix's online course `Concepts in Unity 3D Game Programming`.
+
 ## :memo: Version
 
-This project was created with Unity 2018.4.32f1
+This project was created with Unity 2018.4.36f1
 
 ## :page_with_curl: License
 
