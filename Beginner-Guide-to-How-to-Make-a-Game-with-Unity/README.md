@@ -2,7 +2,10 @@
 
 :link: [Online course](https://www.bitdegree.org/course/how-to-make-a-game-with-unity) on BitDegree
 
-Also used this project for Eduonix's online course `Concepts in Unity 3D Game Programming`.
+## Also used this project for these online courses
+
+- `Concepts in Unity 3D Game Programming` from Eduonix
+- `Introduction To Unity For Absolute Beginners | 2018 ready` from Udemy
 
 ## :memo: Version
 
