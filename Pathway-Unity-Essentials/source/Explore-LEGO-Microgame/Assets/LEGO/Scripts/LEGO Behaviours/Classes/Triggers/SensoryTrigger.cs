@@ -21,6 +21,19 @@ namespace Unity.LEGO.Behaviours.Triggers
 
         protected HashSet<SensoryCollider> m_ActiveColliders = new HashSet<SensoryCollider>();
 
+        protected HashSet<Brick> m_ConnectedBricks;
+
+        protected override void Awake()
+        {
+            base.Awake();
+
+            if (IsPlacedOnBrick())
+            {
+                m_ConnectedBricks = m_Brick.GetConnectedBricks();
+                m_ConnectedBricks.Add(m_Brick);
+            }
+        }
+
         void Update()
         {
             if (m_ActiveColliders.Count > 0)

@@ -8,6 +8,9 @@ namespace Unity.LEGO.Behaviours.Actions
         [SerializeField, Range(1,50), Tooltip("The power of the explosion.")]
         uint m_Power = 10;
 
+        [SerializeField, Tooltip("Remove bricks shortly after the explosion.")]
+        bool m_RemoveBricks = false;
+
         bool m_Detonated;
 
         List<LEGOBehaviour> m_Behaviours = new List<LEGOBehaviour>();
@@ -67,6 +70,11 @@ namespace Unity.LEGO.Behaviours.Actions
                             rigidBody = brick.gameObject.AddComponent<Rigidbody>();
                         }
                         rigidBody.AddExplosionForce(m_Power, transform.position + transform.TransformVector(m_BrickPivotOffset), m_ScopedBounds.extents.magnitude, lift, ForceMode.VelocityChange);
+
+                        if (m_RemoveBricks)
+                        {
+                            brick.gameObject.AddComponent<BlinkAndDisable>();
+                        }
                     }
 
                     PlayAudio(moveWithScope: false, destroyWithAction: false);

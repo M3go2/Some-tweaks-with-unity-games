@@ -67,8 +67,8 @@ MonoBehaviour:
           href=\"https://learn.unity.com/project/lego-template\">LEGO\xAE Microgame
           Creative Mods!</a>\n\n<b>Note:</b> This link will open the Unity Learn
           website in your default browser.\n\nYou can also explore the Playground
-          Scene and experiment there.\n\nIn the next and final tutorial, you'll learn
-          how to build and publish your project on a shareable webpage!"
+          Scene and experiment there.\n\nIn the next tutorial, you'll learn how to
+          import assets from the <b>Unity Asset Store.</b>"
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -89,8 +89,8 @@ MonoBehaviour:
       Title:
         m_Untranslated: 
       Text:
-        m_Untranslated: 'Select <b>Tutorial 7: Build and publish</b> or <b>Done</b>
-          to return to the tutorial overview while you mod.'
+        m_Untranslated: 'Select <b>Tutorial 7: Import assets</b> or <b>Done</b> to
+          return to the tutorial overview while you mod.'
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
@@ -111,13 +111,13 @@ MonoBehaviour:
       Title:
         m_Untranslated: 
       Text:
-        m_Untranslated: 'Tutorial 7: Build and publish'
+        m_Untranslated: 'Tutorial 7: Import assets'
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 
       m_InstructionText: 
       m_TutorialButtonText: 
-      m_Tutorial: {fileID: 11400000, guid: c122a1a2efeb58349b8154e42481067b, type: 2}
+      m_Tutorial: {fileID: 11400000, guid: 623e4243f3b3eec43b40f578d082b596, type: 2}
       m_Icons:
         m_Items: []
       m_Image: {fileID: 0}

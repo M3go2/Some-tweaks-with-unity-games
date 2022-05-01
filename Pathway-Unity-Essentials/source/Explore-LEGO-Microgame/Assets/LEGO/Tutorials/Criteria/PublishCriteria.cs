@@ -54,8 +54,8 @@ namespace Unity.LEGO.Tutorials
                 default: break;
             }
             int availableBuilds = PublisherUtils.GetAllBuildsDirectories()
-                                            .Where(p => (p != string.Empty)
-                                                        && PublisherUtils.BuildIsValid(p)).Count();
+                .Where(p => (p != string.Empty)
+                    && PublisherUtils.BuildIsValid(p)).Count();
             return availableBuilds > 0;
         }
 

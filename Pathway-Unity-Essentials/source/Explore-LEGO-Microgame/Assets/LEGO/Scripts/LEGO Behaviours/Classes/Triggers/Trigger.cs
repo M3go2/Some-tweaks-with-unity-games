@@ -26,7 +26,7 @@ namespace Unity.LEGO.Behaviours.Triggers
         [SerializeField, Tooltip("Trigger actions on connected bricks.\nor\nTrigger a list of specific actions.")]
         protected Target m_Target = Target.ConnectedActions;
 
-        [SerializeField, Tooltip("The list of actions to trigger.")]
+        [SerializeField, Tooltip("The list of actions to trigger."), NonReorderable]
         protected List<Action> m_SpecificTargetActions = new List<Action>();
 
         [SerializeField, Tooltip("Trigger continuously.")]

@@ -1,6 +1,5 @@
 ﻿using LEGOModelImporter;
 using UnityEngine;
-using Unity.LEGO.Behaviours;
 using Unity.LEGO.Behaviours.Actions;
 using Unity.LEGO.Behaviours.Triggers;
 using System.Collections.Generic;
@@ -11,11 +10,8 @@ namespace Unity.LEGO.Behaviours
     {
         static Dictionary<Part, List<Collider>> s_OriginalColliders = new Dictionary<Part, List<Collider>>();
 
-        void Awake()
+        static void CombineColliders(Brick[] bricks, LEGOBehaviour[] behaviours)
         {
-            var bricks = FindObjectsOfType<Brick>();
-
-            var behaviours = FindObjectsOfType<LEGOBehaviour>();
             var behaviourScopes = new Dictionary<LEGOBehaviour, HashSet<Brick>>();
 
             foreach (var brick in bricks)
@@ -112,6 +108,22 @@ namespace Unity.LEGO.Behaviours
                     }
                 }
             }
+        }
+
+        void Awake()
+        {
+            var bricks = FindObjectsOfType<Brick>();
+            var behaviours = FindObjectsOfType<LEGOBehaviour>();
+
+            CombineColliders(bricks, behaviours);            
+        }
+
+        public static void CombineColliders(GameObject gameObject)
+        {
+            var bricks = gameObject.GetComponentsInChildren<Brick>();
+            var behaviours = gameObject.GetComponentsInChildren<LEGOBehaviour>();
+
+            CombineColliders(bricks, behaviours);
         }
 
         public static void RestoreOriginalColliders(Part part)

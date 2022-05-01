@@ -206,9 +206,12 @@ namespace Unity.LEGO.Behaviours
         {
             m_MinifigController.Explode();
 
-            GameOverEvent evt = Events.GameOverEvent;
-            evt.Win = false;
-            EventManager.Broadcast(evt);
+            if (gameObject.CompareTag("Player"))
+            {
+                GameOverEvent evt = Events.GameOverEvent;
+                evt.Win = false;
+                EventManager.Broadcast(evt);
+            }
 
             Destroy(this);
         }

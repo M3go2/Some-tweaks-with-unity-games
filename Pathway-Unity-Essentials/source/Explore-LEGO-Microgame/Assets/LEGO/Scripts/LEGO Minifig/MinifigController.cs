@@ -4,19 +4,18 @@ using UnityEngine;
 
 namespace Unity.LEGO.Minifig
 {
-
     public class MinifigController : MonoBehaviour
     {
         // Constants.
         const float stickyTime = 0.05f;
         const float stickyForce = 9.6f;
-        const float coyoteDelay = 0.1f;
+        protected const float coyoteDelay = 0.1f;
 
         const float distanceEpsilon = 0.1f;
         const float angleEpsilon = 0.1f;
 
         // Input type for controlling the minifig.
-        enum InputType
+        protected enum InputType
         {
             Tank,
             Direct
@@ -74,8 +73,6 @@ namespace Unity.LEGO.Minifig
             CompletingFollow,
         }
 
-        [Header("Movement")]
-
         public float maxForwardSpeed = 5f;
         [Range(4, 8)]
         public float maxBackwardSpeed = 4f;
@@ -89,21 +86,18 @@ namespace Unity.LEGO.Minifig
         public float jumpSpeed = 20f;
         public float gravity = 40f;
 
-        [Header("Audio")]
-
         public List<AudioClip> stepAudioClips = new List<AudioClip>();
         public AudioClip jumpAudioClip;
         public AudioClip doubleJumpAudioClip;
         public AudioClip landAudioClip;
         public AudioClip explodeAudioClip;
 
-        [Header("Controls")]
         [SerializeField]
-        InputType inputType = InputType.Tank;
+        protected InputType inputType = InputType.Tank;
         [SerializeField]
-        bool inputEnabled = true;
+        protected bool inputEnabled = true;
         [SerializeField, Range(0, 10)]
-        int maxJumpsInAir = 1;
+        protected int maxJumpsInAir = 1;
 
         public enum SpecialAnimation
         {
@@ -160,27 +154,33 @@ namespace Unity.LEGO.Minifig
         }
 
         [SerializeField, HideInInspector]
-        Transform leftArmTip = null;
+        protected Transform leftArmTip = null;
         [SerializeField, HideInInspector]
-        Transform rightArmTip = null;
+        protected Transform rightArmTip = null;
         [SerializeField, HideInInspector]
-        Transform leftLegTip = null;
+        protected Transform leftLegTip = null;
         [SerializeField, HideInInspector]
-        Transform rightLegTip = null;
+        protected Transform rightLegTip = null;
         [SerializeField, HideInInspector]
-        Transform head = null;
+        protected Transform head = null;
 
-        Minifig minifig;
-        CharacterController controller;
-        Animator animator;
-        AudioSource audioSource;
+        protected Minifig minifig;
+        protected CharacterController controller;
+        protected Animator animator;
+        protected AudioSource audioSource;
 
-        bool airborne;
-        float airborneTime;
-        int jumpsInAir;
-        Vector3 directSpeed;
-        bool exploded;
-        bool stepped;
+        protected bool airborne;
+        protected float airborneTime;
+        protected int jumpsInAir;
+        protected Vector3 directSpeed;
+        protected bool exploded;
+        protected bool stepped;
+
+        protected float speed;
+        protected float rotateSpeed;
+        protected Vector3 moveDelta = Vector3.zero;
+        protected bool stopSpecial;
+        protected bool cancelSpecial;
 
         List<MoveTarget> moves = new List<MoveTarget>();
         MoveTarget currentMove;
@@ -188,12 +188,6 @@ namespace Unity.LEGO.Minifig
         TurnTarget currentTurnTarget;
         State state;
         float waitedTime = 0.0f;
-
-        float speed;
-        float rotateSpeed;
-        Vector3 moveDelta = Vector3.zero;
-        bool stopSpecial;
-        bool cancelSpecial;
 
         float externalRotation;
         Vector3 externalMotion;
@@ -203,22 +197,35 @@ namespace Unity.LEGO.Minifig
         Vector3 oldGroundedPosition;
         Quaternion oldGroundedRotation;
 
-        int speedHash = Animator.StringToHash("Speed");
-        int rotateSpeedHash = Animator.StringToHash("Rotate Speed");
-        int groundedHash = Animator.StringToHash("Grounded");
-        int jumpHash = Animator.StringToHash("Jump");
-        int playSpecialHash = Animator.StringToHash("Play Special");
-        int cancelSpecialHash = Animator.StringToHash("Cancel Special");
-        int specialIdHash = Animator.StringToHash("Special Id");
+        protected static readonly int speedHash = Animator.StringToHash("Speed");
+        protected static readonly int rotateSpeedHash = Animator.StringToHash("Rotate Speed");
+        protected static readonly int groundedHash = Animator.StringToHash("Grounded");
+        protected static readonly int jumpHash = Animator.StringToHash("Jump");
+        protected static readonly int playSpecialHash = Animator.StringToHash("Play Special");
+        protected static readonly int cancelSpecialHash = Animator.StringToHash("Cancel Special");
+        protected static readonly int specialIdHash = Animator.StringToHash("Special Id");
 
-        Action<bool> onSpecialComplete;
+        protected Action<bool> onSpecialComplete;
 
-        void OnValidate()
+        protected virtual void OnValidate()
         {
             maxForwardSpeed = Mathf.Clamp(maxForwardSpeed, 5, 30);
+
+            if (!leftArmTip || !rightArmTip || !leftLegTip || !rightLegTip || !head)
+            {
+                var rigTransform = transform.GetChild(1);
+                if (rigTransform)
+                {
+                    FindJointReferences(rigTransform);
+                }
+                else
+                {
+                    Debug.LogError("Failed to find Minifigure rig.");
+                }
+            }
         }
 
-        void Awake()
+        protected virtual void Awake()
         {
             minifig = GetComponent<Minifig>();
             controller = GetComponent<CharacterController>();
@@ -229,10 +236,13 @@ namespace Unity.LEGO.Minifig
             animator.SetBool(groundedHash, true);
 
             // Make sure the Character Controller is grounded if starting on the ground.
-            controller.Move(Vector3.down * 0.01f);
+            if (controller.enabled)
+            {
+                controller.Move(Vector3.down * 0.01f);
+            }
         }
 
-        void Update()
+        protected virtual void Update()
         {
             if (exploded)
             {
@@ -382,150 +392,151 @@ namespace Unity.LEGO.Minifig
             }
             else
             {
-                // Handle automatic animation.
+                HandleAutomaticAnimation();
+            }
 
-                waitedTime += Time.deltaTime;
+            HandleMotion();
+        }
 
-                switch (state)
+        protected void FindJointReferences(Transform parent)
+        {
+            foreach (Transform child in parent)
+            {
+                switch (child.name)
                 {
-                    case State.Idle:
+                    case "wrist_L":
+                        leftArmTip = child;
+                        break;
+                    case "wrist_R":
+                        rightArmTip = child;
+                        break;
+                    case "foot_L":
+                        leftLegTip = child;
+                        break;
+                    case "foot_R":
+                        rightLegTip = child;
+                        break;
+                    case "head":
+                        head = child;
+                        break;
+                }
+
+                FindJointReferences(child);
+            }
+        }
+
+        protected void HandleAutomaticAnimation()
+        {
+            // Handle automatic animation.
+            waitedTime += Time.deltaTime;
+
+            switch (state)
+            {
+                case State.Idle:
+                    {
+                        // Stop moving.
+                        MoveInDirection(transform.forward, 0.0f, false, 0.0f, 0.0f, 0.0f, false);
+                        break;
+                    }
+                case State.Moving:
+                    {
+                        if (waitedTime > currentMove.moveDelay)
                         {
-                            // Stop moving.
-                            MoveInDirection(transform.forward, 0.0f, false, 0.0f, 0.0f, 0.0f, false);
-                            break;
-                        }
-                    case State.Moving:
-                        {
-                            if (waitedTime > currentMove.moveDelay)
+                            var direction = currentMove.destination - transform.position;
+
+                            // Neutralize y component.
+                            direction.y = 0.0f;
+
+                            if (direction.magnitude > currentMove.minDistance + distanceEpsilon)
                             {
-                                var direction = currentMove.destination - transform.position;
-
-                                // Neutralize y component.
-                                direction.y = 0.0f;
-
-                                if (direction.magnitude > currentMove.minDistance + distanceEpsilon)
+                                var shouldBreak = currentMove.onCompleteDelay > 0.0f || moves.Count == 1 || (moves.Count > 1 && moves[1].moveDelay > 0.0f);
+                                MoveInDirection(direction, currentMove.minDistance, shouldBreak, currentMove.speedMultiplier, 0.0f, currentMove.rotationSpeedMultiplier, currentMove.cancelSpecial);
+                            }
+                            else
+                            {
+                                if (currentMove.onCompleteDelay > 0.0f)
                                 {
-                                    var shouldBreak = currentMove.onCompleteDelay > 0.0f || moves.Count == 1 || (moves.Count > 1 && moves[1].moveDelay > 0.0f);
-                                    MoveInDirection(direction, currentMove.minDistance, shouldBreak, currentMove.speedMultiplier, 0.0f, currentMove.rotationSpeedMultiplier, currentMove.cancelSpecial);
+                                    SetState(State.CompletingMove);
                                 }
                                 else
                                 {
-                                    if (currentMove.onCompleteDelay > 0.0f)
-                                    {
-                                        SetState(State.CompletingMove);
-                                    }
-                                    else
-                                    {
-                                        CompleteMove();
-                                    }
+                                    CompleteMove();
                                 }
                             }
-                            else
+                        }
+                        else
+                        {
+                            // Set speed, move delta and rotation speed.
+                            speed = 0.0f;
+                            moveDelta = new Vector3(0.0f, moveDelta.y, 0.0f);
+                            rotateSpeed = 0.0f;
+                        }
+                    }
+                    break;
+                case State.CompletingMove:
+                    {
+                        // Possibly turn to position.
+                        if (currentMove.turnToWhileCompleting.HasValue)
+                        {
+                            var turnToDirection = currentMove.turnToWhileCompleting.Value - transform.position;
+                            if (turnToDirection.magnitude > distanceEpsilon)
                             {
-                                // Set speed, move delta and rotation speed.
-                                speed = 0.0f;
-                                moveDelta = new Vector3(0.0f, moveDelta.y, 0.0f);
-                                rotateSpeed = 0.0f;
+                                TurnToDirection(turnToDirection, 0.0f, currentMove.rotationSpeedMultiplier, currentMove.cancelSpecial);
                             }
                         }
-                        break;
-                    case State.CompletingMove:
-                        {
-                            // Possibly turn to position.
-                            if (currentMove.turnToWhileCompleting.HasValue)
-                            {
-                                var turnToDirection = currentMove.turnToWhileCompleting.Value - transform.position;
-                                if (turnToDirection.magnitude > distanceEpsilon)
-                                {
-                                    TurnToDirection(turnToDirection, 0.0f, currentMove.rotationSpeedMultiplier, currentMove.cancelSpecial);
-                                }
-                            }
 
-                            if (waitedTime > currentMove.onCompleteDelay)
-                            {
-                                CompleteMove();
-                            }
+                        if (waitedTime > currentMove.onCompleteDelay)
+                        {
+                            CompleteMove();
                         }
-                        break;
-                    case State.Turning:
+                    }
+                    break;
+                case State.Turning:
+                    {
+                        if (waitedTime > currentTurnTarget.turnDelay)
                         {
-                            if (waitedTime > currentTurnTarget.turnDelay)
+                            var direction = currentTurnTarget.target - transform.position;
+
+                            // Neutralize y component.
+                            direction.y = 0.0f;
+
+                            if (direction.magnitude > distanceEpsilon)
                             {
-                                var direction = currentTurnTarget.target - transform.position;
-
-                                // Neutralize y component.
-                                direction.y = 0.0f;
-
-                                if (direction.magnitude > distanceEpsilon)
-                                {
-                                    TurnToDirection(direction, currentTurnTarget.minAngle, currentTurnTarget.rotationSpeedMultiplier, currentTurnTarget.cancelSpecial);
-                                }
-
-                                if (Vector3.Angle(transform.forward, direction) <= currentTurnTarget.minAngle + angleEpsilon)
-                                {
-                                    if (currentTurnTarget.onCompleteDelay > 0.0f)
-                                    {
-                                        SetState(State.CompletingTurn);
-                                    }
-                                    else
-                                    {
-                                        CompleteTurn();
-                                    }
-                                }
+                                TurnToDirection(direction, currentTurnTarget.minAngle, currentTurnTarget.rotationSpeedMultiplier, currentTurnTarget.cancelSpecial);
                             }
-                            else
-                            {
-                                // Set speed, move delta and rotation speed.
-                                speed = 0.0f;
-                                moveDelta = new Vector3(0.0f, moveDelta.y, 0.0f);
-                                rotateSpeed = 0.0f;
-                            }
-                            break;
-                        }
-                    case State.CompletingTurn:
-                        {
-                            if (waitedTime > currentTurnTarget.onCompleteDelay)
-                            {
-                                CompleteTurn();
-                            }
-                            break;
-                        }
-                    case State.Following:
-                        {
-                            if (waitedTime > currentFollowTarget.followDelay)
-                            {
-                                var direction = currentFollowTarget.target.position - transform.position;
 
-                                // Neutralize y component.
-                                direction.y = 0.0f;
-
-                                if (direction.magnitude > currentFollowTarget.minDistance + distanceEpsilon)
+                            if (Vector3.Angle(transform.forward, direction) <= currentTurnTarget.minAngle + angleEpsilon)
+                            {
+                                if (currentTurnTarget.onCompleteDelay > 0.0f)
                                 {
-                                    var shouldBreak = currentFollowTarget.onCompleteDelay > 0.0f || (moves.Count > 0 && moves[0].moveDelay > 0.0f);
-                                    MoveInDirection(direction, currentFollowTarget.minDistance, shouldBreak, currentFollowTarget.speedMultiplier, 0.0f, currentFollowTarget.rotationSpeedMultiplier, currentFollowTarget.cancelSpecial);
+                                    SetState(State.CompletingTurn);
                                 }
                                 else
                                 {
-                                    if (currentFollowTarget.onCompleteDelay > 0.0f)
-                                    {
-                                        SetState(State.CompletingFollow);
-                                    }
-                                    else
-                                    {
-                                        CompleteFollow();
-                                    }
+                                    CompleteTurn();
                                 }
                             }
-                            else
-                            {
-                                // Set speed, move delta and rotation speed.
-                                speed = 0.0f;
-                                moveDelta = new Vector3(0.0f, moveDelta.y, 0.0f);
-                                rotateSpeed = 0.0f;
-                            }
-                            break;
                         }
-                    case State.CompletingFollow:
+                        else
+                        {
+                            // Set speed, move delta and rotation speed.
+                            speed = 0.0f;
+                            moveDelta = new Vector3(0.0f, moveDelta.y, 0.0f);
+                            rotateSpeed = 0.0f;
+                        }
+                        break;
+                    }
+                case State.CompletingTurn:
+                    {
+                        if (waitedTime > currentTurnTarget.onCompleteDelay)
+                        {
+                            CompleteTurn();
+                        }
+                        break;
+                    }
+                case State.Following:
+                    {
+                        if (waitedTime > currentFollowTarget.followDelay)
                         {
                             var direction = currentFollowTarget.target.position - transform.position;
 
@@ -534,31 +545,66 @@ namespace Unity.LEGO.Minifig
 
                             if (direction.magnitude > currentFollowTarget.minDistance + distanceEpsilon)
                             {
-                                // Start following again, with no delay.
-                                SetState(State.Following, currentFollowTarget.followDelay);
+                                var shouldBreak = currentFollowTarget.onCompleteDelay > 0.0f || (moves.Count > 0 && moves[0].moveDelay > 0.0f);
+                                MoveInDirection(direction, currentFollowTarget.minDistance, shouldBreak, currentFollowTarget.speedMultiplier, 0.0f, currentFollowTarget.rotationSpeedMultiplier, currentFollowTarget.cancelSpecial);
                             }
                             else
                             {
-                                // Possibly turn to position.
-                                if (currentFollowTarget.turnToWhileCompleting.HasValue)
+                                if (currentFollowTarget.onCompleteDelay > 0.0f)
                                 {
-                                    var turnToDirection = currentFollowTarget.turnToWhileCompleting.Value - transform.position;
-                                    if (turnToDirection.magnitude > distanceEpsilon)
-                                    {
-                                        TurnToDirection(direction, 0.0f, currentFollowTarget.rotationSpeedMultiplier, currentFollowTarget.cancelSpecial);
-                                    }
+                                    SetState(State.CompletingFollow);
                                 }
-
-                                if (waitedTime > currentFollowTarget.onCompleteDelay)
+                                else
                                 {
                                     CompleteFollow();
                                 }
                             }
-                            break;
                         }
-                }
-            }
+                        else
+                        {
+                            // Set speed, move delta and rotation speed.
+                            speed = 0.0f;
+                            moveDelta = new Vector3(0.0f, moveDelta.y, 0.0f);
+                            rotateSpeed = 0.0f;
+                        }
+                        break;
+                    }
+                case State.CompletingFollow:
+                    {
+                        var direction = currentFollowTarget.target.position - transform.position;
 
+                        // Neutralize y component.
+                        direction.y = 0.0f;
+
+                        if (direction.magnitude > currentFollowTarget.minDistance + distanceEpsilon)
+                        {
+                            // Start following again, with no delay.
+                            SetState(State.Following, currentFollowTarget.followDelay);
+                        }
+                        else
+                        {
+                            // Possibly turn to position.
+                            if (currentFollowTarget.turnToWhileCompleting.HasValue)
+                            {
+                                var turnToDirection = currentFollowTarget.turnToWhileCompleting.Value - transform.position;
+                                if (turnToDirection.magnitude > distanceEpsilon)
+                                {
+                                    TurnToDirection(direction, 0.0f, currentFollowTarget.rotationSpeedMultiplier, currentFollowTarget.cancelSpecial);
+                                }
+                            }
+
+                            if (waitedTime > currentFollowTarget.onCompleteDelay)
+                            {
+                                CompleteFollow();
+                            }
+                        }
+                        break;
+                    }
+            }
+        }
+
+        protected void HandleMotion()
+        {
             // Handle external motion.
             externalMotion = Vector3.zero;
             externalRotation = 0.0f;
@@ -632,11 +678,45 @@ namespace Unity.LEGO.Minifig
             cancelSpecial |= stopSpecial;
             stopSpecial = false;
 
+            UpdateMotionAnimations();
+        }
+
+        protected virtual void UpdateMotionAnimations()
+        {
             // Update animation - delay airborne animation slightly to avoid flailing arms when falling a short distance.
             animator.SetBool(cancelSpecialHash, cancelSpecial);
             animator.SetFloat(speedHash, speed);
             animator.SetFloat(rotateSpeedHash, rotateSpeed);
             animator.SetBool(groundedHash, !airborne);
+        }
+
+        protected void HandleExplode()
+        {
+            const float horizontalVelocityTransferRatio = 0.35f;
+            const float verticalVelocityTransferRatio = 0.1f;
+            const float angularVelocityTransferRatio = 1.0f;
+
+            var transferredSpeed = Vector3.Scale(moveDelta + externalMotion, new Vector3(horizontalVelocityTransferRatio, verticalVelocityTransferRatio, horizontalVelocityTransferRatio));
+            var transferredAngularSpeed = (rotateSpeed + externalRotation) * angularVelocityTransferRatio;
+
+            if (explodeAudioClip)
+            {
+                audioSource.PlayOneShot(explodeAudioClip);
+            }
+
+            MinifigExploder.Explode(minifig, leftArmTip, rightArmTip, leftLegTip, rightLegTip, head, transferredSpeed, transferredAngularSpeed);
+        }
+
+        public virtual void Explode()
+        {
+            if (!exploded)
+            {
+                exploded = true;
+                controller.enabled = false;
+                animator.enabled = false;
+
+                HandleExplode();
+            }
         }
 
         public void SetInputEnabled(bool enabled)
@@ -677,30 +757,6 @@ namespace Unity.LEGO.Minifig
             controller.enabled = false;
             transform.position = position;
             controller.enabled = true;
-        }
-
-        public void Explode()
-        {
-            const float horizontalVelocityTransferRatio = 0.35f;
-            const float verticalVelocityTransferRatio = 0.1f;
-            const float angularVelocityTransferRatio = 1.0f;
-
-            if (!exploded)
-            {
-                exploded = true;
-                animator.enabled = false;
-                controller.enabled = false;
-
-                var transferredSpeed = Vector3.Scale(moveDelta + externalMotion, new Vector3(horizontalVelocityTransferRatio, verticalVelocityTransferRatio, horizontalVelocityTransferRatio));
-                var transferredAngularSpeed = (rotateSpeed + externalRotation) * angularVelocityTransferRatio;
-
-                if (explodeAudioClip)
-                {
-                    audioSource.PlayOneShot(explodeAudioClip);
-                }
-
-                MinifigExploder.Explode(minifig, leftArmTip, rightArmTip, leftLegTip, rightLegTip, head, transferredSpeed, transferredAngularSpeed);
-            }
         }
 
         public void MoveTo(Vector3 destination, float minDistance = 0.0f, Action onComplete = null, float onCompleteDelay = 0.0f,
@@ -1027,5 +1083,4 @@ namespace Unity.LEGO.Minifig
             UpdateState();
         }
     }
-
 }

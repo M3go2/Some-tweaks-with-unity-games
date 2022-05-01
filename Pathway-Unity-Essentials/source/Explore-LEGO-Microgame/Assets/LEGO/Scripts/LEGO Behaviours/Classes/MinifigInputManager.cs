@@ -7,10 +7,10 @@ namespace Unity.LEGO.Behaviours
 {
     public class MinifigInputManager : MonoBehaviour
     {
-        MinifigController m_MinifigController;
+        protected MinifigController m_MinifigController;
         GameFlowManager m_GameFlowManager;
 
-        void Awake()
+        protected virtual void Awake()
         {
             m_MinifigController = GetComponent<MinifigController>();
             m_GameFlowManager = FindObjectOfType<GameFlowManager>();
@@ -19,7 +19,7 @@ namespace Unity.LEGO.Behaviours
             EventManager.AddListener<OptionsMenuEvent>(OnOptionsMenu);
         }
 
-        void OnGameOver(GameOverEvent evt)
+        protected virtual void OnGameOver(GameOverEvent evt)
         {
             // Disable input when the game is over.
             m_MinifigController.SetInputEnabled(false);

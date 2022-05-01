@@ -1,8 +1,5 @@
-using Cinemachine;
-using LEGOModelImporter;
 using Unity.LEGO.Behaviours;
 using UnityEditor;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Unity.LEGO.EditorExt
@@ -18,7 +15,10 @@ namespace Unity.LEGO.EditorExt
         SerializedProperty m_MaxSpeedProp;
         SerializedProperty m_IdleSpeedProp;
         SerializedProperty m_RotationSpeedProp;
+        SerializedProperty m_JumpSpeedProp;
+        SerializedProperty m_MaxJumpsInAirProp;
         SerializedProperty m_IsPlayerProp;
+        SerializedProperty m_GravityProp;
 
         static readonly Color s_BackwardsColour = Color.red;
 
@@ -34,7 +34,10 @@ namespace Unity.LEGO.EditorExt
             m_MaxSpeedProp = serializedObject.FindProperty("m_MaxSpeed");
             m_IdleSpeedProp = serializedObject.FindProperty("m_IdleSpeed");
             m_RotationSpeedProp = serializedObject.FindProperty("m_RotationSpeed");
+            m_JumpSpeedProp = serializedObject.FindProperty("m_JumpSpeed");
+            m_MaxJumpsInAirProp = serializedObject.FindProperty("m_MaxJumpsInAir");
             m_IsPlayerProp = serializedObject.FindProperty("m_IsPlayer");
+            m_GravityProp = serializedObject.FindProperty("m_Gravity");
         }
 
         protected override void CreateGUI()
@@ -47,7 +50,7 @@ namespace Unity.LEGO.EditorExt
 
             EditorGUI.EndDisabledGroup();
 
-            if ((ControlAction.InputType) m_InputTypeProp.enumValueIndex != ControlAction.InputType.Direct)
+            if ((ControlAction.InputType)m_InputTypeProp.enumValueIndex != ControlAction.InputType.Direct)
             {
                 var minSpeedValue = (float)m_MinSpeedProp.intValue;
                 var maxSpeedValue = (float)m_MaxSpeedProp.intValue;
@@ -80,13 +83,20 @@ namespace Unity.LEGO.EditorExt
             EditorGUILayout.PropertyField(m_IsPlayerProp);
             EditorGUILayout.PropertyField(m_CollideProp);
 
+            if ((ControlAction.ControlType)m_ControlTypeProp.enumValueIndex == ControlAction.ControlType.Character)
+            {
+                EditorGUILayout.PropertyField(m_GravityProp);
+                EditorGUILayout.PropertyField(m_JumpSpeedProp);
+                EditorGUILayout.PropertyField(m_MaxJumpsInAirProp);
+            }
+
             EditorGUI.EndDisabledGroup();
 
             EditorGUI.BeginDisabledGroup(!m_ControlAction.IsPlacedOnBrick());
 
             if (GUILayout.Button("Focus Camera"))
             {
-                FocusCamera();
+                EditorUtilities.FocusCamera(m_ControlAction);
             }
 
             EditorGUI.EndDisabledGroup();
@@ -153,50 +163,6 @@ namespace Unity.LEGO.EditorExt
                         }
                     }
                 }
-            }
-        }
-
-        void FocusCamera()
-        {
-            var cinemachine = StageUtility.GetStageHandle(m_ControlAction.gameObject).FindComponentOfType<CinemachineFreeLook>();
-
-            if (cinemachine)
-            {
-                var serializedCinemachine = new SerializedObject(cinemachine);
-
-                var modelGroup = m_ControlAction.GetComponentInParent<ModelGroup>();
-
-                if (modelGroup)
-                {
-                    serializedCinemachine.FindProperty("m_LookAt").objectReferenceValue = modelGroup.transform;
-                    serializedCinemachine.FindProperty("m_Follow").objectReferenceValue = modelGroup.transform;
-
-                    var scopedBricks = m_ControlAction.GetScopedBricks();
-                    var scopedBounds = m_ControlAction.GetScopedBounds(scopedBricks, out _, out _);
-
-                    var radius = scopedBounds.extents.magnitude;
-
-                    if (!cinemachine.m_Lens.Orthographic)
-                    {
-                        var cameraVerticalFOV = cinemachine.m_Lens.FieldOfView;
-                        var cameraHorizontalFOV = Camera.VerticalToHorizontalFieldOfView(cameraVerticalFOV, cinemachine.m_Lens.Aspect);
-
-                        var fov = Mathf.Min(cameraHorizontalFOV, cameraVerticalFOV) * 0.5f;
-                        var distance = radius / Mathf.Tan(fov * Mathf.Deg2Rad) + radius;
-
-                        serializedCinemachine.FindProperty("m_Orbits").GetArrayElementAtIndex(1).FindPropertyRelative("m_Radius").floatValue = distance;
-                    }
-                    else
-                    {
-                        serializedCinemachine.FindProperty("m_Lens").FindPropertyRelative("OrthographicSize").floatValue = radius;
-                    }
-                }
-
-                serializedCinemachine.ApplyModifiedProperties();
-            }
-            else
-            {
-                EditorUtility.DisplayDialog("Cinemachine Free Look Camera Not Found", "Focus camera only supports Cinemachine Free Look camera.", "OK");
             }
         }
     }

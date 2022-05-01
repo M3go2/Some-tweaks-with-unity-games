@@ -7,6 +7,8 @@ namespace Unity.LEGO.Game
     {
         List<IObjective> m_Objectives;
 
+        bool m_UpdateStatus;
+
         bool m_Won;
         bool m_Lost;
 
@@ -22,12 +24,14 @@ namespace Unity.LEGO.Game
             m_Objectives.Add(evt.Objective);
             evt.Objective.OnProgress += OnProgress;
 
-            UpdateGameStatus();
+            m_UpdateStatus = true;
+            m_Won = false;
+            m_Lost = false;
         }
 
         public void OnProgress(IObjective _)
         {
-            UpdateGameStatus();
+            m_UpdateStatus = true;
         }
 
         void UpdateGameStatus()
@@ -39,6 +43,8 @@ namespace Unity.LEGO.Game
                 m_Won &= (objective.IsCompleted || objective.m_Lose);
                 m_Lost |= (objective.IsCompleted && objective.m_Lose);
             }
+
+            m_UpdateStatus = false;
         }
 
         void Update()
@@ -49,6 +55,11 @@ namespace Unity.LEGO.Game
                 EventManager.Broadcast(Events.GameOverEvent);
 
                 Destroy(this);
+            }
+
+            if (m_UpdateStatus)
+            {
+                UpdateGameStatus();
             }
         }
 

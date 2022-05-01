@@ -156,12 +156,12 @@ MonoBehaviour:
 
 
           <b>4.</b>
-          Under Specific Actions, select the plus sign <b>(+)</b> to add an action.
+          Under Specific Actions, add an action by increasing the <b>Size</b> count
+          to 1.
 
 
-          <b>5.</b>
-          Select the <b>Select Action</b> button and choose <b>Fence Explode</b>
-          in the Action Picker window.'
+          <b>5.</b> Select the <b>Select Action</b> button and
+          choose <b>Fence Explode</b> in the Action Picker window.'
       m_Summary: 
       m_Description: 
       m_InstructionBoxTitle: 

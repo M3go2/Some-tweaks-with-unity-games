@@ -599,6 +599,8 @@ namespace Unity.LEGO.Behaviours.Actions
                 modelGO = modelWrapperGO;
             }
 
+            BrickColliderCombiner.CombineColliders(modelGO);
+
             return modelGO;
         }
 
@@ -702,7 +704,9 @@ namespace Unity.LEGO.Behaviours.Actions
         void PlayAudio()
         {
             var audioSource = PlayAudio(false, true, false, false, false);
-            audioSource.transform.position = m_CurrentBounds.center;
+            if (audioSource) {
+                audioSource.transform.position = m_CurrentBounds.center;
+            }
         }
 
         void PlaySnapAudio()

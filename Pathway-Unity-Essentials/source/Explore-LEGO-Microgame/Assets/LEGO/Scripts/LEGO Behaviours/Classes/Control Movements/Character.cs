@@ -7,21 +7,26 @@ namespace Unity.LEGO.Behaviours.Controls
 {
     public class Character : ControlMovement
     {
-        readonly Vector3 k_Gravity = new Vector3(0.0f, -40.0f, 0.0f);
-
         const float k_VelocityBounceAmplification = 1.5f;
         const float k_RotationBounceRestitution = 1.0f;
 
         const float k_CollisionAngle = 45.0f; // The character will only bounce when the angle between the collision direction and up is more than this.
         const float k_SlideAngle = 55.0f; // The character will slide when the angle between the surface normal and up is more than this.
-        const float k_JumpImpulse = 20.0f;
         const float k_MaxBumpHeight = 1.2f; // The character can go over bumps below this height.
         const float k_BumpAnimationRatio = 0.33f;
+        const float k_GroundingPointThreshold = 1.0f;
 
         const float k_BumpEpsilon = 0.01f;
 
         const float k_AnimationDuration = 0.4f;
         const float k_AnimationScale = 0.1f;
+
+        enum GroundingState
+        {
+            Bump,
+            Jump,
+            Falling,
+        }
 
         HashSet<Brick> m_Bricks;
 
@@ -30,6 +35,7 @@ namespace Unity.LEGO.Behaviours.Controls
 
         List<Vector3> m_LocalGroundingCheckPoints = new List<Vector3>();
         List<Vector3> m_WorldGroundingCheckPoints = new List<Vector3>();
+        List<Vector3> m_ActiveGroundingCheckPoints = new List<Vector3>();
 
         Collider[] m_GroundingColliders = new Collider[32];
         RaycastHit[] m_GroundingRaycastHits = new RaycastHit[32];
@@ -41,7 +47,10 @@ namespace Unity.LEGO.Behaviours.Controls
         Quaternion m_OldGroundedRotation;
 
         Vector3 m_FallVelocity;
+        Vector3 m_Gravity;
 
+        int m_JumpCount;
+        float m_RemainingFallDistance;
         float m_RotationSpeed;
 
         Vector3 m_AnimationPivot;
@@ -59,19 +68,17 @@ namespace Unity.LEGO.Behaviours.Controls
         void Start()
         {
             m_LayerMask = LayerMask.GetMask("Environment") | LayerMask.GetMask("Default");
-
-            FindLocalGroundingCheckPoints();
-
-            UpdateGrounding(k_MaxBumpHeight, true);
         }
 
-        public override void Setup(ModelGroup group, HashSet<Brick> bricks, List<MeshRenderer> scopedPartRenderers, Vector3 brickPivotOffset, Bounds scopedBounds, bool cameraAlignedRotation, bool cameraRelativeMovement)
+        public override void Setup(ModelGroup group, HashSet<Brick> bricks, List<MeshRenderer> scopedPartRenderers, Vector3 brickPivotOffset, Bounds scopedBounds, bool cameraAlignedRotation, bool cameraRelativeMovement, float gravity)
         {
-            base.Setup(group, bricks, scopedPartRenderers, brickPivotOffset, scopedBounds, cameraAlignedRotation, cameraRelativeMovement);
+            base.Setup(group, bricks, scopedPartRenderers, brickPivotOffset, scopedBounds, cameraAlignedRotation, cameraRelativeMovement, gravity);
 
             m_Bricks = bricks;
             m_ScopedPartRenderers = scopedPartRenderers;
             m_Bounds = scopedBounds;
+
+            m_Gravity = Vector3.down * gravity;
 
             // Change the shader of all scoped part renderers if not already changed.
             foreach (var partRenderer in m_ScopedPartRenderers)
@@ -90,9 +97,14 @@ namespace Unity.LEGO.Behaviours.Controls
             }
 
             m_AnimationPivot = transform.InverseTransformVector(new Vector3(m_Bounds.center.x, m_Bounds.min.y, m_Bounds.center.z) - transform.position);
+
+            FindLocalGroundingCheckPoints();
+
+            UpdateGroundingCheckPoints(false);
+            UpdateGrounding(k_MaxBumpHeight, GroundingState.Bump);
         }
 
-        public override void Movement(Vector3 targetDirection, float minSpeed, float maxSpeed, float idleSpeed)
+        public override void Movement(Vector3 targetDirection, float minSpeed, float maxSpeed, float idleSpeed, float jumpSpeed, int maxJumpsInAir)
         {
             var topSpeed = Mathf.Max(Mathf.Abs(minSpeed), Mathf.Abs(maxSpeed));
 
@@ -123,39 +135,58 @@ namespace Unity.LEGO.Behaviours.Controls
 
             // Acceleration.
             var acceleration = topSpeed * 2.0f;
-            m_Velocity = Acceleration(targetVelocity, m_Velocity, acceleration);
-            m_CollisionVelocity = Acceleration(Vector3.zero, m_CollisionVelocity, acceleration);
+            m_Velocity = ControlMovementUtilities.Acceleration(targetVelocity, m_Velocity, acceleration);
+            m_CollisionVelocity = ControlMovementUtilities.Acceleration(Vector3.zero, m_CollisionVelocity, acceleration);
 
             // Slide down inclined surfaces.
             if (m_GroundedTransform && Vector3.Angle(m_GroundedSurfaceNormal, Vector3.up) > k_SlideAngle)
             {
-                m_Velocity += Vector3.ProjectOnPlane(k_Gravity * Time.deltaTime, m_GroundedSurfaceNormal);
+                m_Velocity += Vector3.ProjectOnPlane(m_Gravity * Time.deltaTime, m_GroundedSurfaceNormal);
             }
 
-            if (m_GroundedTransform && Input.GetButtonDown("Jump"))
+            if (m_JumpCount <= maxJumpsInAir && Input.GetButtonDown("Jump"))
             {
-                // Jump.
-                PlayAnimation();
-                m_FallVelocity = Vector3.up * k_JumpImpulse;
-                m_GroundedTransform = null;
+                if (maxJumpsInAir > 0 || m_GroundedTransform)
+                {
+                    // Jump.
+                    PlayAnimation();
+                    m_FallVelocity = Vector3.up * jumpSpeed;
+                    m_JumpCount++;
+                    m_GroundedTransform = null;
+                }
+            }
+
+            // Performing jump if fall velocity is positive.
+            var isJumping = m_FallVelocity.y > 0.0f;
+
+            // Calculate velocity. If remaining fall distance, override velocity to fall with exactly the remaining distance.
+            var velocity = (m_Velocity + m_FallVelocity + m_CollisionVelocity) * Time.deltaTime;
+            if (m_RemainingFallDistance > 0.0f)
+            {
+                var remainingFallDistance = isJumping ? Vector3.up * m_RemainingFallDistance : Vector3.down * m_RemainingFallDistance;
+                velocity = (m_Velocity + m_CollisionVelocity) * Time.deltaTime + remainingFallDistance;
+                m_RemainingFallDistance = 0.0f;
             }
 
             // Move bricks.
-            m_Group.transform.position += (m_Velocity + m_FallVelocity + m_CollisionVelocity) * Time.deltaTime;
+            m_Group.transform.position += velocity;
 
             // Update points used to perform grounding checks.
-            for (var i = 0; i < m_WorldGroundingCheckPoints.Count; i++)
+            UpdateGroundingCheckPoints(isJumping);
+
+            if (!m_GroundedTransform)
             {
-                m_WorldGroundingCheckPoints[i] = transform.TransformPoint(m_LocalGroundingCheckPoints[i]);
-                m_WorldGroundingCheckPoints[i] += Vector3.up * k_MaxBumpHeight;
+                m_FallVelocity += m_Gravity * Time.deltaTime;
             }
 
             // Update grounding.
-            if (!m_GroundedTransform)
+            if (isJumping)
             {
-                m_FallVelocity += k_Gravity * Time.deltaTime;
-
-                UpdateGrounding(-m_FallVelocity.y * Time.deltaTime + Mathf.Epsilon, false);
+                UpdateGrounding(m_FallVelocity.y * Time.deltaTime + Mathf.Epsilon, GroundingState.Jump);
+            }
+            else if (!m_GroundedTransform)
+            {
+                UpdateGrounding(-m_FallVelocity.y * Time.deltaTime + Mathf.Epsilon, GroundingState.Falling);
                 if (m_GroundedTransform)
                 {
                     // Land.
@@ -165,7 +196,8 @@ namespace Unity.LEGO.Behaviours.Controls
             }
             else
             {
-                UpdateGrounding(k_MaxBumpHeight, true);
+                m_JumpCount = 0;
+                UpdateGrounding(k_MaxBumpHeight, GroundingState.Bump);
             }
 
             // Animation.
@@ -239,8 +271,8 @@ namespace Unity.LEGO.Behaviours.Controls
 
         public override void Collision(Vector3 direction)
         {
-            // Do not bounce if collision came from below.
-            if (Vector3.Angle(direction, Vector3.up) > k_CollisionAngle)
+            // Do not bounce if collision came from below or above.
+            if (Vector3.Angle(direction, Vector3.up) > k_CollisionAngle && Vector3.Angle(direction, Vector3.down) > k_CollisionAngle)
             {
                 if (Vector3.Dot(m_Velocity, direction) < 0.0f)
                 {
@@ -292,61 +324,34 @@ namespace Unity.LEGO.Behaviours.Controls
 
         void FindLocalGroundingCheckPoints()
         {
-            var overlappingColliders = Physics.OverlapBox(new Vector3(m_Bounds.center.x, m_Bounds.min.y + k_MaxBumpHeight * 0.5f, m_Bounds.center.z),
-                new Vector3(m_Bounds.extents.x, k_MaxBumpHeight * 0.5f, m_Bounds.extents.z), Quaternion.identity, -1, QueryTriggerInteraction.Ignore);
+            var collidersComponents = m_Group.GetComponentsInChildren<Colliders>();
 
-            foreach (var collider in overlappingColliders)
+            var brickColliders = new List<Collider>();
+            foreach (var collidersComponent in collidersComponents)
             {
-                var brick = collider.GetComponentInParent<Brick>();
-                if (m_Bricks.Contains(brick))
-                {
-                    var colliderType = collider.GetType();
-                    if (colliderType == typeof(BoxCollider))
-                    {
-                        var boxCollider = (BoxCollider)collider;
-                        var colliderSize = new Vector3(boxCollider.size.x + 0.1f, boxCollider.size.y, boxCollider.size.z + 0.1f);
-                        m_LocalGroundingCheckPoints.Add(transform.InverseTransformPoint(boxCollider.transform.TransformPoint(boxCollider.center + Vector3.Scale(new Vector3(-0.5f, -0.5f, -0.5f), colliderSize))));
-                        m_LocalGroundingCheckPoints.Add(transform.InverseTransformPoint(boxCollider.transform.TransformPoint(boxCollider.center + Vector3.Scale(new Vector3(-0.5f, -0.5f, 0.5f), colliderSize))));
-                        m_LocalGroundingCheckPoints.Add(transform.InverseTransformPoint(boxCollider.transform.TransformPoint(boxCollider.center + Vector3.Scale(new Vector3(-0.5f, 0.5f, -0.5f), colliderSize))));
-                        m_LocalGroundingCheckPoints.Add(transform.InverseTransformPoint(boxCollider.transform.TransformPoint(boxCollider.center + Vector3.Scale(new Vector3(-0.5f, 0.5f, 0.5f), colliderSize))));
-                        m_LocalGroundingCheckPoints.Add(transform.InverseTransformPoint(boxCollider.transform.TransformPoint(boxCollider.center + Vector3.Scale(new Vector3(0.5f, -0.5f, -0.5f), colliderSize))));
-                        m_LocalGroundingCheckPoints.Add(transform.InverseTransformPoint(boxCollider.transform.TransformPoint(boxCollider.center + Vector3.Scale(new Vector3(0.5f, -0.5f, 0.5f), colliderSize))));
-                        m_LocalGroundingCheckPoints.Add(transform.InverseTransformPoint(boxCollider.transform.TransformPoint(boxCollider.center + Vector3.Scale(new Vector3(0.5f, 0.5f, -0.5f), colliderSize))));
-                        m_LocalGroundingCheckPoints.Add(transform.InverseTransformPoint(boxCollider.transform.TransformPoint(boxCollider.center + Vector3.Scale(new Vector3(0.5f, 0.5f, 0.5f), colliderSize))));
-                    }
-                    else if (colliderType == typeof(SphereCollider))
-                    { 
-                        var sphereCollider = (SphereCollider)collider;
-                        sphereCollider.radius += 0.1f;
-                        m_LocalGroundingCheckPoints.Add(transform.InverseTransformPoint(sphereCollider.transform.TransformPoint(sphereCollider.center) + new Vector3(1.0f, 0.0f, 0.0f) * sphereCollider.radius));
-                        m_LocalGroundingCheckPoints.Add(transform.InverseTransformPoint(sphereCollider.transform.TransformPoint(sphereCollider.center) + new Vector3(-1.0f, 0.0f, 0.0f) * sphereCollider.radius));
-                        m_LocalGroundingCheckPoints.Add(transform.InverseTransformPoint(sphereCollider.transform.TransformPoint(sphereCollider.center) + new Vector3(0.0f, 1.0f, 0.0f) * sphereCollider.radius));
-                        m_LocalGroundingCheckPoints.Add(transform.InverseTransformPoint(sphereCollider.transform.TransformPoint(sphereCollider.center) + new Vector3(0.0f, -1.0f, 0.0f) * sphereCollider.radius));
-                        m_LocalGroundingCheckPoints.Add(transform.InverseTransformPoint(sphereCollider.transform.TransformPoint(sphereCollider.center) + new Vector3(0.0f, 0.0f, 1.0f) * sphereCollider.radius));
-                        m_LocalGroundingCheckPoints.Add(transform.InverseTransformPoint(sphereCollider.transform.TransformPoint(sphereCollider.center) + new Vector3(0.0f, 0.0f, -1.0f) * sphereCollider.radius));
-                    }
-                }
+                brickColliders.AddRange(collidersComponent.colliders);
             }
 
-            // Remove points higher than max bump height.
-            var minPoint = transform.InverseTransformPoint(m_Bounds.min).y + k_MaxBumpHeight;
-            m_LocalGroundingCheckPoints = m_LocalGroundingCheckPoints.Where(localPoint => localPoint.y < minPoint).ToList();
+            // Get all corner points from brick colliders.
+            m_LocalGroundingCheckPoints = ControlMovementUtilities.GetColliderCornerPoints(brickColliders, transform);
+
+            // Remove duplicate points to only get outer points on the model.
+            m_LocalGroundingCheckPoints = ControlMovementUtilities.RemoveInnerPoints(m_LocalGroundingCheckPoints);
 
             foreach (var localPoint in m_LocalGroundingCheckPoints)
             {
                 var worldPoint = transform.TransformPoint(localPoint);
-                worldPoint += Vector3.up * k_MaxBumpHeight;
                 m_WorldGroundingCheckPoints.Add(worldPoint);
             }
         }
 
-        void UpdateGrounding(float rayExtension, bool bump)
+        void UpdateGrounding(float rayExtension, GroundingState state)
         {
             var minDistance = float.MaxValue;
 
-            foreach (var point in m_WorldGroundingCheckPoints)
+            foreach (var point in m_ActiveGroundingCheckPoints)
             {
-                int numColliders = Physics.OverlapSphereNonAlloc(point, Mathf.Epsilon, m_GroundingColliders, m_LayerMask, QueryTriggerInteraction.Ignore);
+                var numColliders = Physics.OverlapSphereNonAlloc(point, Mathf.Epsilon, m_GroundingColliders, m_LayerMask, QueryTriggerInteraction.Ignore);
                 var ignorePoint = false;
 
                 for (var i = 0; i < numColliders; ++i)
@@ -360,7 +365,8 @@ namespace Unity.LEGO.Behaviours.Controls
 
                 if (!ignorePoint)
                 {
-                    var numHits = Physics.RaycastNonAlloc(point, Vector3.down, m_GroundingRaycastHits, k_MaxBumpHeight + rayExtension, m_LayerMask, QueryTriggerInteraction.Ignore);
+                    var direction = state == GroundingState.Jump ? Vector3.up : Vector3.down;
+                    var numHits = Physics.RaycastNonAlloc(point, direction, m_GroundingRaycastHits, k_MaxBumpHeight + rayExtension, m_LayerMask, QueryTriggerInteraction.Ignore);
 
                     for (var i = 0; i < numHits; ++i)
                     {
@@ -371,7 +377,8 @@ namespace Unity.LEGO.Behaviours.Controls
                             {
                                 minDistance = hit.distance;
                                 m_GroundedSurfaceNormal = hit.normal;
-                                if (hit.collider.transform != m_GroundedTransform)
+
+                                if (state != GroundingState.Jump && hit.collider.transform != m_GroundedTransform)
                                 {
                                     m_GroundedTransform = hit.collider.transform;
                                     m_OldGroundedPosition = hit.point;
@@ -386,9 +393,24 @@ namespace Unity.LEGO.Behaviours.Controls
 
             if (minDistance < float.MaxValue)
             {
-                if (bump)
+                var distance = k_MaxBumpHeight - minDistance;
+
+                if (state == GroundingState.Jump)
                 {
-                    Bump(k_MaxBumpHeight - minDistance);
+                    m_RemainingFallDistance = Mathf.Abs(distance);
+                    m_FallVelocity = Vector3.zero;
+                }
+                else
+                {
+                    if (state == GroundingState.Falling)
+                    {
+                        m_RemainingFallDistance = Mathf.Abs(distance);
+                    }
+                    else if (Mathf.Abs(distance) < k_MaxBumpHeight)
+                    {
+                        // Bump.
+                        m_Group.transform.position += Vector3.up * (distance + k_BumpEpsilon);
+                    }
                 }
             }
             else
@@ -397,17 +419,29 @@ namespace Unity.LEGO.Behaviours.Controls
             }
         }
 
-        void Bump(float distance)
+        void UpdateGroundingCheckPoints(bool isJumping)
         {
-            if (Mathf.Abs(distance) < k_MaxBumpHeight)
+            // Update points used to perform grounding checks.
+            for (var i = 0; i < m_WorldGroundingCheckPoints.Count; i++)
             {
-                // Bump the character.
-                m_Group.transform.position += Vector3.up * (distance + k_BumpEpsilon);
+                m_WorldGroundingCheckPoints[i] = transform.TransformPoint(m_LocalGroundingCheckPoints[i]);
+            }
 
-                // Play animation if bump was more than some amount of the maximum bump height.
-                if (Mathf.Abs(distance) > k_MaxBumpHeight * k_BumpAnimationRatio) 
+            // Find points lower than max height.
+            var samplePoint = isJumping ? m_WorldGroundingCheckPoints.Max(worldPoint => worldPoint.y) :
+                m_WorldGroundingCheckPoints.Min(worldPoint => worldPoint.y);
+            var pointThreshold = isJumping ? samplePoint - k_GroundingPointThreshold : samplePoint + k_GroundingPointThreshold;
+
+            // Update active grounding check points list.
+            m_ActiveGroundingCheckPoints.Clear();
+            for (var i = 0; i < m_WorldGroundingCheckPoints.Count; i++)
+            {
+                if (isJumping ? m_WorldGroundingCheckPoints[i].y > pointThreshold : m_WorldGroundingCheckPoints[i].y < pointThreshold)
                 {
-                    PlayAnimation();
+                    var direction = isJumping ? Vector3.down : Vector3.up;
+                    var activePoint = m_WorldGroundingCheckPoints[i] + direction * k_MaxBumpHeight;
+
+                    m_ActiveGroundingCheckPoints.Add(activePoint);
                 }
             }
         }

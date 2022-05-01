@@ -26,7 +26,7 @@ namespace Unity.LEGO.Behaviours.Triggers
                 colliderComponentToClone.radius = 0.0f;
                 colliderComponentToClone.enabled = false;
 
-                var sensoryCollider = LEGOBehaviourCollider.Add<SensoryCollider>(colliderComponentToClone, m_ScopedBricks, m_Distance * LEGOBehaviour.LEGOHorizontalModule);
+                var sensoryCollider = LEGOBehaviourCollider.Add<SensoryCollider>(colliderComponentToClone, m_ConnectedBricks, m_Distance * LEGOBehaviour.LEGOHorizontalModule);
                 SetupSensoryCollider(sensoryCollider);
 
                 Destroy(colliderComponentToClone);

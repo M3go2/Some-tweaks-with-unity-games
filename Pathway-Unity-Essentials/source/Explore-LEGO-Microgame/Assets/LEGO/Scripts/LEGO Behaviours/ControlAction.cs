@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Unity.LEGO.Behaviours {
     public class ControlAction : MovementAction
     {
-        enum ControlType
+        public enum ControlType
         {
             Hovercraft,
             Aircraft,
@@ -34,6 +34,12 @@ namespace Unity.LEGO.Behaviours {
         int m_IdleSpeed = 0;
         [SerializeField, Range(0, 720), Tooltip("The rotation speed in degrees per second.")]
         int m_RotationSpeed = 360;
+        [SerializeField, Range(0.0f, 50.0f)]
+        int m_JumpSpeed = 20;
+        [SerializeField]
+        uint m_MaxJumpsInAir = 0;
+        [SerializeField, Range(0.0f, 80.0f)]
+        float m_Gravity = 40;
 
         [SerializeField, Tooltip("Make other bricks behave as if this is the player.")]
         bool m_IsPlayer = true;
@@ -85,18 +91,7 @@ namespace Unity.LEGO.Behaviours {
 
                 if (m_IsPlayer)
                 {
-                    // Tag all the part colliders to make other LEGO Behaviours act as if this is the player.
-                    foreach (var brick in m_ScopedBricks)
-                    {
-                        foreach (var part in brick.parts)
-                        {
-                            foreach (var collider in part.colliders)
-                            {
-                                collider.gameObject.tag = "Player";
-                                collider.gameObject.layer = LayerMask.NameToLayer("Player");
-                            }
-                        }
-                    }
+                    ControlMovementUtilities.SetScopeToPlayer(m_ScopedBricks);
                 }
             }
         }
@@ -110,7 +105,7 @@ namespace Unity.LEGO.Behaviours {
                 Collision();
 
                 // Move and rotate control movement.
-                m_ControlMovement.Movement(m_TargetDirection, m_MinSpeed, m_MaxSpeed, m_IdleSpeed);
+                m_ControlMovement.Movement(m_TargetDirection, m_MinSpeed, m_MaxSpeed, m_IdleSpeed, m_JumpSpeed, (int)m_MaxJumpsInAir);
                 m_ControlMovement.Rotation(m_TargetDirection, m_RotationSpeed);
 
                 // Update model position.
@@ -198,7 +193,7 @@ namespace Unity.LEGO.Behaviours {
                     break;
             }
 
-            m_ControlMovement.Setup(m_Group, m_ScopedBricks, m_ScopedPartRenderers, m_BrickPivotOffset, m_ScopedBounds, m_CameraAlignedRotation, m_CameraRelativeMovement);
+            m_ControlMovement.Setup(m_Group, m_ScopedBricks, m_ScopedPartRenderers, m_BrickPivotOffset, m_ScopedBounds, m_CameraAlignedRotation, m_CameraRelativeMovement, m_Gravity);
         }
 
         void HandleInput()

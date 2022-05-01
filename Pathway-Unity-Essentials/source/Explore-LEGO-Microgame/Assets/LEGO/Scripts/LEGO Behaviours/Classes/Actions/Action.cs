@@ -145,7 +145,11 @@ namespace Unity.LEGO.Behaviours.Actions
 
             m_AudioSourcesToDestroy.Remove(audioSource);
 
-            Destroy(audioSource.gameObject);
+            // Audio source might have been destroyed along with action, so check if it still there.
+            if (audioSource)
+            {
+                Destroy(audioSource.gameObject);
+            }
         }
     }
 }

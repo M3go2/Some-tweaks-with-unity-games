@@ -56,7 +56,7 @@ namespace Unity.LEGO.Tutorials
             foreach (var connectedBrick in brick.GetConnectedBricks(true))
             {
                 if ((connectedBrick.gameObject == ElevatorBrickInstance)
-                || (connectedBrick.transform.parent.parent.gameObject == elevatorInstance))
+                    || (connectedBrick.transform.parent.parent.gameObject == elevatorInstance))
                 {
                     return true;
                 }
@@ -106,8 +106,8 @@ namespace Unity.LEGO.Tutorials
                 return false;
             }
             Brick shootActionBrick = FindObjectsOfType<ShootAction>()
-                                      .Select(shoot => shoot.GetComponent<Brick>())
-                                      .Where(brick => brick != null && brick.GetConnectedBricks(false).Any()).FirstOrDefault();
+                .Select(shoot => shoot.GetComponent<Brick>())
+                .Where(brick => brick != null && brick.GetConnectedBricks(false).Any()).FirstOrDefault();
             if (!shootActionBrick) { return false; }
             return shootActionBrick.GetConnectedBricks(false).First().transform.root.gameObject == GaloInstance;
         }
@@ -119,8 +119,8 @@ namespace Unity.LEGO.Tutorials
                 return false;
             }
             Brick lookAtActionBrick = FindObjectsOfType<LookAtAction>()
-                                      .Select(shoot => shoot.GetComponent<Brick>())
-                                      .Where(brick => brick != null && brick.GetConnectedBricks(false).Any()).FirstOrDefault();
+                .Select(shoot => shoot.GetComponent<Brick>())
+                .Where(brick => brick != null && brick.GetConnectedBricks(false).Any()).FirstOrDefault();
             if (!lookAtActionBrick) { return false; }
             return lookAtActionBrick.GetConnectedBricks(true).Where(brick => brick.transform.root.gameObject == GaloInstance).Any();
         }
@@ -133,8 +133,8 @@ namespace Unity.LEGO.Tutorials
                 return false;
             }
             Brick searchedBrick = FindObjectsOfType<ExplodeAction>()
-                                      .Select(shoot => shoot.GetComponent<Brick>())
-                                      .Where(brick => brick != null && brick.GetConnectedBricks(false).Any()).FirstOrDefault();
+                .Select(shoot => shoot.GetComponent<Brick>())
+                .Where(brick => brick != null && brick.GetConnectedBricks(false).Any()).FirstOrDefault();
             if (!searchedBrick) { return false; }
 
             //note: the first check is needed for the HazardBrick, which has a different parent structure
@@ -171,7 +171,7 @@ namespace Unity.LEGO.Tutorials
         public bool HasExplodeTriggerBeenAssignedToTouchTrigger()
         {
             if (EditorWindow.HasOpenInstances<ActionPicker>()) { return false; }
-            
+
             System.Collections.Generic.HashSet<Action> actions = touchTriggerConnectedToAltar.GetTargetedActions();
             if (actions.Count == 0) { return false; }
             return actions.ElementAt(0) as ExplodeAction;

@@ -94,7 +94,7 @@ MonoBehaviour:
         m_UnmaskedViews: []
     - m_Type: 1
       Title:
-        m_Untranslated: Select the Win action brick
+        m_Untranslated: 
       Text:
         m_Untranslated: Select the <b>Win action brick</b> in the Scene view.
       m_Summary: 

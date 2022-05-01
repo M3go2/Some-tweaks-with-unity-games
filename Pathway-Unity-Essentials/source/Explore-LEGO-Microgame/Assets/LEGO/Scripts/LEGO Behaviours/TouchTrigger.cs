@@ -22,7 +22,7 @@ namespace Unity.LEGO.Behaviours.Triggers
                     {
                         foreach (var collider in part.colliders)
                         {
-                            var sensoryCollider = LEGOBehaviourCollider.Add<SensoryCollider>(collider, m_ScopedBricks, 0.64f);
+                            var sensoryCollider = LEGOBehaviourCollider.Add<SensoryCollider>(collider, m_ConnectedBricks, 0.64f);
                             SetupSensoryCollider(sensoryCollider);
                         }
                     }

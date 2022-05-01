@@ -10,6 +10,7 @@ namespace Unity.LEGO.EditorExt
     {
         protected SerializedProperty m_TypeProp;
         protected SerializedProperty m_OtherKeyProp;
+        protected SerializedProperty m_TriggerProp;
         protected SerializedProperty m_EnableProp;
         protected SerializedProperty m_DistanceProp;
         protected SerializedProperty m_ShowPromptProp;
@@ -22,6 +23,7 @@ namespace Unity.LEGO.EditorExt
 
             m_TypeProp = serializedObject.FindProperty("m_Type");
             m_OtherKeyProp = serializedObject.FindProperty("m_OtherKey");
+            m_TriggerProp = serializedObject.FindProperty("m_Trigger");
             m_EnableProp = serializedObject.FindProperty("m_Enable");
             m_DistanceProp = serializedObject.FindProperty("m_Distance");
             m_ShowPromptProp = serializedObject.FindProperty("m_ShowPrompt");
@@ -39,6 +41,8 @@ namespace Unity.LEGO.EditorExt
                 EditorGUILayout.PropertyField(m_OtherKeyProp);
             }
 
+            EditorGUILayout.PropertyField(m_TriggerProp);
+
             EditorGUILayout.PropertyField(m_EnableProp);
             if ((InputTrigger.Enable)m_EnableProp.enumValueIndex == InputTrigger.Enable.WhenTagIsNearby)
             {
@@ -49,7 +53,11 @@ namespace Unity.LEGO.EditorExt
             {
                 EditorGUILayout.PropertyField(m_DistanceProp);
             }
-            EditorGUILayout.PropertyField(m_ShowPromptProp);
+
+            if ((InputTrigger.Type)m_TypeProp.enumValueIndex != InputTrigger.Type.AnyKey)
+            {
+                EditorGUILayout.PropertyField(m_ShowPromptProp);
+            }
 
             EditorGUI.EndDisabledGroup();
 

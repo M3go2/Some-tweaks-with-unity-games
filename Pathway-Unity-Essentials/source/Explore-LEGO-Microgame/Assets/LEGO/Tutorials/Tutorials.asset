@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HeaderBackground: {fileID: 2800000, guid: 5384282a0273144fa9333beb77183cb4, type: 3}
   Title:
-    m_Untranslated: 3D Platformer
+    m_Untranslated: TUTORIALS
   ProjectName:
     m_Untranslated: "LEGO\xAE Microgame"
   Description:
@@ -83,6 +83,27 @@ MonoBehaviour:
     Tutorial: {fileID: 11400000, guid: a7aa8cbccb7714aa3b303c70426b47d2, type: 2}
   - OrderInView: 12
     Heading:
+      m_Untranslated: Import assets
+    Text:
+      m_Untranslated: 'Learn how to import assets from the Unity Asset Store  '
+    LinkText: 
+    Url: 
+    AuthorizedUrl: 0
+    Image: {fileID: 2800000, guid: a3b0f45234ca63a48861ea7cb3296493, type: 3}
+    Tutorial: {fileID: 11400000, guid: 623e4243f3b3eec43b40f578d082b596, type: 2}
+  - OrderInView: 14
+    Heading:
+      m_Untranslated: Supercharge your game
+    Text:
+      m_Untranslated: Discover a world of assets to enhance and personalize your
+        game
+    LinkText: 
+    Url: https://assetstore.unity.com/microgame-add-ons/lego
+    AuthorizedUrl: 1
+    Image: {fileID: 2800000, guid: eabc991d377bb244db4dba9be1e0a5f2, type: 3}
+    Tutorial: {fileID: 0}
+  - OrderInView: 16
+    Heading:
       m_Untranslated: Microgame Mods
     Text:
       m_Untranslated: Customize your game even more with Unity's online Creative
@@ -92,23 +113,13 @@ MonoBehaviour:
     AuthorizedUrl: 1
     Image: {fileID: 2800000, guid: d28f696c5c9283a4c9144366065c8519, type: 3}
     Tutorial: {fileID: 0}
-  - OrderInView: 14
+  - OrderInView: 18
     Heading:
-      m_Untranslated: Build and publish
+      m_Untranslated: Build, publish, & BONUS
     Text:
-      m_Untranslated: Build and publish your project as a shareable web game
+      m_Untranslated: Create a shareable web game and unlock bonus assets!
     LinkText: 
     Url: 
     AuthorizedUrl: 0
     Image: {fileID: 2800000, guid: 62c6103917910485992371e462ec96e3, type: 3}
     Tutorial: {fileID: 11400000, guid: c122a1a2efeb58349b8154e42481067b, type: 2}
-  - OrderInView: 16
-    Heading:
-      m_Untranslated: Give us feedback
-    Text:
-      m_Untranslated: "Let us know what you think! Help us improve the LEGO\xAE Microgame"
-    LinkText: LEGOMicrogameBeta
-    Url: https://unity.com/LEGOMicrogameBeta
-    AuthorizedUrl: 1
-    Image: {fileID: 2800000, guid: caa22bb026fa84979ba1be2779739367, type: 3}
-    Tutorial: {fileID: 0}

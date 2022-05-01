@@ -10,7 +10,7 @@ using UnityEditor;
 namespace Unity.LEGO.Tutorials
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     [CreateAssetMenu(fileName = "DeletionCriteria", menuName = "Tutorials/LEGO/DeletionCriteria")]
     class DeletionCriteria : ScriptableObject
@@ -53,7 +53,7 @@ namespace Unity.LEGO.Tutorials
                 foreach (var field in part.connectivity.planarFields)
                 {
                     var query = field.QueryConnections(out _);
-                    foreach (var (connection, otherConnection) in query)
+                    foreach (var(connection, otherConnection) in query)
                     {
                         if (connection.IsConnectionValid(otherConnection))
                         {

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f107dc6d4c984c45bdafd3bb15f98f0, type: 3}
   m_Name: Build and Publish
   m_EditorClassIdentifier: 
-  m_TutorialTitle: Build and Publish
+  TutorialTitle:
+    m_Untranslated: Build, publish, & BONUS
+  m_TutorialTitle: 
   m_LessonId: 50007
   m_Version: 1
   m_Scene: {fileID: 102900000, guid: c117ceea613454843a1d1c28c25d7a94, type: 3}
@@ -38,8 +40,7 @@ MonoBehaviour:
     type: 2}
   m_WelcomePage: {fileID: 0}
   m_CompletedPage: {fileID: 0}
-  IsWelcomingPageShowing: 1
-  IsCompletedPageShowing: 0
+  m_WindowLayout: {fileID: 102900000, guid: 8dc5d44ca76557e45980e20a48318977, type: 3}
   m_Pages:
     m_Items:
     - {fileID: 11400000, guid: 2e886da6f6aba0f47b6241a2700a78b9, type: 2}
@@ -50,4 +51,3 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 6f964d3cc40f45747aebcf0c57f609ba, type: 2}
     - {fileID: 11400000, guid: 9903de0d10380094eb753dcdac1f5e68, type: 2}
     - {fileID: 11400000, guid: 5ae42c0e96418ec46b613bb3c92bb7b3, type: 2}
-  m_WindowLayout: {fileID: 102900000, guid: 8dc5d44ca76557e45980e20a48318977, type: 3}

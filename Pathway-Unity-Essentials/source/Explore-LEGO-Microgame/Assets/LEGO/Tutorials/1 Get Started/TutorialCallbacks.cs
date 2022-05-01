@@ -69,6 +69,16 @@ namespace Unity.LEGO.Tutorials
             ToolsSettings.IsBrickBuildingOn = false;
         }
 
+        public void SetBrickBuildingToolStatus(bool enabled)
+        {
+            ToolsSettings.IsBrickBuildingOn = enabled;
+        }
+
+        public void SetSingleBrickSelectionToolStatus(bool enabled)
+        {
+            ToolsSettings.SelectConnected = enabled;
+        }
+
         public void EnableSingleBrickSelectionTool()
         {
             ToolsSettings.SelectConnected = false;
@@ -142,6 +152,26 @@ namespace Unity.LEGO.Tutorials
         public void SelectRotateTool()
         {
             Tools.current = Tool.Rotate;
+        }
+
+        public void FocusAssetStoreWindow()
+        {
+            string assetStoreMenuItemPath = "Window/Asset Store"; //this path should be good for pre-2019 versions aswell
+
+#if UNITY_2019 || UNITY_2020 || UNITY_2021 //remember to check other LTS versions as they come up, as the path might change in the future
+            assetStoreMenuItemPath = "Window/Asset Store";
+#endif
+            EditorApplication.ExecuteMenuItem(assetStoreMenuItemPath);
+        }
+
+        public void FocusSceneView()
+        {
+            EditorWindow.GetWindow<SceneView>().Focus();
+        }
+
+        public void FocusProjectWindow()
+        {
+            EditorUtility.FocusProjectWindow();
         }
 
         #region Utils (needed by real callbacks)

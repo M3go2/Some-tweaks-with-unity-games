@@ -9,7 +9,7 @@ namespace Unity.LEGO.Behaviours.Controls
 
         float m_RotationSpeed;
 
-        public override void Movement(Vector3 targetDirection, float minSpeed, float maxSpeed, float idleSpeed)
+        public override void Movement(Vector3 targetDirection, float minSpeed, float maxSpeed, float idleSpeed, float jumpSpeed, int maxJumpsInAir)
         {
             var topSpeed = Mathf.Max(Mathf.Abs(minSpeed), Mathf.Abs(maxSpeed));
 
@@ -33,8 +33,8 @@ namespace Unity.LEGO.Behaviours.Controls
 
             // Acceleration.
             var acceleration = topSpeed * 2.0f;
-            m_Velocity = Acceleration(targetVelocity, m_Velocity, acceleration);
-            m_CollisionVelocity = Acceleration(Vector3.zero, m_CollisionVelocity, acceleration);
+            m_Velocity = ControlMovementUtilities.Acceleration(targetVelocity, m_Velocity, acceleration);
+            m_CollisionVelocity = ControlMovementUtilities.Acceleration(Vector3.zero, m_CollisionVelocity, acceleration);
 
             // Move bricks.
             m_Group.transform.position += (m_Velocity + m_CollisionVelocity) * Time.deltaTime;

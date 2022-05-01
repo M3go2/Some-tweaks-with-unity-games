@@ -77,13 +77,13 @@ namespace Unity.LEGO.Behaviours.Actions
         {
             if (m_Projectile)
             {
-                var go = Instantiate(m_Projectile);
-
-                go.transform.position = transform.TransformPoint(m_ScopedPivotOffset);
-
                 var accuracyToDegrees = 90.0f - 90.0f * m_Accuracy / 100.0f;
                 var randomSpread = Random.insideUnitCircle * Mathf.Tan(accuracyToDegrees * Mathf.Deg2Rad * 0.5f);
-                go.transform.rotation = transform.rotation * Quaternion.LookRotation(Vector3.forward + Vector3.right * randomSpread.x + Vector3.up * randomSpread.y);
+
+                var projectilePosition = transform.TransformPoint(m_ScopedPivotOffset);
+                var projectileRotation = transform.rotation * Quaternion.LookRotation(Vector3.forward + Vector3.right * randomSpread.x + Vector3.up * randomSpread.y);
+
+                var go = Instantiate(m_Projectile, projectilePosition, projectileRotation);
 
                 var projectile = go.GetComponent<Projectile>();
                 if (projectile)
