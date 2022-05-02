@@ -8,8 +8,8 @@
 ## :beginner: Tutorials
 
 1. :heavy_check_mark: [How to Use Materials in Unity](https://gamedevacademy.org/how-to-use-materials-in-unity/)
-2. :o: [How to Improve Game Feel in Three Easy Ways](https://gamedevacademy.org/game-feel-tutorial/)
-3. :o: [Optimizing Mobile Apps in Unity](https://gamedevacademy.org/unity-optimization-tutorial/)
+2. :heavy_check_mark: [How to Improve Game Feel in Three Easy Ways](https://gamedevacademy.org/game-feel-tutorial/)
+3. :heavy_check_mark: [Optimizing Mobile Apps in Unity](https://gamedevacademy.org/unity-optimization-tutorial/)
 
 ### 2D Animation
 
