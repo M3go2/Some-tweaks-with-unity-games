@@ -2,9 +2,14 @@
 
 Testing the Unity asset store packages.
 
+## Unity Asset Store Packages
+
+- [Starter Assets - First Person Character Controller](https://assetstore.unity.com/packages/essentials/starter-assets-first-person-character-controller-196525)
+- [Starter Assets - Third Person Character Controller](https://assetstore.unity.com/packages/essentials/starter-assets-third-person-character-controller-196526)
+
 ## :memo: Version
 
-This project was created with Unity 2019.4.20f1
+This project was created with Unity 2020.3.33f1
 
 ## :page_with_curl: License
 
