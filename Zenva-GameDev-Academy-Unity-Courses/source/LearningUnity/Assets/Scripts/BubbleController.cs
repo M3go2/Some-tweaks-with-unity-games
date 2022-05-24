@@ -7,6 +7,9 @@ public class BubbleController : MonoBehaviour
     [SerializeField]
     private int clicksToPop = 3;
 
+    [SerializeField]
+    private float scaleIncreasePerClick = 0.2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +23,8 @@ public class BubbleController : MonoBehaviour
     }
     void OnMouseDown() {
         clicksToPop += -1;
-        transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+        //transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+        transform.localScale += Vector3.one * scaleIncreasePerClick;
 
         if (clicksToPop == 0) {
             Destroy(gameObject);
