@@ -49,6 +49,10 @@ Projects, samples and templates created to learn game development with Unity.
 - :file_folder: Eduonix: Unity [Courses](Eduonix-Unity-Courses/)
 - :file_folder: [Packtpub Unity Tutorials](Packtpub-Unity-Tutorials/)
 
+### 7. GameDevHQ
+
+- :o: [2D Space Shooter](/) -- Ultimate Guide to Game Development 2019
+
 ## :page_with_curl: License
 
 The source code I created is free -- see the [LICENSE](UNLICENSE) file for details
